@@ -1,0 +1,1144 @@
+.mainContainer {
+    /* Landing Page- Desktop */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacings-sm);
+    /* padding-bottom: var(--spacings-xs); */
+    gap: var(--spacings-xl5);
+    isolation: isolate;
+    width: 99dvw;
+    position: relative;
+    height: fit-content;
+
+    /* White */
+    background: var(--white);
+}
+
+/* #region Navbar */
+.navbar {
+    /* Navbar */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.navbar .logo {
+    /* Logo */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-l-text);
+    line-height: 4.8rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navMenu {
+    /* Nav_Menu */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-ml);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.navItems {
+    /* Nav_Items */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navItem {
+    /* Nav_Item_$nn */
+    will-change: transform;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: transform 0.1s ease-in-out;
+}
+
+.navItem:hover{
+    transform: scale(1.01);
+}
+
+.navbar .ctaContainer {
+    /* CTA */
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Gold */
+    background: var(--gold);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.navbar .ctaContainer:hover{
+    transform: scale(1.01);
+}
+
+.navbar .ctaContainer .ctaText {
+    /* Get Started */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;;
+    letter-spacing: 0.2rem;
+line-height: 120%;
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navbar .ctaContainer .ctaIcon {
+    /* Vector */
+
+    width: 2rem;
+    height: 2rem;
+
+    /* White */
+    color: var(--white);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+/* #region Hero Section */
+
+.heroSection {
+    /* Hero_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.heroTitle {
+    /* OrthoHemp */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-title);
+    line-height: 24rem;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+/* #region Hero Container */
+.primaryCtn {
+    /* Primary_Container */
+
+    /* Auto layout */
+    /* display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; */
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40rem;
+    padding: var(--spacings-l);
+
+    height: 540px;
+
+    background: rgba(252, 242, 179, 0.4);
+    border-radius: var(--border-radius-s);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+/* BOTTLE TEST */
+.bottleImg{
+    user-select: none;
+    height: 130%;
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+}
+
+.mainSection {
+    /* Main_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    width: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.productTextCtn {
+    /* Product_Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.productTitle {
+    /* Dr. Vandy’s OrthoHemp™ Pain Relief Oil */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-l-text);
+    line-height: 4.8rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.productDescription {
+    /* Doctor-Formulated | CBD-Enriched | 100% Plant-Based Relief */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+    line-height: 3.2rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.secondarySection {
+    /* Secondary_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.promoText {
+    /* India’s first pain relief blend powered by Hemp Seed Oil, CBD, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base. */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+    line-height: 2.4rem;
+    white-space: normal;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.learnMoreBtn {
+    /* Learn_More_Button */
+    will-change: transform;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 1.2rem 1.2rem var(--spacings-sm);
+    gap: var(--spacings-xs);
+
+    /* width: fit-content; */
+    height: fit-content;
+
+    /* Black */
+    border: 1px solid var(--black);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.learnMoreBtn:hover{
+    transform: scaleX(1.01);
+}
+
+.learnMoreBtn .label {
+    /* Learn More */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;
+    /* identical to box height */
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.learnMoreBtn .icon {
+    /* Vector */
+    /*     
+        width: 12.6px; */
+    height: 1.8rem;
+
+    /* Black */
+    color: var(--black);
+    transform: rotate(45deg);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+/* #region Feature Strip */
+.featureStrip {
+    /* Feature_Strip */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.card01 {
+    /* Card_01 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-sm);
+    width: 20%;
+
+    /* Dark Gray */
+    border-right: 1px solid var(--dark-gray);
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+.card01 .text {
+    /* POWERFUL TRIPLE ACTION RELIEF */
+
+    margin: 0 auto;
+    white-space: normal;
+    font-weight: 700;
+    font-size: var(--font-sizes-s-text);
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+.card02 {
+    /* Card_02 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-sm);
+    width: 60%;
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+.card02 .text {
+    /* Analgesic · Anti-Inflammatory · Restorative */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+.card03 {
+    /* Card_03 */
+
+    padding: 0 var(--spacings-sm);
+
+    /* margin: 0 auto; */
+    width: 20%;
+
+    /* Dark Gray */
+    border-left: 1px solid var(--dark-gray);
+
+    /* Inside auto layout */
+    order: 2;
+    flex-grow: 0;
+}
+
+.card03 .container {
+    /* Container */
+    overflow: hidden;
+    height: fit-content;
+    display: flex;
+    gap: var(--spacings-sm);
+    padding: var(--spacings-sm);
+    align-items: center;
+
+    background: rgba(252, 242, 179, 0.4);
+    border-radius: var(--border-radius-xs);
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+    align-self: stretch;
+}
+
+.container .countText {
+    /* 5K+ */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-l-text);
+    line-height: 4.8rem;
+    letter-spacing: 0.02rem;
+    width: fit-content;
+    /* Green */
+    color: var(--green);
+
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+.container .countText::selection{
+    background-color: var(--gray);
+}
+
+
+.container .text {
+    /* Satisfied Customers */
+    min-width: 0;
+    white-space: normal;
+    margin: 0 auto;
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    line-height: 120%;;
+    letter-spacing: 0.02rem;
+    /* Black */
+    color: var(--black);
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region About Section */
+.aboutSection {
+    /* About_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px var(--spacings-l);
+    gap: 0;
+
+    height: fit-content;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.aboutSection .aboutCard {
+    /* About_Card */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-xl2);
+    gap: var(--spacings-ml);
+    /*Fallback Gap*/
+
+    height: fit-content;
+
+    /* Black */
+    background: var(--black);
+    border-radius: var(--border-radius-s);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.aboutCard .headingText {
+    /* What Makes Our Relief Different? */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0 auto;
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+    line-height: 5.4rem;
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.aboutCard .subheadingText {
+    /* Our mission, our process, and the science behind natural healing. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    line-height: 3.2rem;
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+.aboutCard .aboutCTA {
+    /* About_CTA */
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-ml);
+    gap: 0;
+
+    width: fit-content;
+    aspect-ratio: 1/1;
+
+    /* Light Yellow */
+    background: var(--light-yellow);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.aboutCard .aboutCTA:hover{
+    transform: scale(1.01);
+}
+
+.aboutCTA .icon {
+    /* Vector */
+
+    width: 4rem;
+
+    /* Black */
+    color: var(--black);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+/* #region Feature Section */
+.featureSection {
+    /* Feature_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px var(--spacings-xl8);
+    gap: 0;
+
+    height: 240px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+/* #endregion */
+
+/* #region Testimonial Section */
+.testimonialSection {
+    /* Testimonials_Section */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--spacings-xl5);
+    gap: 0;
+    isolation: isolate;
+
+    /* width: 1360px; */
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 4;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 4;
+}
+
+.testimonialSection .testimonialCard {
+    /* Testimonial_Card */
+
+    /* Auto layout */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacings-xl4) var(--spacings-l) var(--spacings-l);
+    gap: var(--spacings-xl);
+
+    /* width: 1200px; */
+    height: fit-content;
+
+    background: rgba(70, 120, 69, 0.1);
+    border-radius: var(--border-radius-s);
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.testimonialSection .iconContainer {
+    /* Testimonial_Icon_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-m);
+
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    /* Light Yellow */
+    background: var(--light-yellow);
+    border-radius: 50%;
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.testimonialSection .iconContainer .icon {
+    /* Vector */
+
+    width: 3.6rem;
+    height: 3.6rem;
+
+    /* Black */
+    color: var(--black);
+    transform: rotate(180deg);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.testimonialCard .contentCtn {
+    /* Testimonial_Content */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xl4);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.testimonialCard .contentCtn .text {
+    /* This oil reduced my mother’s knee pain within a week. It's now a part of her daily routine! */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+    line-height: 4.8rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.testimonialCard .userDetailsCtn {
+    /* Testimonial_UserDetails */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.userDetailsCtn .nameText {
+    /* – Priya */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-m-text);
+    line-height: 3.2rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.userDetailsCtn .detailsText {
+    /* 38, Mumbai */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    line-height: 120%;;
+    text-align: center;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+/* #region CTA Section */
+.ctaSection {
+    /* CTA_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xl2);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 5;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 5;
+}
+
+.ctaSection .textCtn {
+    /* CTA_Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.textCtn .headingText {
+    /* Experience Natural Pain Relief */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+    line-height: 4.8rem;
+    letter-spacing: 0.02rem;
+    width: fit-content;
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.textCtn .subheadingText {
+    /* Move better. Live better. */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    line-height: 2.4rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+    width: fit-content;
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* #endregion */
+
+.footer{
+/* Footer */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-sm) 0 0 0;
+    gap: var(--spacings-xl6);
+    height: fit-content;
+
+    border-top: 1px solid var(--gray);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 6;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 6;
+}
+
+.footer .privacyPolicyText{
+/* Privacy Policy */
+    cursor: pointer;
+    /* margin: 0 auto; */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 2rem;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.footer .copyrightText{
+/* Copyright © 2025 drvandys.com - All Rights Reserved. */
+
+    /* margin: 0 auto; */
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;
+    letter-spacing: 0.02rem;
+
+    /* Dark Gray */
+    color: var(--dark-gray);
+
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+.footer .iconsCtn{
+/* Icons Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    /* margin: 0 auto; */
+    width: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.iconsCtn .footerIcon{
+/* Vector */
+    cursor: pointer;
+    width: 1.8rem;
+    height: 1.8rem;
+
+    /* Black */
+    color: var(--black);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.footer .privacyPolicyText:hover, .footer .footerIcon:hover{
+    transform: scale(1.01);
+}
