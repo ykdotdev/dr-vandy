@@ -1,15 +1,15 @@
-// "use-client";
 import React from 'react';
-import styles from './CTA.module.css';
+import styles from "./CheckoutBtn.module.css";
 import { useRouter } from "next/navigation";
 
-const CTA = ({productSlug, label}) => {
-
+const CheckoutBtn = ({ qty, vID, label }) => {
   const router = useRouter();
+
 
   return (
     <button
-      onClick={() => router.push(`/products/${productSlug}`)}
+      onClick={() =>
+        router.push(`/checkout?v_id=${vID}&qty=${qty}`)}
       className={styles.CTAContainer}
     >
       <span className={styles.label}>{label}</span>
@@ -29,6 +29,6 @@ const CTA = ({productSlug, label}) => {
       </svg>
     </button>
   );
-}
+};
 
-export default CTA
+export default CheckoutBtn

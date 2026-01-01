@@ -1,10 +1,8 @@
-// "use client";
 import { supabase } from "@/lib/supabaseClient";
-import ProductPageClient from "./ProductPageClient";
+import ProductPageClient from "./MainPageClient";
 
 const page = async () => {
   const slug = "orthohemp-oil";
-  console.log("hi")
   const { data: product } = await supabase
     .from("products")
     .select("*")
@@ -14,16 +12,17 @@ const page = async () => {
      .from("product_variants")
      .select("*")
      .eq("product_id", product.id)
-     .order("sort_order", { ascending: true });
+     .order("qty_in_pack", { ascending: true });
     
-  console.log(2, variants);
+  console.log("VariantsxArray", variants);
         
-        
-  return (
+
+
+  return(
     <>
-      <ProductPageClient product={product} variants={variants} />
+    <ProductPageClient product={product} variants={variants} />
     </>
-  );
+  ); 
 }
 
 export default page
