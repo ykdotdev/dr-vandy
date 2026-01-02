@@ -1,0 +1,191 @@
+.layoutFrame{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+    background-color: var(--white);
+}
+
+.mainCtn {
+    /* Main_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacings-m) var(--spacings-l);
+    gap: var(--spacings-ml);
+
+    /* position: absolute; */
+    width: 45dvw;
+    max-width: 64rem;
+    height: fit-content;
+    margin: 0 auto;
+    /* top: calc(50%); */
+
+    /* White */
+    background: #FFFFFF;
+    /* Black */
+    border: 1px solid #07080C;
+    border-radius: 32px;
+
+}
+
+.headerCtn {
+    /* Header_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    gap: var(--spacings-ml);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.stepLabelCtn {
+    /* Page_Label_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-xs) var(--spacings-sm) var(--spacings-xs) var(--spacings-xs);
+    gap: var(--spacings-sm);
+
+    /* margin: 0 auto; */
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: #07080C;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.iconCtn {
+    /* Icon_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-s);
+
+    width: var(--spacings-l);
+    height: var(--spacings-l);
+    aspect-ratio: 1 /1;
+
+    /* Light Yellow */
+    background: #FCF9DD;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.iconCtn .stepIcon {
+    /* Vector */
+    /* width: 20px; Fill ctn height */
+    height: 100%;
+
+    /* Black */
+    color: #07080C;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.stepTitle {
+    /* Your Cart */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.closeBtn {
+    /* Close_Button */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.closeBtn .icon {
+    /* Vector */
+
+    width: 24px;
+    height: 24px;
+
+    /* Black */
+    color: #07080C;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contentCTACtn {
+    /* Content_CTA_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}

@@ -1,0 +1,71 @@
+.stepCTA{
+/* Step_CTA */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-sm);
+    gap: var(--spacings-s);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: #07080C;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.stepCTA.disabled{
+/* Gray */
+    cursor: default;
+    background: #6E7070;
+}
+
+.stepCTA .label{
+/* Confirm Checkout */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    line-height: 1.2;
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.stepCTA.disabled .label{
+/* Light Gray */
+    color: #E9ECEC;
+}
+
+.stepCTA .icon{
+/* Vector */
+
+    height: calc(var(--font-sizes-s-text) * 1.2);
+
+    /* White */
+    color: #FFFFFF;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.stepCTA.disabled .icon{
+/* Light Gray */
+    color: #E9ECEC;
+}
