@@ -9,7 +9,7 @@ const CheckoutBtn = ({ qty, vID, label }) => {
   return (
     <button
       onClick={() =>
-        router.push(`/checkout?v_id=${vID}&qty=${qty}`)}
+        router.push(`/checkoutUI?v_id=${vID}&qty=${qty}`)}
       className={styles.CTAContainer}
     >
       <span className={styles.label}>{label}</span>

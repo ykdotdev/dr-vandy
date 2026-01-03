@@ -19,8 +19,8 @@
     gap: var(--spacings-ml);
 
     /* position: absolute; */
-    width: 45dvw;
-    max-width: 64rem;
+    width: 780px;
+    /* max-width: 64rem; */
     height: fit-content;
     margin: 0 auto;
     /* top: calc(50%); */

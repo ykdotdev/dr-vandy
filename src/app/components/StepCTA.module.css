@@ -6,19 +6,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: var(--spacings-sm);
-    gap: var(--spacings-s);
+    padding: var(--spacings-m);
+    gap: 0;
 
-    width: fit-content;
     height: fit-content;
 
     /* Black */
     background: #07080C;
-    border-radius: var(--border-radius-pill);
+    border-radius: 12px;
 
     /* Inside auto layout */
     flex: none;
     order: 1;
+    align-self: stretch;
     flex-grow: 0;
 }
 
@@ -33,7 +33,6 @@
 
     font-weight: 500;
     font-size: var(--font-sizes-s-text);
-    line-height: 1.2;
     letter-spacing: 0.02rem;
 
     /* White */

@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: flex-start; */
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     padding: 0px;
     row-gap: var(--spacings-m);
 
@@ -46,10 +46,10 @@
     padding: var(--spacings-s);
     font-size: 18px;
     line-height: 1.6;
-
-    background: rgba(110, 112, 112, 0.05);
+    width: 100%;
+    background: var(--white);
     /* Dark Gray */
-    border: 1px solid #2C2D31;
+    border: 1px solid #6E7070;
     border-radius: 0.4rem;
 
     /* Inside auto layout */
@@ -95,6 +95,16 @@
     column-gap: var(--spacings-m);
     height: fit-content;
     align-self: stretch;
+}
+
+.gridRowTriple{
+    /* Email_Phone */
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: var(--spacings-m);
+        height: fit-content;
+        align-self: stretch;
 }
 
 .row1{
@@ -190,4 +200,215 @@
 .row5 .input:active, .row5 .input:focus{
     border-color: #6E7070;
     outline: none;
+}
+
+.shippingRow{
+/* Shipping_Row */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-ml) 0px 0px 0px;
+    gap: var(--spacings-l);
+
+    height: fit-content;
+
+    /* Gray */
+    border-top: 1px solid #6E7070;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 4;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.shippingRow .shippingTitle{
+/* Shipping Method */
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.shippingRow .radioCtn{
+/* Radio_Input */
+    user-select: none;
+    /* box-sizing: content-box; */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: var(--spacings-xl4);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* White */
+    background: var(--white);
+    /* Gray */
+    border: 1px solid #6E7070;
+    border-radius: 4px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.radioCtn .leftCtn{
+/* Left_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.leftCtn .textCtn{
+/* Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 0.4rem;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.textCtn .optionLabel{
+/* Free Shipping */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.textCtn .shippingTime{
+/* | 7-20 Days */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Dark Gray */
+    color: #2C2D31;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.radioCtn .shippingPrice{
+/* ₹0 */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+
+.inputRadio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.customRadio {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+            /* Dark Gray */
+    border: 2px solid #2C2D31;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.customRadio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* Dark Gray */
+    background-color: #2C2D31;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+}
+
+.radioCtn:has(.inputRadio:checked) {
+    /* Light Gray */
+    background: #E9ECEC;
+    /* Dark Gray */
+    border: 1px solid #2C2D31;
+}
+
+.radioCtn:has(.inputRadio:checked) .customRadio {
+    /* Dark Gray */
+    border-color: #2C2D31;
+}
+
+.radioCtn:has(.inputRadio:checked) .customRadio::after {
+    transform: scale(1);
+}
+
+.inputRadio:focus-visible+.customRadio {
+    /* Dark Gray */
+    outline: 2px solid #2C2D31;
+    outline-offset: 3px;
 }

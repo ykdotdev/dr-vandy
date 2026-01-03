@@ -42,13 +42,13 @@ const layout = ({children}) => {
           </button>
         </div>
 
-        <div className={styles.contentCTACtn}>
+        {/* <div className={styles.contentCTACtn}>
           <>{children}</>
           <StepCTA
             currentStep={1}
             btnStatus="active"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

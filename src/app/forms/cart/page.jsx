@@ -2,8 +2,15 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import clsx from "clsx";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {z} from "zod";
 
 const page = () => {
+
+  const cartSchema = z.object({
+    pincode: z.string().regex(/^\d{6}$/, "Pincode must be exactly 6 digits"),
+    promo: z.string().optional()
+  })
 
     const MIN_QTY = 1;
     const MAX_QTY = 9;

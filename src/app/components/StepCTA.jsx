@@ -9,11 +9,10 @@ const StepCTA = ({currentStep, btnStatus}) => {
         3: "Continue Shopping"
     }
 
-    console.log(currentStep)
   return (
     <button className={clsx(styles.stepCTA, btnStatus === "disabled" && styles.disabled)}>
-      <div className={styles.label}>{stepName[currentStep]}</div>
-      {currentStep === 3 || (
+      <div className={styles.label}>Continue to Payment</div>
+      {/* {currentStep === 3 || (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -28,7 +27,7 @@ const StepCTA = ({currentStep, btnStatus}) => {
           <path d="m12 16 4-4-4-4" />
           <path d="M8 12h8" />
         </svg>
-      )}
+      )} */}
     </button>
   );
 }
