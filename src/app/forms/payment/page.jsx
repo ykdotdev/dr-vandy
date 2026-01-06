@@ -1,8 +1,31 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import styles from "./page.module.css";
 import clsx from "clsx";
+import { useEffect } from "react";
 
-const page = () => {
+const page = async ({ searchParams }) => {
+  const params = await searchParams;
+  const orderID = params.oID;
+  console.log(orderID)
+  useEffect(async () => {
+        const stockCheckRes = await fetch("/api/supabase/paymentStatus", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            order_id: orderID
+          }),
+        });
+
+        const stockCheck = await stockCheckRes.json();
+        console.log(stockCheck)
+        // if (!stockCheck.success) {
+        //     console.log("INSUFFICIENT STOCK");
+        //     // TODO: MODAL ALERT AND REDIRECT TO PRODUCT
+        //     return;
+        // };
+  }, []);
+
   return (
     <div className={styles.contentCtn}>
       <div className={styles.paymentStatusCtn}>
@@ -32,7 +55,7 @@ const page = () => {
 
         <div className={styles.orderIDCtn}>
           <span className={styles.orderIDLabel}>Order ID</span>
-          <span className={styles.orderIDValue}>ORD_2025_00123</span>
+          <span className={styles.orderIDValue}>{orderID}</span>
         </div>
       </div>
     </div>

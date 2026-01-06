@@ -1,0 +1,48 @@
+const handlePayment = async () => {
+  try {
+    // 1️⃣ Load Razorpay script
+    const loaded = await loadRazorpay();
+    if (!loaded || typeof window.Razorpay === "undefined") {
+      alert("Razorpay SDK failed to load.");
+      return;
+    }
+
+    // 2️⃣ Create Razorpay order on server (as you already do)
+    const rpayRes = await fetch("/api/razorpay/createOrder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        orderId: "123", // replace with real order ID
+        amount: 1000, // paise
+        user_name: "Test",
+        user_email: "test@example.com",
+        user_phone: "9999999999",
+      }),
+    });
+
+    const rpayOrder = await rpayRes.json();
+
+    // 3️⃣ Razorpay options
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      amount: rpayOrder.amount,
+      currency: rpayOrder.currency,
+      name: "Dr. Vandy's",
+      order_id: rpayOrder.id,
+      prefill: {
+        name: "Test",
+        email: "test@example.com",
+        contact: "9999999999",
+      },
+      handler: function (response) {
+        console.log("Payment success:", response);
+      },
+    };
+
+    // 4️⃣ Create Razorpay instance **only after script loaded**
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  } catch (err) {
+    console.error(err);
+  }
+};

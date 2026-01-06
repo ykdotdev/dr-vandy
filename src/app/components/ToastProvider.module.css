@@ -1,0 +1,28 @@
+.toast {
+    -webkit-user-select: none;
+    user-select: none;
+    visibility: hidden;
+    min-width: fit-content;
+    background-color: #333;
+    color: var(--white);
+    text-align: center;
+    padding: var(--spacings-s) var(--spacings-m);
+    border-radius: var(--border-radius-pill);
+    position: fixed;
+    top: var(--spacings-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--font-sizes-xs-text);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.25s ease, visibility 0.25s;
+    display: flex;
+    gap: var(--spacings-s);
+    align-items: center;
+
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}

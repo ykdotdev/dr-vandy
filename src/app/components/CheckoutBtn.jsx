@@ -1,18 +1,50 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from "react";
 import styles from "./CheckoutBtn.module.css";
 import { useRouter } from "next/navigation";
+import { useToast } from "./ToastProvider";
 
 const CheckoutBtn = ({ qty, vID, label }) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const { showToast } = useToast();
+  
+  const handleCheckout = async () => {
+    setLoading(true);
 
+    const stockCheckRes = await fetch("/api/supabase/stockCheck", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        qty,
+        variant_id: vID,
+      }),
+    });
+
+    const stockCheck = await stockCheckRes.json();
+
+
+    if (!stockCheck.success) {
+      console.log("INSUFFICIENT STOCK");
+      // TODO: show modal / toast
+      await showToast("Item just went Out of Stock", "error");
+      window.location.reload();
+
+      return;
+    }
+    setLoading(false);
+
+    router.push(`/checkoutUI?v_id=${vID}&qty=${qty}`);
+  };
 
   return (
     <button
-      onClick={() =>
-        router.push(`/checkoutUI?v_id=${vID}&qty=${qty}`)}
+      onClick={handleCheckout}
+      disabled={loading}
       className={styles.CTAContainer}
     >
-      <span className={styles.label}>{label}</span>
+      <span className={styles.label}>{loading ? "Checking..." : label}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -31,4 +63,4 @@ const CheckoutBtn = ({ qty, vID, label }) => {
   );
 };
 
-export default CheckoutBtn
+export default CheckoutBtn;

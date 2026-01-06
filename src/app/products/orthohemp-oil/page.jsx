@@ -14,7 +14,7 @@ const page = async () => {
      .eq("product_id", product.id)
      .order("qty_in_pack", { ascending: true });
     
-  console.log("VariantsxArray", variants);
+  console.log("Variants Array", variants);
         
 
 

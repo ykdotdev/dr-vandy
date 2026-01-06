@@ -1,0 +1,416 @@
+.layoutFrame {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+    background-color: var(--white);
+}
+
+.mainCtn {
+    /* Main_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacings-m) var(--spacings-l);
+    gap: var(--spacings-ml);
+
+    /* position: absolute; */
+    width: 780px;
+    /* max-width: 64rem; */
+    height: fit-content;
+    margin: 0 auto;
+    /* top: calc(50%); */
+
+    /* White */
+    background: #FFFFFF;
+    /* Black */
+    border: 1px solid #07080C;
+    border-radius: 32px;
+
+}
+
+.headerCtn {
+    /* Header_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    gap: var(--spacings-ml);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.stepLabelCtn {
+    /* Page_Label_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-xs) var(--spacings-sm) var(--spacings-xs) var(--spacings-xs);
+    gap: var(--spacings-sm);
+
+    /* margin: 0 auto; */
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: #07080C;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.iconCtn {
+    /* Icon_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-s);
+
+    width: var(--spacings-l);
+    height: var(--spacings-l);
+    aspect-ratio: 1 /1;
+
+    /* Light Yellow */
+    background: #FCF9DD;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.iconCtn .stepIcon {
+    /* Vector */
+    /* width: 20px; Fill ctn height */
+    height: 100%;
+
+    /* Black */
+    color: #07080C;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.stepTitle {
+    /* Your Cart */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.closeBtn {
+    /* Close_Button */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.closeBtn .icon {
+    /* Vector */
+
+    width: 24px;
+    height: 24px;
+
+    /* Black */
+    color: #07080C;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contentCTACtn {
+    /* Content_CTA_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.contentCtn{
+/* Content_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.paymentStatusCtn{
+/* Payment_Status_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-ml);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.paymentStatusCtn .icon{
+/* Vector */
+
+    width: 8dvw;
+
+    /* Green */
+    fill: #467845;
+    /* White */
+    color: #FCFDF8;
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+/* Wrapper around icon for ambient circle */
+.iconWrapper {
+    position: relative;
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ambient circle behind the icon */
+.iconWrapper::before {
+content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    /* slightly bigger than icon */
+    height: 100%;
+    background: var(--green);
+    /* green ambient color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(10px);
+
+    /* pulsing animation */
+    animation: pulse 5s infinite;
+}
+
+/* Pulse keyframes */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+}
+
+/* The SVG icon itself */
+.icon {
+    width: 90%;
+    height: 90%;
+    color: #467845;
+    /* this sets stroke color via currentColor */
+    z-index: 2;
+}
+
+.paymentStatusText{
+/* Payment Successful */
+
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+.shippingOrderIDCtn{
+/* Shipping_OrderID_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-xl4);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.shippingOrderIDCtn .shippingUpdateMessage{
+/* You will receive shipping updates via SMS/Email once your order is dispatched. */
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.orderIDCtn{
+/* OrderID_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-m) 0px 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+    /* Gray */
+    border-top: 1px dashed #6E7070;
+
+    /* Inside auto layout */
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.orderIDCtn .orderIDLabel{
+/* Order ID */
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.orderIDCtn .orderIDValue{
+/* ORD_2025_00123 */
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}

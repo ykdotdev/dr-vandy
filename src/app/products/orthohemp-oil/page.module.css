@@ -562,6 +562,60 @@
     flex-grow: 0;
 }
 
+/* OUT OF STOCK CTN */
+.outOfStockCtn{
+/* Out_of_Stock_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.outOfStockCtn .icon{
+/* Vector */
+
+    width: var(--font-sizes-s-text);
+    height: var(--font-sizes-s-text);
+
+    /* Red */
+    color: #B91C19;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.outOfStockCtn .text{
+/* Out of Stock */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: 0.02rem;
+
+    /* Red */
+    color: #B91C19;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 .centerCtn{
 /* Center_Container */
 

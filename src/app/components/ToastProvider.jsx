@@ -1,0 +1,63 @@
+"use client";
+
+import { createContext, useContext, useState } from "react";
+import styles from "./ToastProvider.module.css"; // your toast CSS
+import clsx from "clsx";
+
+// 1️⃣ Create context
+const ToastContext = createContext(null);
+
+// 2️⃣ Define the provider component
+export const ToastProvider = ({ children }) => {
+  const [toast, setToast] = useState(null);
+
+  // Function to show toast
+  const showToast = (message, type, duration = 2000) => {
+    setToast({message, type});
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        setToast(null);
+        resolve();
+      }, duration);
+    });
+  };
+  const svgHTML = {
+    success: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        fill="#28a745"
+        viewBox="0 0 16 16"
+      >
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+      </svg>
+    ),
+    error: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        fill="#dc3545"
+        viewBox="0 0 16 16"
+      >
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+      </svg>
+    )
+  };
+
+  return (
+    <ToastContext.Provider value={{ showToast }}>
+      {/* 3️⃣ children = all nested components */}
+      {children}
+      {/* 4️⃣ render the toast */}
+      <div className={clsx(styles.toast, (toast && styles.show))}>
+        {toast && svgHTML[toast.type]}
+        {toast && toast.message}
+      </div>
+    </ToastContext.Provider>
+  );
+};
+
+// 5️⃣ Helper hook for easy access
+export const useToast = () => useContext(ToastContext);

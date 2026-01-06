@@ -1,7 +1,7 @@
 import styles from "./StepCTA.module.css";
 import clsx from "clsx";
 
-const StepCTA = ({currentStep, btnStatus}) => {
+const StepCTA = ({currentStep, btnStatus, onClick}) => {
 
     const stepName = {
         1: "Confirm Checkout",
@@ -10,7 +10,7 @@ const StepCTA = ({currentStep, btnStatus}) => {
     }
 
   return (
-    <button className={clsx(styles.stepCTA, btnStatus === "disabled" && styles.disabled)}>
+    <button onClick={onClick} className={clsx(styles.stepCTA, btnStatus === "disabled" && styles.disabled)}>
       <div className={styles.label}>Continue to Payment</div>
       {/* {currentStep === 3 || (
         <svg

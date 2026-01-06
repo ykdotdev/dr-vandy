@@ -8,10 +8,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { shippingSchema } from "@/schemas/shipping.schema";
 import { promoSchema } from "@/schemas/promo.schema";
+import { useRouter } from "next/navigation";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
+      const router = useRouter();
+    
   const {
     register,
+    getValues,
     handleSubmit,
     setError,
     clearErrors,
@@ -111,6 +115,119 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
 
     calculateTotals();
   }, [currentQty, appliedPromoCode]);
+
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+
+   const handlePayment = async (data) => {
+     try {
+       const formData = getValues(); // shipping details
+       console.log("Validated shipping data:", formData);
+        // Check Stock
+        // TODO: LOCK QUANTITY
+        const stockCheckRes = await fetch("/api/supabase/stockCheck", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            qty: currentQty,
+            variant_id: variant.id
+          }),
+        });
+
+        const stockCheck = await stockCheckRes.json();
+        if (!stockCheck.success) {
+            console.log("INSUFFICIENT STOCK");
+            // TODO: MODAL ALERT AND REDIRECT TO PRODUCT
+            return;
+        };
+
+       // 1️⃣ Load Razorpay script
+       const loaded = await loadRazorpay();
+       if (!loaded || typeof window.Razorpay === "undefined") {
+         alert("Razorpay SDK failed to load.");
+         return;
+       }
+
+       // 1️⃣ Create Supabase order
+       const orderRes = await fetch("/api/supabase/createOrder", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({
+           ...formData,
+           amount: totals.totalRupees, // store rupees in DB
+         }),
+       });
+       const order = await orderRes.json();
+       if (!order.id) throw new Error("Failed to create order");
+
+       // 2️⃣ Create Razorpay order
+       const rpayRes = await fetch("/api/razorpay/createOrder", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({
+           orderId: order.id,
+           amount: totals.totalPaise, // paise
+           user_name: formData.fullName,
+           user_phone: formData.phone,
+           user_email: formData.email,
+         }),
+       });
+       const rpayOrder = await rpayRes.json();
+       if (!rpayOrder.id) throw new Error("Failed to create Razorpay order");
+
+       // 3️⃣ Open Razorpay modal
+       const options = {
+         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+         amount: rpayOrder.amount,
+         currency: rpayOrder.currency,
+         name: "Dr. Vandy's",
+         order_id: rpayOrder.id,
+         prefill: {
+           name: formData.fullName,
+           email: formData.email,
+           contact: formData.phone,
+         },
+         handler: async (response) => {
+           // 4️⃣ Verify payment
+           const verifyRes = await fetch("/api/razorpay/verifyPayment", {
+             method: "POST",
+             headers: { "Content-Type": "application/json" },
+             body: JSON.stringify(response),
+           });
+           const verifyData = await verifyRes.json();
+
+           if (verifyData.success) {
+            // TODO: PAYMENT REDIRECT
+            router.push(`/payment/oID=${rpayOrder.id}`);
+             alert("Payment successful ✅");
+           } else {
+             alert("Payment verification failed ❌");
+           }
+         },
+         theme: { color: "#000000" },
+       };
+
+       // 4️⃣ Create Razorpay instance **only after script loaded**
+       const rzp = new window.Razorpay(options);
+       rzp.open();
+     } catch (err) {
+       console.error(err);
+       alert(err.message);
+     }
+   };
+
+
+
+  const handlePaymentClick = handleSubmit(handlePayment);
+
 
   return (
     <div className={styles.layoutFrame}>
@@ -539,7 +656,7 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
               </div>
             </div>
           </div>
-          <StepCTA currentStep={1} btnStatus="active" />
+          <StepCTA currentStep={1} btnStatus="active" onClick={handlePaymentClick} />
         </div>
       </div>
     </div>
