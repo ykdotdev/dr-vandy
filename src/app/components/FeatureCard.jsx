@@ -113,8 +113,8 @@ const FeatureCard = () => {
         },
       });
       gsap.to(`.${styles.featureCard3}`, {
-        scale: 0.7,
-        opacity: 1,
+        // scale: 0.7,
+        // opacity: 1,
         scrollTrigger: {
           trigger: `.${styles.featureCard3}`,
           start: "top 15%",
