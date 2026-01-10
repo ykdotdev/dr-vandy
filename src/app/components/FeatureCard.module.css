@@ -1,34 +1,70 @@
+/* #region Feature Section */
+.featureSectionCtn {
+    /* Feature_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px var(--spacings-xl8);
+    gap: var(--spacings-l);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+/* #endregion */
+
 .featureCard{
     /* Feature_Card */
-
+    position: sticky;
+    /* background-color: var(--white); */
+    top: 10%;
     /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 326px;
+    gap: var(--spacings-ml);
 
-    width: 960px;
-    height: 240px;
+    /* width: fit-content; */
+    height: fit-content;
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
+    align-self: stretch;
     order: 0;
     flex-grow: 0;
 
 }
 
+.featureCard1{
+    order: 0;
+}
+
+.featureCard2 {
+    order: 1;
+}
+
+.featureCard3 {
+    order: 2;
+}
+
 .featureCard .icon{
     /* Vector */
     
-        margin: 0 auto;
-        width: 160px;
-        height: 160px;
-    
-        /* Green */
-        color: #467845;
+        width: 16rem;
+        height: 16rem;
+        
     
         /* Inside auto layout */
         flex: none;
@@ -36,32 +72,47 @@
         flex-grow: 0;
 }
 
-.featureCard .card{
+.icon1{
+/* Green */
+    color: var(--green);
+}
+
+.icon2{
+/* Ice Blue */
+    color: var(--ice-blue);
+}
+
+.icon3{
+/* Gold */
+    color: var(--gold);
+}
+
+.featureCard .contentCtn{
     /* Card */
-    
+        background-color: var(--white);
         /* Auto layout */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 24px;
-        gap: 24px;
+        padding: var(--spacings-m);
+        gap: var(--spacings-m);
     
-        margin: 0 auto;
-        width: 560px;
-        height: 240px;
+        width: 40dvw;
+        max-width: 56rem;
+        height: fit-content;
     
         /* Black */
         border: 1px solid #07080C;
-        border-radius: 12px;
+        border-radius: var(--border-radius-xs);
     
         /* Inside auto layout */
-        flex: none;
+        /* flex: none; */
         order: 1;
         flex-grow: 0;
 }
 
-.card .headingCtn{
+.contentCtn .headingCtn{
     /* Heading_Container */
     
         /* Auto layout */
@@ -69,15 +120,13 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 0px;
-        gap: 11px;
+        gap: var(--spacings-s);
     
-        margin: 0 auto;
-        width: 511px;
-        height: 107px;
+        height: fit-content;
     
     
         /* Inside auto layout */
-        flex: none;
+        /* flex: none; */
         order: 0;
         align-self: stretch;
         flex-grow: 0;
@@ -86,19 +135,8 @@
 .headingCtn .headingIndex{
     /* 01 */
     
-        width: 511px;
-        height: 48px;
-    
-        font-family: 'Inter';
-        font-style: normal;
         font-weight: 700;
-        font-size: 40px;
-        line-height: 48px;
-    
-        /* Green */
-        color: #467845;
-    
-    
+        font-size: var(--font-sizes-l-text);
         /* Inside auto layout */
         flex: none;
         order: 0;
@@ -106,50 +144,56 @@
         flex-grow: 0;
 }
 
+.headingIndex1 {
+    /* Green */
+    color: var(--green);
+}
+
+.headingIndex2 {
+    /* Ice Blue */
+    color: var(--ice-blue);
+}
+
+.headingIndex3 {
+    /* Gold */
+    color: var(--gold);
+}
+
+.headingIndex::selection{
+    color: var(--black);
+}
+
 .headingCtn .headingText{
     /* Fast Relief */
     
-        width: 511px;
-        height: 48px;
-    
-        font-family: 'Inter';
-        font-style: normal;
         font-weight: 500;
-        font-size: 40px;
-        line-height: 48px;
-        letter-spacing: 0.02em;
+        font-size: var(--font-sizes-l-text);
+        letter-spacing: 0.02rem;
     
         /* Black */
         color: #07080C;
     
     
         /* Inside auto layout */
-        flex: none;
+        /* flex: none; */
         order: 1;
         align-self: stretch;
         flex-grow: 0;
 }
 
-.card .subheadingText{
+.contentCtn .subheadingText{
     /* CBD calms pain receptors for instant comfort. */
     
-        margin: 0 auto;
-        width: 511px;
-        height: 58px;
-    
-        font-family: 'Inter';
-        font-style: normal;
         font-weight: 400;
-        font-size: 24px;
-        line-height: 29px;
-        letter-spacing: 0.02em;
+        font-size: var(--font-sizes-m-text);
+        letter-spacing: 0.02rem;
     
         /* Black */
         color: #07080C;
     
     
         /* Inside auto layout */
-        flex: none;
+        /* flex: none; */
         order: 1;
         align-self: stretch;
         flex-grow: 0;

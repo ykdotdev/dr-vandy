@@ -1,3 +1,19 @@
+.loadIcon{
+    width: 10dvh;
+    height: 10dvh;
+    color: var(--dark-gray);
+    animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .layoutFrame {
     margin: 0;
     min-height: 100vh;
@@ -19,8 +35,8 @@
     gap: var(--spacings-ml);
 
     /* position: absolute; */
-    width: 780px;
-    /* max-width: 64rem; */
+    /* width: 780px; */
+    max-width: 56rem;
     height: fit-content;
     margin: 0 auto;
     /* top: calc(50%); */
@@ -29,7 +45,7 @@
     background: #FFFFFF;
     /* Black */
     border: 1px solid #07080C;
-    border-radius: 32px;
+    border-radius: var(--border-radius-l);
 
 }
 
@@ -135,40 +151,6 @@
     flex-grow: 0;
 }
 
-.closeBtn {
-    /* Close_Button */
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-
-    width: fit-content;
-    height: fit-content;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.closeBtn .icon {
-    /* Vector */
-
-    width: 24px;
-    height: 24px;
-
-    /* Black */
-    color: #07080C;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
 .contentCTACtn {
     /* Content_CTA_Container */
 
@@ -178,10 +160,9 @@
     justify-content: center;
     align-items: center;
     padding: 0px;
-    gap: var(--spacings-m);
+    gap: var(--spacings-l);
 
     height: fit-content;
-
 
     /* Inside auto layout */
     flex: none;
@@ -230,13 +211,28 @@
     flex-grow: 0;
 }
 
-.paymentStatusCtn .icon{
+.paymentStatusCtn .iconSuccess{
 /* Vector */
 
     width: 8dvw;
 
     /* Green */
     fill: #467845;
+    /* White */
+    color: #FCFDF8;
+
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+}
+
+.paymentStatusCtn .iconFail {
+    /* Vector */
+
+    width: 8dvw;
+
+    /* RED */
+    fill: var(--red);
     /* White */
     color: #FCFDF8;
 
@@ -264,8 +260,7 @@ content: '';
     width: 100%;
     /* slightly bigger than icon */
     height: 100%;
-    background: var(--green);
-    /* green ambient color */
+    
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
@@ -273,6 +268,16 @@ content: '';
 
     /* pulsing animation */
     animation: pulse 5s infinite;
+}
+
+.iconWrapper.success::before{
+    background: var(--green);
+    /* green ambient color */
+}
+
+.iconWrapper.fail::before{
+    background: var(--red);
+        /* red ambient color */
 }
 
 /* Pulse keyframes */
@@ -412,5 +417,46 @@ content: '';
     /* Inside auto layout */
     flex: none;
     order: 1;
+    flex-grow: 0;
+}
+
+.stepCTA {
+    /* Step_CTA */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-m);
+    gap: 0;
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: #07080C;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    /* align-self: stretch; */
+    flex-grow: 0;
+}
+
+.stepCTA .label {
+    /* Confirm Checkout */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
     flex-grow: 0;
 }

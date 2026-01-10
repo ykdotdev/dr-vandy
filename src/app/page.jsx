@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import FeatureCard from "./components/FeatureCard";
 import CTA from "./components/CTA";
 import clsx from "clsx";
+
 const LandingPage = () => {
 
   return (
@@ -131,13 +132,7 @@ const LandingPage = () => {
       </div>
 
       <div className={styles.featureSection}>
-        {/* <FeatureCard
-          icon={clockIcon}
-          index="01"
-          headingText="Fast Relief"
-          subheadingText="CBD calms pain receptors for instant comfort."
-        /> */}
-        <h1>FEATURES</h1>
+        <FeatureCard/>
       </div>
 
       <div className={styles.testimonialSection}>

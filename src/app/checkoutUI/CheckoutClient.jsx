@@ -9,10 +9,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { shippingSchema } from "@/schemas/shipping.schema";
 import { promoSchema } from "@/schemas/promo.schema";
 import { useRouter } from "next/navigation";
+import { useToast } from "../components/ToastProvider";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
       const router = useRouter();
-    
+        const { showToast } = useToast();
+      
+    console.log("variant", variant)
   const {
     register,
     getValues,
@@ -133,21 +136,21 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
        console.log("Validated shipping data:", formData);
         // Check Stock
         // TODO: LOCK QUANTITY
-        const stockCheckRes = await fetch("/api/supabase/stockCheck", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            qty: currentQty,
-            variant_id: variant.id
-          }),
-        });
+        // const stockCheckRes = await fetch("/api/supabase/stockCheck", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({
+        //     qty: currentQty,
+        //     variant_id: variant.id
+        //   }),
+        // });
 
-        const stockCheck = await stockCheckRes.json();
-        if (!stockCheck.success) {
-            console.log("INSUFFICIENT STOCK");
-            // TODO: MODAL ALERT AND REDIRECT TO PRODUCT
-            return;
-        };
+        // const stockCheck = await stockCheckRes.json();
+        // if (!stockCheck.success) {
+        //     console.log("INSUFFICIENT STOCK");
+        //     // TODO: MODAL ALERT AND REDIRECT TO PRODUCT
+        //     return;
+        // };
 
        // 1️⃣ Load Razorpay script
        const loaded = await loadRazorpay();
@@ -161,12 +164,20 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify({
+            qty: currentQty,
+            variant_id: variant.id,
            ...formData,
            amount: totals.totalRupees, // store rupees in DB
          }),
        });
        const order = await orderRes.json();
-       if (!order.id) throw new Error("Failed to create order");
+       if (order.error){
+        console.log(order.error)
+        showToast(order.error, "error");
+        // router.back();
+        return
+       }
+    //    if (!order.id) throw new Error("Failed to create order");
 
        // 2️⃣ Create Razorpay order
        const rpayRes = await fetch("/api/razorpay/createOrder", {
@@ -202,15 +213,10 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
              headers: { "Content-Type": "application/json" },
              body: JSON.stringify(response),
            });
-           const verifyData = await verifyRes.json();
+        //    const verifyData = await verifyRes.json();
 
-           if (verifyData.success) {
-            // TODO: PAYMENT REDIRECT
-            router.push(`/payment/oID=${rpayOrder.id}`);
-             alert("Payment successful ✅");
-           } else {
-             alert("Payment verification failed ❌");
-           }
+            router.push(`/payment/?oID=${rpayOrder.id}`);
+
          },
          theme: { color: "#000000" },
        };
