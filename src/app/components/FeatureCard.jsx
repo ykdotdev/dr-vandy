@@ -92,31 +92,31 @@ const FeatureCard = () => {
   
   useGSAP(
     () => {
-      gsap.to(`.${styles.headingIndex1}`, {
+      gsap.to(`.${styles.featureCard1}`, {
         scale: 0.7,
         opacity: 0,
         scrollTrigger: {
-          trigger: `.${styles.headingIndex1}`,
+          trigger: `.${styles.featureCard1}`,
           start: "top 15%",
           end: "bottom 15%",
           scrub: true,
         },
       });
-      gsap.to(`.${styles.headingIndex2}`, {
+      gsap.to(`.${styles.featureCard2}`, {
         scale: 0.7,
         opacity: 0,
         scrollTrigger: {
-          trigger: `.${styles.headingIndex2}`,
+          trigger: `.${styles.featureCard2}`,
           start: "top 15%",
           end: "bottom 15%",
           scrub: true,
         },
       });
-      gsap.to(`.${styles.headingIndex3}`, {
-        // scale: 0.7,
-        // opacity: 1,
+      gsap.to(`.${styles.featureCard3}`, {
+        scale: 0.7,
+        opacity: 1,
         scrollTrigger: {
-          trigger: `.${styles.headingIndex3}`,
+          trigger: `.${styles.featureCard3}`,
           start: "top 15%",
           end: "bottom 15%",
           scrub: true,
