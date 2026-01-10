@@ -1,134 +1,163 @@
-"use client"; // ensures this component is client-only
-
-import { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import styles from "./FeatureCard.module.css";
+import clsx from "clsx";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const features = [
-  { id: 1, icon: "🔥", text: "Feature One" },
-  { id: 2, icon: "⚡", text: "Feature Two" },
-  { id: 3, icon: "💎", text: "Feature Three" },
-];
-
-export default function FeatureCard() {
+const FeatureCard = () => {
   const containerRef = useRef(null);
-  const cardRef = useRef(null);
-  const itemsRef = useRef([]);
+  const cardsRef = useRef([]);
 
-  useEffect(() => {
-    const items = itemsRef.current;
+  const data = [
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={clsx(styles.icon, styles.icon1)}
+        >
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+        </svg>
+      ),
+      heading: "CBD Ayurvedic Formula",
+      subheading: "Natural herbs enriched with CBD for holistic relief",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={clsx(styles.icon, styles.icon2)}
+        >
+          <path d="m10 20-1.25-2.5L6 18" />
+          <path d="M10 4 8.75 6.5 6 6" />
+          <path d="m14 20 1.25-2.5L18 18" />
+          <path d="m14 4 1.25 2.5L18 6" />
+          <path d="m17 21-3-6h-4" />
+          <path d="m17 3-3 6 1.5 3" />
+          <path d="M2 12h6.5L10 9" />
+          <path d="m20 10-1.5 2 1.5 2" />
+          <path d="M22 12h-6.5L14 15" />
+          <path d="m4 10 1.5 2L4 14" />
+          <path d="m7 21 3-6-1.5-3" />
+          <path d="m7 3 3 6h4" />
+        </svg>
+      ),
+      heading: "Pain & Inflammation Relief",
+      subheading:
+        "Specifically formulated to reduce stiffness, soreness, and inflammation effectively",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={clsx(styles.icon, styles.icon3)}
+        >
+          <path d="M12 6v6l4 2" />
+          <path d="M22 12a10 10 0 1 0-11 9.95" />
+          <path d="m22 16-5.5 5.5L14 19" />
+        </svg>
+      ),
+      heading: "Daily & Long-Term Safe",
+      subheading:
+        "Gentle, natural, and safe for everyday use, supporting long-term wellness",
+    },
+  ];
 
-    // Pin the card while scrolling through all features
-    gsap.to(cardRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=300%", // enough scroll space for 3 features
-        pin: true,
-        scrub: true,
-      },
-    });
 
-    // Animate each feature item in sequence
-    items.forEach((item, i) => {
-      gsap.fromTo(
-        item,
-        { x: 100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: `${i * 100}% top+=50`,
-            end: `${i * 100 + 100}% top`,
-            scrub: true,
-          },
-        }
-      );
-    });
-  }, []);
+  
+  useGSAP(
+    () => {
+      gsap.to(`.${styles.headingIndex1}`, {
+        scale: 0.7,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: `.${styles.headingIndex1}`,
+          start: "top 15%",
+          end: "bottom 15%",
+          scrub: true,
+        },
+      });
+      gsap.to(`.${styles.headingIndex2}`, {
+        scale: 0.7,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: `.${styles.headingIndex2}`,
+          start: "top 15%",
+          end: "bottom 15%",
+          scrub: true,
+        },
+      });
+      gsap.to(`.${styles.headingIndex3}`, {
+        // scale: 0.7,
+        // opacity: 1,
+        scrollTrigger: {
+          trigger: `.${styles.headingIndex3}`,
+          start: "top 15%",
+          end: "bottom 15%",
+          scrub: true,
+        },
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <div ref={containerRef} className="feature-container">
-      {/* Fixed Card */}
-      <div ref={cardRef} className="feature-card">
-        <div className="feature-card-icon">🌟</div>
-        <h2 className="feature-card-title">Our Features</h2>
-      </div>
+    <div className={styles.featureSectionCtn} ref={containerRef}>
+      {data.map((card, index) => (
+        <div
+          className={clsx(
+            styles.featureCard,
+            styles[`featureCard${index + 1}`]
+          )}
+          key={index}
+          ref={(el) => (cardsRef.current[index] = el)}
+        >
+          {card.icon}
 
-      {/* Content */}
-      <div className="feature-content">
-        {features.map((f, i) => (
-          <div
-            key={f.id} // stable ID prevents SSR mismatch
-            ref={(el) => (itemsRef.current[i] = el)}
-            className="feature-item"
-          >
-            <span className="feature-item-icon">{f.icon}</span>
-            <p className="feature-item-text">{f.text}</p>
+          <div className={styles.contentCtn}>
+            <div className={styles.headingCtn}>
+              <span
+                className={clsx(
+                  styles.headingIndex,
+                  styles[`headingIndex${index + 1}`]
+                )}
+              >
+                {index + 1}
+              </span>
+              <span className={styles.headingText}>{card.heading}</span>
+            </div>
+
+            <span className={styles.subheadingText}>{card.subheading}</span>
           </div>
-        ))}
-      </div>
-
-      {/* Plain CSS */}
-      <style jsx>{`
-        .feature-container {
-          display: flex;
-          position: relative;
-          height: 300vh; /* enough scroll space for 3 features */
-          padding: 50px;
-        }
-
-        .feature-card {
-          width: 30%;
-          position: sticky;
-          top: 100px;
-          height: 200px;
-          background: #f0f0f0;
-          border-radius: 12px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin-right: 50px;
-        }
-
-        .feature-card-icon {
-          font-size: 60px;
-        }
-
-        .feature-card-title {
-          margin-top: 10px;
-          font-size: 20px;
-          font-weight: bold;
-        }
-
-        .feature-content {
-          width: 70%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        .feature-item {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          margin-bottom: 100px;
-          opacity: 0; /* initial hidden state for animation */
-        }
-
-        .feature-item-icon {
-          font-size: 40px;
-        }
-
-        .feature-item-text {
-          font-size: 24px;
-        }
-      `}</style>
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default FeatureCard;

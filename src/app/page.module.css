@@ -772,10 +772,6 @@ line-height: 120%;
     align-self: stretch;
     flex-grow: 0;
     z-index: 3;
-    position: relative;
-        /* for child positioning */
-        height: auto;
-        /* can also set min-height if needed */
 }
 
 /* #endregion */
