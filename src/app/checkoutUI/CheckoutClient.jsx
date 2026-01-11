@@ -130,105 +130,116 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
   };
 
 
-   const handlePayment = async (data) => {
-     try {
-       const formData = getValues(); // shipping details
-       console.log("Validated shipping data:", formData);
-        // Check Stock
-        // TODO: LOCK QUANTITY
-        // const stockCheckRes = await fetch("/api/supabase/stockCheck", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({
-        //     qty: currentQty,
-        //     variant_id: variant.id
-        //   }),
-        // });
+const handlePayment = async () => {
+  try {
+    // 1️⃣ Get validated shipping details from form
+    const formData = getValues();
+    console.log("Shipping data:", formData);
 
-        // const stockCheck = await stockCheckRes.json();
-        // if (!stockCheck.success) {
-        //     console.log("INSUFFICIENT STOCK");
-        //     // TODO: MODAL ALERT AND REDIRECT TO PRODUCT
-        //     return;
-        // };
+    // 2️⃣ Load Razorpay SDK
+    const loaded = await loadRazorpay();
+    if (!loaded || typeof window.Razorpay === "undefined") {
+      alert("Razorpay SDK failed to load.");
+      return;
+    }
+    console.log("appliedPromoCode: ", appliedPromoCode?.code)
+    // 3️⃣ Create order via API (Supabase RPC + Razorpay order)
+    const res = await fetch("/api/createOrder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: [
+          {
+            variant_id: String(variant.id), // UUID as string
+            quantity: currentQty,
+          },
+        ],
+        shipping_info: {
+          user_name: formData.fullName,
+          user_email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          pincode: formData.pincode,
+        },
+        promo_code: appliedPromoCode?.code
+      }),
+    });
 
-       // 1️⃣ Load Razorpay script
-       const loaded = await loadRazorpay();
-       if (!loaded || typeof window.Razorpay === "undefined") {
-         alert("Razorpay SDK failed to load.");
-         return;
-       }
+    const { order, razorpayOrder, error } = await res.json();
+    if (error) {
+      console.log("Order creation failed:", error);
+      showToast(error, "error");
+      return;
+    }
 
-       // 1️⃣ Create Supabase order
-       const orderRes = await fetch("/api/supabase/createOrder", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({
-            qty: currentQty,
-            variant_id: variant.id,
-           ...formData,
-           amount: totals.totalRupees, // store rupees in DB
-         }),
-       });
-       const order = await orderRes.json();
-       if (order.error){
-        console.log(order.error)
-        showToast(order.error, "error");
-        // router.back();
-        return
-       }
-    //    if (!order.id) throw new Error("Failed to create order");
+    console.log("Supabase order:", order);
+    console.log("Razorpay order:", razorpayOrder);
 
-       // 2️⃣ Create Razorpay order
-       const rpayRes = await fetch("/api/razorpay/createOrder", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({
-           orderId: order.id,
-           amount: totals.totalPaise, // paise
-           user_name: formData.fullName,
-           user_phone: formData.phone,
-           user_email: formData.email,
-         }),
-       });
-       const rpayOrder = await rpayRes.json();
-       if (!rpayOrder.id) throw new Error("Failed to create Razorpay order");
+    // 4️⃣ Open Razorpay modal
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      amount: razorpayOrder.amount, // paise
+      currency: razorpayOrder.currency,
+      name: "Dr. Vandy's",
+      order_id: razorpayOrder.id,
+      prefill: {
+        name: formData.fullName,
+        email: formData.email,
+        contact: formData.phone,
+      },
+      handler: async (paymentResponse) => {
+        console.log(paymentResponse)
+        try {
+          await fetch("/api/confirmPayment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              order_id: order[0].order_id,
+              razorpay_payment_id: paymentResponse.razorpay_payment_id,
+              razorpay_order_id: paymentResponse.razorpay_order_id,
+              // razorpay_signature: paymentResponse.razorpay_signature,
+              status: "paid",
+            }),
+          });
 
-       // 3️⃣ Open Razorpay modal
-       const options = {
-         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-         amount: rpayOrder.amount,
-         currency: rpayOrder.currency,
-         name: "Dr. Vandy's",
-         order_id: rpayOrder.id,
-         prefill: {
-           name: formData.fullName,
-           email: formData.email,
-           contact: formData.phone,
-         },
-         handler: async (response) => {
-           // 4️⃣ Verify payment
-           const verifyRes = await fetch("/api/razorpay/verifyPayment", {
-             method: "POST",
-             headers: { "Content-Type": "application/json" },
-             body: JSON.stringify(response),
-           });
-        //    const verifyData = await verifyRes.json();
+          // router.push(`/payment/?oID=${razorpayOrder.id}`);
+        } catch (verifyError) {
+          console.error("Payment verification failed:", verifyError);
+          showToast("Payment verification failed", "error");
+        }
+      },
+      theme: { color: "#000000" },
+      modal: {
+    ondismiss: async function () {
+      console.log("Razorpay modal closed without payment");
+      try {
+        await fetch("/api/confirmPayment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            order_id: order[0].order_id,
+            status: "cancelled",
+          }),
+        });
+      } catch (err) {
+        console.error("Error cancelling order:", err);
+      }
+    }
+  }
+    };
+    
 
-            router.push(`/payment/?oID=${rpayOrder.id}`);
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  } catch (err) {
+    console.error("Payment error:", err);
+    alert(err.message || "Something went wrong");
+  }
+};
 
-         },
-         theme: { color: "#000000" },
-       };
 
-       // 4️⃣ Create Razorpay instance **only after script loaded**
-       const rzp = new window.Razorpay(options);
-       rzp.open();
-     } catch (err) {
-       console.error(err);
-       alert(err.message);
-     }
-   };
 
 
 

@@ -394,7 +394,7 @@
     /* Shipping_Row */
 
     box-sizing: border-box;
-
+    flex-wrap: wrap;
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -422,7 +422,7 @@
     font-weight: 500;
     font-size: var(--font-sizes-m-text);
     letter-spacing: 0.02rem;
-
+    
     /* Black */
     color: #07080C;
 
@@ -444,7 +444,7 @@
     justify-content: center;
     align-items: center;
     padding: 12px;
-    gap: var(--spacings-xl4);
+    gap: var(--spacings-xl2);
 
     width: fit-content;
     height: fit-content;
@@ -456,6 +456,7 @@
     border-radius: 4px;
 
     /* Inside auto layout */
+    align-self: stretch;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -476,7 +477,7 @@
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
     order: 0;
     flex-grow: 0;
 }
@@ -497,7 +498,7 @@
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
     order: 0;
     flex-grow: 0;
 }
@@ -513,7 +514,7 @@
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
     order: 0;
     flex-grow: 0;
 }
@@ -529,7 +530,7 @@
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
     order: 1;
     flex-grow: 0;
 }
@@ -545,7 +546,7 @@
 
 
     /* Inside auto layout */
-    flex: none;
+    /* flex: none; */
     order: 1;
     flex-grow: 0;
 }
@@ -616,12 +617,11 @@
     gap: var(--spacings-m);
 
     /* position: absolute; */
-    /* width: 45dvw; */
     max-width: 56rem;
     height: fit-content;
-    margin: 0 auto;
     /* top: calc(50%); */
-
+    flex: 1;
+    min-width: 0;
     /* Gray */
     border: 1px solid #6E7070;
     border-radius: 32px;
@@ -1001,7 +1001,7 @@
 
 .promotionForm {
     /* Promotion_Form */
-
+    
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -1015,7 +1015,7 @@
     /* Gray */
     border: 1px solid #6E7070;
     border-radius: 0.8rem;
-
+    width: 100%;
     height: fit-content;
 
 
@@ -1037,15 +1037,15 @@
     padding: 0px;
     gap: var(--spacings-sm);
 
-    width: fit-content;
+    /* width: fit-content; */
     height: fit-content;
 
 
     /* Inside auto layout */
-    flex: none;
     order: 0;
-    align-self: stretch;
-    flex-grow: 0;
+    flex-grow: 1;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .iconLabelCtn .icon {
@@ -1071,13 +1071,12 @@
     /* Dark Gray */
     border: none;
     outline: none;
-    width: 30ch;
-
+    
     /* Inside auto layout */
-    flex: none;
-    align-self: stretch;
+    /* flex: none; */
     order: 0;
-    flex-grow: 0;
+    flex: 1;
+    
 }
 
 .promotionForm .input::placeholder {
@@ -1122,7 +1121,7 @@
 
     /* Inside auto layout */
     flex: none;
-    order: 1;
+    order: 0;
     flex-grow: 0;
 }
 
