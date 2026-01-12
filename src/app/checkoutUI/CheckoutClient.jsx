@@ -61,8 +61,8 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
   };
 
   const MIN_QTY = 1;
-  const MAX_QTY = 9;
-
+  const MAX_QTY = Math.min(variant.current_stock, 9);
+  console.log(MIN_QTY)
   const [currentQty, setCurrentQty] = useState(Number(qty));
 
   const decreaseActive = currentQty > MIN_QTY;
@@ -516,18 +516,63 @@ const handlePayment = async () => {
                   <span className={styles.discountedPrice}>
                     ₹{variant.price}
                   </span>
+                  {variant.current_stock > 0 ? (
                   <span className={styles.originalPrice}>₹{variant.mrp}</span>
+
+                  ) : ""}
                 </div>
 
-                <div className={styles.quantityCtn}>
-                  <button
-                    className={clsx(
-                      styles.iconBtn,
-                      styles.iconBtnMinus,
-                      decreaseActive == true ? styles.isActive : ""
-                    )}
-                    onClick={decrease}
-                  >
+                {variant.current_stock > 0 ? (
+                  <div className={styles.quantityCtn}>
+                    <button
+                      className={clsx(
+                        styles.iconBtn,
+                        styles.iconBtnMinus,
+                        decreaseActive ? styles.isActive : ""
+                      )}
+                      onClick={decrease}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={clsx(styles.icon)}
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 12h8" />
+                      </svg>
+                    </button>
+                    <span className={styles.quantityText}>{currentQty}</span>
+                    <button
+                      className={clsx(
+                        styles.iconBtn,
+                        styles.iconBtnPlus,
+                        increaseActive ? styles.isActive : ""
+                      )}
+                      onClick={increase}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={clsx(styles.icon)}
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 12h8" />
+                        <path d="M12 8v8" />
+                      </svg>
+                    </button>
+                  </div>
+                ) : (
+                  <div className={styles.outOfStockCtn}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -536,37 +581,15 @@ const handlePayment = async () => {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={clsx(styles.icon)}
+                      className={styles.icon}
                     >
                       <circle cx="12" cy="12" r="10" />
-                      <path d="M8 12h8" />
+                      <line x1="12" x2="12" y1="8" y2="12" />
+                      <line x1="12" x2="12.01" y1="16" y2="16" />
                     </svg>
-                  </button>
-                  <span className={styles.quantityText}>{currentQty}</span>
-                  <button
-                    className={clsx(
-                      styles.iconBtn,
-                      styles.iconBtnPlus,
-                      increaseActive == true ? styles.isActive : ""
-                    )}
-                    onClick={increase}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={clsx(styles.icon)}
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M8 12h8" />
-                      <path d="M12 8v8" />
-                    </svg>
-                  </button>
-                </div>
+                    <span className={styles.text}>Out of Stock</span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -634,7 +657,10 @@ const handlePayment = async () => {
                 </div>
 
                 <div className={clsx(styles.pricingRow, styles.discountCtn)}>
-                  <span className={styles.chargeLabel}>Discount {appliedPromoCode && `(${appliedPromoCode.discount}%)`}</span>
+                  <span className={styles.chargeLabel}>
+                    Discount{" "}
+                    {appliedPromoCode && `(${appliedPromoCode.discount}%)`}
+                  </span>
                   <span
                     className={clsx(styles.priceValue, styles.discountValue)}
                   >
@@ -669,11 +695,17 @@ const handlePayment = async () => {
               </div>
               <div className={styles.totalCtn}>
                 <span className={styles.totalLabel}>Total:</span>
-                <span className={styles.totalAmount}>₹{totals.totalRupees.toFixed(2)}</span>
+                <span className={styles.totalAmount}>
+                  ₹{totals.totalRupees.toFixed(2)}
+                </span>
               </div>
             </div>
           </div>
-          <StepCTA currentStep={1} btnStatus="active" onClick={handlePaymentClick} />
+          <StepCTA
+            currentStep={1}
+            btnStatus="active"
+            onClick={handlePaymentClick}
+          />
         </div>
       </div>
     </div>

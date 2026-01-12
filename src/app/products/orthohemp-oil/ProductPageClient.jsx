@@ -16,13 +16,12 @@ const ProductPageClient = ({ product, variants }) => {
   const increaseActive = currentQty < MAX_QTY;
 
   const decrease = () => {
-    setCurrentQty((qty) => Math.max(qty - 1, MIN_QTY));
+    setCurrentQty((prevQty) => Math.max(prevQty - 1, MIN_QTY));
   };
 
   const increase = () => {
-    setCurrentQty((qty) => Math.min(qty + 1, MAX_QTY));
+    setCurrentQty((prevQty) => Math.min(prevQty + 1, MAX_QTY));
   };
-
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {

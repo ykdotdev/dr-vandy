@@ -1,0 +1,22 @@
+.mainContainer {
+    /* Landing Page- Desktop */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacings-sm);
+    /* padding-bottom: var(--spacings-xs); */
+    gap: var(--spacings-xl5);
+    isolation: isolate;
+    width: 99dvw;
+    position: relative;
+    height: fit-content;
+
+    /* White */
+    background: #F1F7FA;
+}
+
+.body{
+    background: #F1F7FA;
+}
