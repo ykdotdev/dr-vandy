@@ -1,15 +1,15 @@
 "use client";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import StepCTA from "@/app/components/StepCTA";
+import StepCTA from "@/components/StepCTA";
 import clsx from "clsx";
-import BackBtn from "../components/BackBtn";
+import BackBtn from "@/components/BackBtn";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { shippingSchema } from "@/schemas/shipping.schema";
 import { promoSchema } from "@/schemas/promo.schema";
 import { useRouter } from "next/navigation";
-import { useToast } from "../components/ToastProvider";
+import { useToast } from "@/components/ToastProvider";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
       const router = useRouter();

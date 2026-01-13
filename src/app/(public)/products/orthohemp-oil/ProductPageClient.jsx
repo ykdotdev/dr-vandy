@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CheckoutBtn from "../../components/CheckoutBtn";
+import CheckoutBtn from "@/components/CheckoutBtn";
 import styles from "./page.module.css";
 import clsx from "clsx";
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import clsx from "clsx";
 import ProductPageClient from "./ProductPageClient";
-import BackBtn from "../../components/BackBtn";
+import BackBtn from "@/components/BackBtn";
 
 const MainPageClient = ({product, variants}) => {
 

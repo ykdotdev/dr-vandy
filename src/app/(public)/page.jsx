@@ -1,11 +1,11 @@
 "use client";
 
-import { supabase } from "@/lib/supabaseClient";
+// import { supabase } from "@/lib/supabaseClient";
 
 import React from "react";
 import styles from "./page.module.css";
-import FeatureCard from "./components/FeatureCard";
-import CTA from "./components/CTA";
+import FeatureCard from "@/components/FeatureCard";
+import CTA from "@/components/CTA";
 import clsx from "clsx";
 
 const LandingPage = () => {

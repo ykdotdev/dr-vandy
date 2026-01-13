@@ -87,7 +87,7 @@ html {
 
 html,
 body {
-  background-color: #fcfdf8;
+  background-color: #F1F7FA;
   color: var(--black);
   /* Fallback */
   overscroll-behavior: contain;
