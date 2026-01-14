@@ -4,6 +4,7 @@ import OrdersClient from "./OrdersClient";
 import clsx from "clsx";
 import { useState } from "react";
 import styles from './page.module.css'
+import InventoryClient from "./InventoryClient";
 
 const page = () => {
   const [currentPage, setCurrentPage] = useState("orders");
@@ -12,7 +13,7 @@ const page = () => {
             setCurrentPage(requiredPage);
           }
         };
-
+        console.log(currentPage)
   return (
     <div className={styles.mainContainer}>
       <div className={styles.navbar}>
@@ -95,7 +96,7 @@ const page = () => {
         </button>
       </div>
       {currentPage === "orders" && <OrdersClient />}
-      {/* {currentPage === "inventory" &&& <Inventory/>} */}
+      {currentPage === "inventory" && <InventoryClient/>}
     </div>
   );
 }
