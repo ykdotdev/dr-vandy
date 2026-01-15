@@ -1303,7 +1303,7 @@
 
 .labelInfoCtn .infoBtn {
     /* Info_Button */
-
+    cursor: pointer;
     /* Auto layout */
     display: flex;
     flex-direction: row;

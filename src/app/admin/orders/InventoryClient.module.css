@@ -1,0 +1,393 @@
+.mainInventoryCtn{
+/* Inventory Page- Desktop */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-bottom: var(--spacings-xs); */
+    gap: var(--spacings-xl4);
+    isolation: isolate;
+    position: relative;
+    align-self: stretch;
+}
+
+.pageHeader{
+/* Page_Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10%;
+    flex-wrap: wrap;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.itemDetailsCtn{
+/* Item_Details_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    flex-grow: 0;
+}
+
+.itemDetailsCtn {
+    /* Item_Details_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    /* margin: 0 auto; */
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+.imageCtn {
+    /* Image_Container */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    overflow: hidden;
+    width: 8rem;
+    aspect-ratio: 15 / 17;
+
+    /* Light Gray */
+    background: #E9ECEC;
+    border-radius: var(--border-radius-xs);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.imageCtn .productImage {
+    /* IMG_BOTTLE */
+
+    width: 100%;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+.textCtn {
+    /* Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xs);
+    height: fit-content;
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 1;
+}
+
+.productTitle {
+    /* Dr. Vandy’s OrthoHemp™ Pain Relief Oil */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-l-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    /* align-self: stretch; */
+    flex-grow: 0;
+}
+
+.descriptionText{
+/* Fast Relief • Reduces Inflammation • Improves Mobility */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.variantCards{
+/* Variant_Cards */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+    gap: var(--spacings-sm);
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.variantCard{
+/* Variant_Card_01 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: var(--spacings-xl);
+
+    margin: 0 auto;
+    width: 100%;
+    height: fit-content;
+
+    background: #FFFFFF;
+    border-radius: var(--border-radius-l);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.variantCard .header{
+/* Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.header .variantName{
+/* Pack of 1 */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-l-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.editBtn{
+/* Edit_Button */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-xs) var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+    background: rgba(185, 28, 25, 0.2);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+/* Edit Details */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-s-text);
+
+    /* Red */
+    color: var(--red);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.variantDetailsCtn{
+/* Variant_Details_Container */
+
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    row-gap: var(--spacings-s);
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.detailRow{
+/* Detail_Row */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.detailRow .label {
+    /* 2 Items */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    /* line-height: 22px; */
+    /* identical to box height */
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.detailRow .value {
+    /* ₹399.99 */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-xs-text);
+    /* line-height: 22px; */
+    /* identical to box height */
+    letter-spacing: 0.02em;
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.reservedStockRow .labelInfoCtn {
+    /* Label_Info_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 0.4rem;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.labelInfoCtn .infoBtn {
+    /* Info_Button */
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    /* align-self: stretch; */
+    flex-grow: 0;
+}
+
+.infoBtn .icon {
+    /* Vector */
+    height: var(--font-sizes-xs-text);
+    /* Gray */
+    fill: #6E7070;
+    /* White */
+    color: #FFFFFF;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

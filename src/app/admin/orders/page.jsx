@@ -7,7 +7,7 @@ import styles from './page.module.css'
 import InventoryClient from "./InventoryClient";
 
 const page = () => {
-  const [currentPage, setCurrentPage] = useState("orders");
+  const [currentPage, setCurrentPage] = useState("inventory");
         const handleActivePage = (requiredPage) => {
           if (currentPage != requiredPage) {
             setCurrentPage(requiredPage);

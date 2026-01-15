@@ -7,7 +7,7 @@ export async function POST(req) {
     console.log("Incoming body:", body);
 
     const { data, error } = await supabase
-      .from("orders")
+      .from("product_variants")
       .select("*")
       .order("created_at", { ascending: false });
 
