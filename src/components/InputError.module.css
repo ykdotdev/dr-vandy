@@ -1,0 +1,17 @@
+.errorCtn{
+    display: flex;
+    align-items: center;
+    gap: var(--spacings-xs);
+    order: 2;
+    color: var(--red);
+}
+
+.icon{
+    height: var(--font-sizes-xs-text);
+    aspect-ratio: 1 / 1;
+}
+
+.errorMsg{
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+}

@@ -2,50 +2,93 @@
 
 // import { supabase } from "@/lib/supabaseClient";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./page.module.css";
 import FeatureCard from "@/components/FeatureCard";
 import CTA from "@/components/CTA";
 import clsx from "clsx";
+import { useMediaQuery } from "react-responsive";
 
 const LandingPage = () => {
+const [menuOpen, setMenuOpen] = useState(false);
+
+const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
+const isMobile = useMediaQuery({ query: "(max-width: 470px)" });
+
+const [mounted, setMounted] = React.useState(false);
+
+React.useEffect(() => {
+  setMounted(true);
+}, []);
+
 
   return (
     <div className={styles.mainContainer}>
       <div className={styles.navbar}>
         <h1 className={styles.logo}>Dr. Vandy’s™</h1>
+        {mounted && (
+          <div
+            className={clsx(
+              styles.navMenu,
+              isMobile && styles.mobileNavMenu,
+              isMobile && menuOpen && styles.open,
+            )}
+          >
+            {/* Nav items */}
+            <div className={styles.navItems}>
+              <a className={clsx(styles.navItem, styles.navItem01)}>Product</a>
+              <a className={clsx(styles.navItem, styles.navItem02)}>About</a>
+              <a className={clsx(styles.navItem, styles.navItem03)}>Contact</a>
+            </div>
 
-        <div className={styles.navMenu}>
-          <div className={styles.navItems}>
-            <a className={clsx(styles.navItem, styles.navItem01)}>Product</a>
-            <a className={clsx(styles.navItem, styles.navItem02)}>About</a>
-            <a className={clsx(styles.navItem, styles.navItem03)}>Contact</a>
+            {/* CTA */}
+            <div className={styles.ctaContainer}>
+              <button className={styles.ctaText}>Buy Now</button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={styles.ctaIcon}
+              >
+                <path d="M18 8L22 12L18 16" />
+                <path d="M2 12H22" />
+              </svg>
+            </div>
+            {/* Mobile toggle button */}
+            {isMobile && (
+              <button
+                className={clsx(styles.navArrow, menuOpen && styles.open)}
+                onClick={() => setMenuOpen((prev) => !prev)}
+                aria-label="Toggle navigation"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <path d="M4 5h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 19h16" />
+                </svg>
+              </button>
+            )}
           </div>
-
-          <div className={styles.ctaContainer}>
-            <button className={styles.ctaText}>Buy Now</button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={styles.ctaIcon}
-            >
-              <path d="M18 8L22 12L18 16" />
-              <path d="M2 12H22" />
-            </svg>
-          </div>
-        </div>
+        )}
       </div>
 
       <div className={styles.heroSection}>
         <h1 className={styles.heroTitle}>Dr. Vandy’s</h1>
 
         <div className={styles.primaryCtn}>
-          <img src="/bottle.png" className={styles.bottleImg} />
           <div className={styles.mainSection}>
             <div className={styles.productTextCtn}>
               <span className={styles.productTitle}>
@@ -55,7 +98,28 @@ const LandingPage = () => {
                 Doctor-Formulated | CBD-Enriched | 100% Plant-Based Relief
               </span>
             </div>
-            <CTA productSlug="orthohemp-oil" label="Buy Now" />
+            <div className={styles.ctaRow}>
+              <CTA productSlug="orthohemp-oil" label="Buy Now" />
+              <div className={styles.learnMoreBtn}>
+                <span className={styles.label}>Learn More</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <path d="m5 9 7-7 7 7" />
+                  <path d="M12 16V2" />
+                  <circle cx="12" cy="21" r="1" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           <div className={styles.secondarySection}>
@@ -84,11 +148,18 @@ const LandingPage = () => {
               </svg>
             </div>
           </div>
+          <img src="/bottle.png" className={styles.bottleImg} />
         </div>
 
         <div className={styles.featureStrip}>
           <div className={styles.card01}>
-            <span className={styles.text}>POWERFUL TRIPLE ACTION RELIEF</span>
+            <span className={styles.text}>
+              {!mounted
+                ? "POWERFUL TRIPLE ACTION RELIEF"
+                : isTablet
+                  ? "TRIPLE ACTION RELIEF"
+                  : "POWERFUL TRIPLE ACTION RELIEF"}
+            </span>
           </div>
           <div className={styles.card02}>
             <span className={styles.text}>
@@ -107,10 +178,18 @@ const LandingPage = () => {
       <div className={styles.aboutSection}>
         <div className={styles.aboutCard}>
           <span className={styles.headingText}>
-            What Makes Our Relief Different?
+            {!mounted
+              ? "What Makes Our Relief Different?"
+              : isMobile
+                ? "About Us"
+                : "What Makes Our Relief Different?"}
           </span>
           <span className={styles.subheadingText}>
-            Our mission, our process, and the science behind natural healing.
+            {!mounted
+              ? "Our mission, our process, and the science behind natural healing."
+              : isTablet
+                ? ""
+                : "Our mission, our process, and the science behind natural healing."}
           </span>
 
           <div className={styles.aboutCTA}>
@@ -132,7 +211,7 @@ const LandingPage = () => {
       </div>
 
       <div className={styles.featureSection}>
-        <FeatureCard/>
+        <FeatureCard />
       </div>
 
       <div className={styles.testimonialSection}>
@@ -181,7 +260,11 @@ const LandingPage = () => {
       <div className={styles.footer}>
         <span className={styles.privacyPolicyText}>Privacy Policy</span>
         <span className={styles.copyrightText}>
-          Copyright © 2025 drvandys.com - All Rights Reserved.
+          {!mounted
+            ? "Copyright © 2025 drvandys.com - All Rights Reserved."
+            : isTablet
+              ? "© 2025 Dr. Vandy’s"
+              : "Copyright © 2025 drvandys.com - All Rights Reserved."}
         </span>
 
         <div className={styles.iconsCtn}>

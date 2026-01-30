@@ -214,8 +214,6 @@ line-height: 120%;
 
     font-weight: 500;
     font-size: var(--font-sizes-title);
-    line-height: 24rem;
-    /* identical to box height */
     text-align: center;
     letter-spacing: 0.02rem;
 
@@ -242,10 +240,11 @@ line-height: 120%;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 40rem;
+    column-gap: 30%;
     padding: var(--spacings-l);
 
-    height: 540px;
+    max-height: 54rem;
+    aspect-ratio: 5 / 2;
 
     background: rgba(252, 242, 179, 0.4);
     border-radius: var(--border-radius-s);
@@ -343,6 +342,26 @@ line-height: 120%;
     flex-grow: 0;
 }
 
+.ctaRow{
+/* CTA_Row */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 .secondarySection {
     /* Secondary_Section */
 
@@ -391,7 +410,7 @@ line-height: 120%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1.2rem 1.2rem 1.2rem var(--spacings-sm);
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
     gap: var(--spacings-xs);
 
     /* width: fit-content; */
@@ -435,7 +454,7 @@ line-height: 120%;
     /* Vector */
     /*     
         width: 12.6px; */
-    height: 1.8rem;
+    height: var(--font-sizes-s-text);
 
     /* Black */
     color: var(--black);
@@ -460,7 +479,9 @@ line-height: 120%;
     align-items: center;
     padding: 0px;
     height: fit-content;
-
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 100%;
 
     /* Inside auto layout */
     order: 2;
@@ -477,8 +498,7 @@ line-height: 120%;
     justify-content: center;
     align-items: center;
     padding: var(--spacings-sm);
-    width: 20%;
-
+    height: 100%;
     /* Dark Gray */
     border-right: 1px solid var(--dark-gray);
 
@@ -494,7 +514,6 @@ line-height: 120%;
     white-space: normal;
     font-weight: 700;
     font-size: var(--font-sizes-s-text);
-    line-height: 2.4rem;
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -515,8 +534,7 @@ line-height: 120%;
     justify-content: center;
     align-items: center;
     padding: var(--spacings-sm);
-    width: 60%;
-
+    height: 100%;
     /* Inside auto layout */
     order: 1;
     flex-grow: 0;
@@ -527,8 +545,8 @@ line-height: 120%;
 
     font-weight: 400;
     font-size: var(--font-sizes-m-text);
-    line-height: 2.4rem;
     letter-spacing: 0.02rem;
+    text-align: center;
 
     /* Black */
     color: var(--black);
@@ -541,12 +559,11 @@ line-height: 120%;
 
 .card03 {
     /* Card_03 */
-
+    height: 100%;
     padding: 0 var(--spacings-sm);
-
-    /* margin: 0 auto; */
-    width: 20%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* Dark Gray */
     border-left: 1px solid var(--dark-gray);
 
@@ -570,7 +587,6 @@ line-height: 120%;
     /* Inside auto layout */
     order: 0;
     flex-grow: 0;
-    align-self: stretch;
 }
 
 .container .countText {
@@ -647,7 +663,7 @@ line-height: 120%;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacings-xl2);
-    gap: var(--spacings-ml);
+    gap: var(--spacings-m);
     /*Fallback Gap*/
 
     height: fit-content;
@@ -674,7 +690,6 @@ line-height: 120%;
 
     font-weight: 500;
     font-size: var(--font-sizes-l-text);
-    line-height: 5.4rem;
     letter-spacing: 0.02rem;
 
     /* White */
@@ -697,7 +712,6 @@ line-height: 120%;
     margin: 0 auto;
     font-weight: 400;
     font-size: var(--font-sizes-m-text);
-    line-height: 3.2rem;
 
     /* White */
     color: var(--white);
@@ -887,7 +901,6 @@ line-height: 120%;
 
     font-weight: 500;
     font-size: var(--font-sizes-l-text);
-    line-height: 4.8rem;
     text-align: center;
     letter-spacing: 0.02rem;
 
@@ -1051,7 +1064,7 @@ line-height: 120%;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacings-sm) 0 0 0;
-    gap: var(--spacings-xl6);
+    gap: var(--spacings-m);
     height: fit-content;
 
     border-top: 1px solid var(--gray);
@@ -1140,4 +1153,138 @@ line-height: 120%;
 
 .footer .privacyPolicyText:hover, .footer .footerIcon:hover{
     transform: scale(1.01);
+}
+
+@media (max-width: 1120px) {
+    .primaryCtn{
+        gap: var(--spacings-l);
+        max-height: 40rem;
+    }
+    .primaryCtn
+    .secondarySection{
+        display: none;
+    }
+    .bottleImg{
+        all: unset;
+        justify-self: flex-end;
+        min-height: 0;
+        min-width: 0;
+        height:  100%;
+    }
+
+    .learnMoreBtn{
+        height: 100%;
+    }
+
+}
+@media (max-width: 768px) {
+    .heroTitle{
+        display: none;
+    }
+    .primaryCtn {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 1fr;
+        max-height: 64rem;
+        aspect-ratio:initial;
+    }
+
+    .primaryCtn .mainSection{
+        justify-self: center;
+    }
+    .primaryCtn .secondarySection {
+        display: none;
+    }
+
+    .productTextCtn{
+        text-align: center;
+    }
+    
+    .ctaRow{
+        align-self: center;
+    }
+
+    .bottleImg {
+        all: unset;
+        justify-self: center;
+        min-height: 0;
+        min-width: 0;
+        height: 100%;
+    }
+
+    .learnMoreBtn {
+        height: 100%;
+    }
+
+    .featureStrip{
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .card02{
+        display: none;
+    }
+
+    .aboutCard{
+        align-self: stretch;
+    }
+
+    .aboutCard .headingText{
+        margin: 0;
+    }
+
+    .testimonialSection{
+        padding: var(--spacings-l);
+    }
+
+    .testimonialCard{
+        align-self: stretch;
+    }
+
+    .copyrightText{
+        content: © 2026 YourSite;
+    }
+
+}
+
+/* mobile shell */
+.mobileNavMenu {
+    border-radius: var(--border-radius-pill);
+    gap: var(--spacings-sm);
+    transition: all 0.3s ease;
+}
+
+.mobileNavMenu .icon{
+    user-select: none;
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+    color: var(--black);
+}
+
+
+
+/* menu items */
+.mobileNavMenu .navItems {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    gap: var(--spacings-sm);
+    transition: opacity 0.25s ease;
+}
+
+.mobileNavMenu .ctaContainer{
+    display: none;
+}
+
+.mobileNavMenu.open .navItems {
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+}
+
+.navArrow {
+    transition: transform 0.25s ease;
+}
+
+.navArrow.open {
+    transform: rotate(90deg);
 }

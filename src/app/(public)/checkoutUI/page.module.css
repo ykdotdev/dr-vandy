@@ -209,6 +209,7 @@
 
 }
 
+
 .label {
     /* Full name * */
     font-weight: 400;
@@ -253,7 +254,7 @@
     /* Placeholder Text */
 
     font-weight: 400;
-
+    font-size: var(--font-sizes-xs-text);
     /* Gray */
     color: #6E7070;
 }
@@ -334,7 +335,6 @@
 
 .selectWrapper {
     position: relative;
-    flex: 1;
     display: flex;
     align-self: stretch;
     flex-direction: row;
@@ -1158,7 +1158,7 @@
     /* Inside auto layout */
     flex: none;
     order: 1;
-    align-self: stretch;
+    /* align-self: stretch; */
     flex-grow: 0;
 }
 
@@ -1167,8 +1167,6 @@
 
     font-weight: 600;
     font-size: var(--font-sizes-xs-text);
-    line-height: 1.6;
-
     /* Black */
     color: #07080C;
 
@@ -1395,3 +1393,11 @@
 }
 
 /* #endregion */
+
+@media (max-width: 1000px){
+    .layoutFrame{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: var(--spacings-l)
+    }
+}

@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px var(--spacings-xl8);
+    /* padding: 0px var(--spacings-xl8); */
     gap: var(--spacings-l);
 
     height: fit-content;
@@ -30,7 +30,7 @@
     /* Auto layout */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0px;
     gap: var(--spacings-ml);
@@ -60,16 +60,18 @@
 }
 
 .featureCard .icon{
-    /* Vector */
-    
-        width: 16rem;
-        height: 16rem;
-        
-    
-        /* Inside auto layout */
-        flex: none;
-        order: 0;
-        flex-grow: 0;
+/* Vector */
+
+    width: 24dvw;
+    height: 24dvw;
+    max-width: 16rem;
+    max-height: 16rem;
+    min-width: 8rem;
+    min-height: 8rem;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .icon1{
@@ -98,8 +100,10 @@
         padding: var(--spacings-m);
         gap: var(--spacings-m);
     
-        width: 40dvw;
+        width: 56dvw;
         max-width: 56rem;
+        max-width: 56rem;
+        align-self: stretch;
         height: fit-content;
     
         /* Black */

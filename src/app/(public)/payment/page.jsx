@@ -3,16 +3,16 @@
 import { useSearchParams } from "next/navigation";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import StepCTA from "../components/StepCTA";
+// import StepCTA from "../components/StepCTA";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
+import AnimatedCTA from "@/components/AnimatedCTA";
 
 const Page = () => {
   const searchParams = useSearchParams();
   const orderID = searchParams.get("oID");
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     if (!orderID) return;
@@ -159,17 +159,7 @@ const Page = () => {
                 </div>
               </div>
             )}
-            <button
-              onClick={()=>{
-                router.push("/");
-              }}
-              className={
-                styles.stepCTA
-              }
-            >
-              <div className={styles.label}>Continue Shopping</div>
-              
-            </button>
+            <AnimatedCTA/>
           </div>
         </div>
       )}

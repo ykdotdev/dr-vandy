@@ -4,10 +4,18 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const FeatureCard = () => {
+  const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
@@ -59,9 +67,16 @@ const FeatureCard = () => {
           <path d="m7 3 3 6h4" />
         </svg>
       ),
-      heading: "Pain & Inflammation Relief",
-      subheading:
-        "Specifically formulated to reduce stiffness, soreness, and inflammation effectively",
+      heading: !mounted
+        ? "Pain & Inflammation Relief"
+        : isTablet
+          ? "Pain Relief Formula"
+          : "Pain & Inflammation Relief",
+      subheading: !mounted
+        ? "Specifically formulated to reduce stiffness, soreness, and inflammation effectively"
+        : isTablet
+          ? "Herbal CBD blend for holistic relief"
+          : "Specifically formulated to reduce stiffness, soreness, and inflammation effectively",
     },
     {
       icon: (
@@ -82,9 +97,16 @@ const FeatureCard = () => {
           <path d="m22 16-5.5 5.5L14 19" />
         </svg>
       ),
-      heading: "Daily & Long-Term Safe",
-      subheading:
-        "Gentle, natural, and safe for everyday use, supporting long-term wellness",
+      heading: !mounted
+        ? "Daily & Long-Term Safe"
+        : isTablet
+          ? "Safe Everyday Use"
+          : "Daily & Long-Term Safe",
+      subheading: !mounted
+        ? "Gentle, natural, and safe for everyday use, supporting long-term wellness."
+        : isTablet
+          ? "Gentle, natural, safe daily support for long-term wellness."
+          : "Gentle, natural, and safe for everyday use, supporting long-term wellness.",
     },
   ];
 

@@ -10,6 +10,7 @@ import { shippingSchema } from "@/schemas/shipping.schema";
 import { promoSchema } from "@/schemas/promo.schema";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ToastProvider";
+import InputError from "@/components/InputError";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
       const router = useRouter();
@@ -204,7 +205,7 @@ const handlePayment = async () => {
             }),
           });
 
-          // router.push(`/payment/?oID=${razorpayOrder.id}`);
+          router.push(`/payment/?oID=${razorpayOrder.id}`);
         } catch (verifyError) {
           console.error("Payment verification failed:", verifyError);
           showToast("Payment verification failed", "error");
@@ -270,21 +271,6 @@ const handlePayment = async () => {
             </div>
             <span className={styles.stepTitle}>Shipping</span>
           </div>
-          {/* <button className={styles.closeBtn}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={styles.icon}
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          </button> */}
         </div>
         <form className={styles.contentForm}>
           {/* Full Name */}
@@ -298,6 +284,7 @@ const handlePayment = async () => {
               placeholder="Enter your full name"
               className={styles.input}
             />
+            {errors.fullName && <InputError message={errors.fullName.message} />}
           </div>
 
           {/* Email & Phone */}
@@ -312,14 +299,10 @@ const handlePayment = async () => {
                 placeholder="Enter your email address"
                 className={clsx(
                   styles.input,
-                  errors.email && styles.inputError
+                  errors.email && styles.inputError,
                 )}
               />
-              {errors.email && (
-                <span className={styles.errorMessage}>
-                  {errors.email.message}
-                </span>
-              )}
+              {errors.email && <InputError message={errors.email.message} />}
             </div>
 
             <div className={clsx(styles.subColumn, styles.phoneNumber)}>
@@ -332,14 +315,11 @@ const handlePayment = async () => {
                 placeholder="Enter your phone number"
                 className={clsx(
                   styles.input,
-                  errors.phone && styles.inputError
+                  errors.phone && styles.inputError,
                 )}
               />
-              {errors.phone && (
-                <span className={styles.errorMessage}>
-                  {errors.phone.message}
-                </span>
-              )}
+
+              {errors.phone && <InputError message={errors.phone.message} />}
             </div>
           </div>
 
@@ -354,6 +334,7 @@ const handlePayment = async () => {
               placeholder="Enter your address"
               className={styles.input}
             />
+            {errors.address && <InputError message={errors.address.message} />}
           </div>
 
           {/* City & State */}
@@ -368,12 +349,14 @@ const handlePayment = async () => {
                 placeholder="Enter your city"
                 className={styles.input}
               />
+              {errors.city && <InputError message={errors.city.message} />}
             </div>
 
             <div className={clsx(styles.subColumn, styles.stateDropdown)}>
               <label htmlFor="state" className={styles.label}>
                 State *
               </label>
+
               <div className={styles.selectWrapper}>
                 <select
                   {...register("state")}
@@ -452,6 +435,9 @@ const handlePayment = async () => {
                 placeholder="Enter your pincode"
                 className={styles.input}
               />
+              {errors.pincode && (
+                <InputError message={errors.pincode.message} />
+              )}
             </div>
           </div>
 
@@ -470,6 +456,7 @@ const handlePayment = async () => {
                   required
                   className={styles.inputRadio}
                 />
+
                 <input
                   type="hidden"
                   name="shipping"
@@ -517,9 +504,10 @@ const handlePayment = async () => {
                     ₹{variant.price}
                   </span>
                   {variant.current_stock > 0 ? (
-                  <span className={styles.originalPrice}>₹{variant.mrp}</span>
-
-                  ) : ""}
+                    <span className={styles.originalPrice}>₹{variant.mrp}</span>
+                  ) : (
+                    ""
+                  )}
                 </div>
 
                 {variant.current_stock > 0 ? (
@@ -528,7 +516,7 @@ const handlePayment = async () => {
                       className={clsx(
                         styles.iconBtn,
                         styles.iconBtnMinus,
-                        decreaseActive ? styles.isActive : ""
+                        decreaseActive ? styles.isActive : "",
                       )}
                       onClick={decrease}
                     >
@@ -551,7 +539,7 @@ const handlePayment = async () => {
                       className={clsx(
                         styles.iconBtn,
                         styles.iconBtnPlus,
-                        increaseActive ? styles.isActive : ""
+                        increaseActive ? styles.isActive : "",
                       )}
                       onClick={increase}
                     >
@@ -621,7 +609,7 @@ const handlePayment = async () => {
                   placeholder="Discount Code"
                   className={clsx(
                     styles.input,
-                    promoErrors.promo && styles.inputError
+                    promoErrors.promo && styles.inputError,
                   )}
                 />
               </div>

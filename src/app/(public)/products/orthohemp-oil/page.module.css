@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 18px;
-    gap: 0;
+    padding: var(--spacings-xs);
+    gap: var(--spacings-m);
 
     /* position: relative; */
     /* width: 1440px; */
@@ -82,7 +82,6 @@
     padding: var(--spacings-s) var(--spacings-m);
     gap: 0;
 
-
     /* Black */
     background: #07080C;
     border-radius: var(--border-radius-pill);
@@ -121,7 +120,7 @@
     padding: var(--spacings-s) var(--spacings-m);
     gap: 0;
 
-
+    height: fit-content;
     /* Black */
     border: 1px solid #07080C;
     border-radius: var(--border-radius-pill);
@@ -183,7 +182,7 @@
         justify-content: space-evenly;
         align-items: flex-start;
         padding: 0 var(--spacings-m);
-        /* gap: var(--spacings-s);   */
+        gap: var(--spacings-m);  
     
         /* margin: 0 auto; */
         /* width: 488px;
@@ -243,7 +242,6 @@
 
     font-weight: 600;
     font-size: var(--font-sizes-l-text);
-    line-height: 4.8rem;
 
     /* Black */
     color: #07080C;
@@ -276,7 +274,6 @@
 
     font-weight: 400;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -294,8 +291,6 @@
 
     font-weight: 500;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
-    /* identical to box height */
 
     /* Gray */
     color: #6E7070;
@@ -352,7 +347,6 @@
 
     font-weight: 700;
     font-size: var(--font-sizes-l-text);
-    line-height: 4.8rem;
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -477,8 +471,6 @@
 
     font-weight: 400;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
-    /* identical to box height */
     letter-spacing: 0.02rem;
 
     /* White */
@@ -550,7 +542,6 @@
     width: 1ch;
     font-weight: 500;
     font-size: var(--font-sizes-s-text);
-    line-height: 2.4rem;
 
     /* Black */
     color: #07080C;
@@ -624,6 +615,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0px;
+    gap: var(--spacings-sm);
 
     /* Inside auto layout */
     flex: none;
@@ -660,7 +652,7 @@
 /* Product_Image */
     
     height: 100%;
-    
+    width: 100%;
     /* Inside auto layout */
     flex: none;
     order: 0;
@@ -669,6 +661,7 @@
     opacity: 0;
         /* transform: translateY(8px) scale(0.98); */
         animation: imageEnter 0.3s ease-out forwards;
+        
 }
 
 @keyframes imageEnter {
@@ -727,8 +720,6 @@
 
     font-weight: 500;
     font-size: var(--font-sizes-m-text);
-    line-height: 2.4rem;
-    /* identical to box height */
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -773,8 +764,8 @@
     padding: 0;
     gap: 0;
 
-    width: 4rem;
-    height: 4rem;
+    width: var(--font-sizes-l-text);
+    height: var(--font-sizes-l-text);
 
     /* Black */
     border: 1px solid #07080C;
@@ -789,8 +780,6 @@
     
     font-weight: 500;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
-    /* identical to box height */
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -808,8 +797,6 @@
 
     font-weight: 500;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
-    /* identical to box height */
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -899,7 +886,6 @@
 /* How to Use */
     font-weight: 500;
     font-size: var(--font-sizes-s-text);
-    line-height: 2.4rem;
 
     /* Gray */
     color: #6E7070;
@@ -955,7 +941,6 @@
     opacity: 0;
     font-weight: 400;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
 
     /* Black */
     color: #07080C;
@@ -1011,8 +996,6 @@
 
     font-weight: 400;
     font-size: var(--font-sizes-xs-text);
-    line-height: 2.4rem;
-    /* identical to box height */
     letter-spacing: 0.02rem;
 
     /* Gray */
@@ -1027,40 +1010,105 @@
 
 
 .imageSliderCtn{
-    display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        /* space between dots */
-        margin-top: 1rem;
+    /* Image_Slider_Container */
+    
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        gap: var(--spacings-m);
+    
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
 }
 
-.dot{
-width: 10px;
-    height: 10px;
-    background-color: gray;
+.tabletTopCtn{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+   
+}
+
+@media (max-width: 1000px) {
+    .middleCtn{
+        grid-template-columns: 1fr;
+    }
+
+    .leftCtn{
+        align-self: flex-start;
+    }
+
+    .rightCtn{
+        align-self: flex-start;
+        gap: var(--spacings-m);
+    }
+
+    .centerCtn{
+        width: 50dvw;
+        margin: 0 auto;
+    }
+    .rightCtn{
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .middleCtn{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr ;
+    }
+    
+}
+
+@media (max-width: 470px){
+    .tabletTopCtn {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacings-l);
+    }
+}
+
+
+/* arrows */
+.prev,
+.next {
+    height: var(--font-sizes-s-text);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    /* circle */
-    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.dot.active {
+.prev .icon, .next .icon{
+    color: var(--black);
+}
+
+
+/* pagination below */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacings-xs);
+}
+
+.pagination :global(.swiper-pagination-bullet) {
+    width: 1.2rem;
+        height: 1.2rem;
+        background-color: var(--gray);
+        border-radius: 50%;
+        /* circle */
+        transition: all 0.3s ease;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
     width: 30px;
-    /* pill width */
-    border-radius: 20px;
-    /* pill shape */
-    background-color: #4caf50;
-    /* active color */
-}
-
-.slide {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: 1;
+        /* pill width */
+        border-radius: 20px;
+        /* pill shape */
+        background-color: var(--gold);
+        /* active color */
 }
