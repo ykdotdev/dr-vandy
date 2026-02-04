@@ -7,6 +7,7 @@ import CTA from "@/components/CTA";
 import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
 import { sizeMobile, sizeTablet } from "@/config/constants";
+import FeatureCardSection from "@/components/FeatureCardSection";
 
 const LandingPage = () => {
 const [menuOpen, setMenuOpen] = useState(false);
@@ -211,10 +212,10 @@ React.useEffect(() => {
         </div>
       </div>
 
-      <div className={styles.featureSection}>
+      {/* <div className={styles.featureSection}>
         <FeatureCard />
-      </div>
-
+      </div> */}
+      <FeatureCardSection/>
       <div className={styles.testimonialSection}>
         <div className={styles.testimonialCard}>
           <span className={styles.iconContainer}>

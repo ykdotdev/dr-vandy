@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { sizeMobile, sizeTablet } from "@/config/constants";
+import Image from "next/image";
 
 
 const ProductPageClient = ({ product, variants }) => {
@@ -26,7 +27,6 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
   const [selectedVariant, setSelectedVariant] = useState(variants[0]);
   const [currentQty, setCurrentQty] = useState(MIN_QTY);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const photoIndexCount = selectedVariant?.images_urls?.length;
 
    const MAX_QTY = Math.min(selectedVariant.current_stock, 9);
   const decreaseActive = currentQty > MIN_QTY;
@@ -45,20 +45,26 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const [imageArr, setImageArr] = useState([]);
+  const photoIndexCount = imageArr?.length;
+
+
   useEffect(() => {
     const maxQty = Math.min(selectedVariant.current_stock, 9);
 
     setCurrentQty((prevQty) => Math.max(MIN_QTY, Math.min(prevQty, maxQty)));
+
+    setImageArr(selectedVariant?.images_urls);
   }, [selectedVariant]);
 
   const handlePreload = ()=>{
     if (currentPhotoIndex < photoIndexCount) {
       {
-        selectedVariant?.images_urls[currentPhotoIndex + 1] && (
+        imageArr?.[currentPhotoIndex + 1] && (
           <link
             rel="preload"
             as="image"
-            href={selectedVariant?.images_urls[currentPhotoIndex + 1]?.url}
+            href={imageArr?.[currentPhotoIndex + 1]?.url}
           />
         );
       }
@@ -85,12 +91,16 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   // optional: keep index in sync if you need it elsewhere
                   // setCurrentPhotoIndex(swiper.activeIndex);
                 }}
+                slidesPerView={1}
+                roundLengths={true}
               >
-                {selectedVariant?.images_urls?.map((img, idx) => (
+                {imageArr?.map((img, idx) => (
                   <SwiperSlide key={idx}>
-                    <img
+                    <Image
                       className={styles.productImage}
                       src={img.url}
+                      width={800}
+                      height={600}
                       alt="Product"
                     />
                   </SwiperSlide>
@@ -455,7 +465,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                     // setCurrentPhotoIndex(swiper.activeIndex);
                   }}
                 >
-                  {selectedVariant?.images_urls?.map((img, idx) => (
+                  {imageArr?.map((img, idx) => (
                     <SwiperSlide key={idx}>
                       <img
                         className={styles.productImage}
