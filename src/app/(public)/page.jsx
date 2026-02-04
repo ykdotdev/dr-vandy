@@ -1,19 +1,18 @@
 "use client";
 
-// import { supabase } from "@/lib/supabaseClient";
-
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import FeatureCard from "@/components/FeatureCard";
 import CTA from "@/components/CTA";
 import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
+import { sizeMobile, sizeTablet } from "@/config/constants";
 
 const LandingPage = () => {
 const [menuOpen, setMenuOpen] = useState(false);
-
-const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
-const isMobile = useMediaQuery({ query: "(max-width: 470px)" });
+const isDesktop = useMediaQuery({ query: "(max-width: 1120px)" });
+const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
+const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
 
 const [mounted, setMounted] = React.useState(false);
 
@@ -100,25 +99,27 @@ React.useEffect(() => {
             </div>
             <div className={styles.ctaRow}>
               <CTA productSlug="orthohemp-oil" label="Buy Now" />
-              <div className={styles.learnMoreBtn}>
-                <span className={styles.label}>Learn More</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={styles.icon}
-                >
-                  <path d="m5 9 7-7 7 7" />
-                  <path d="M12 16V2" />
-                  <circle cx="12" cy="21" r="1" />
-                </svg>
-              </div>
+              {mounted && isDesktop && (
+                <div className={styles.learnMoreBtn}>
+                  <span className={styles.label}>Learn More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={styles.icon}
+                  >
+                    <path d="m5 9 7-7 7 7" />
+                    <path d="M12 16V2" />
+                    <circle cx="12" cy="21" r="1" />
+                  </svg>
+                </div>
+              )}
             </div>
           </div>
 

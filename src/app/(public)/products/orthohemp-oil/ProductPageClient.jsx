@@ -5,15 +5,15 @@ import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { sizeMobile, sizeTablet } from "@/config/constants";
 
 
 const ProductPageClient = ({ product, variants }) => {
-  const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 470px)" });
+const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
+const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
   const isPhotoFrame = useMediaQuery({ query: "(max-width: 1000px)" });
 
   React.useEffect(() => {
@@ -71,23 +71,73 @@ const ProductPageClient = ({ product, variants }) => {
         <div className={styles.tabletTopCtn}>
           <div className={styles.centerCtn}>
             <div className={styles.productImageCtn}>
-              <img
-                className={styles.productImage}
-                // src={currentPhotoIndex ===1 ? "/bottle1.jpeg" : "/bottle.png"}
-                src={selectedVariant?.images_urls?.[currentPhotoIndex]?.url}
-                alt="Product"
-              />
-              {/* Preload next image in background */}
-              {handlePreload()}
+              <Swiper
+                modules={[Navigation, Pagination]}
+                navigation={{
+                  prevEl: `.${styles.prev}`,
+                  nextEl: `.${styles.next}`,
+                }}
+                pagination={{
+                  el: `.${styles.pagination}`,
+                  clickable: true,
+                }}
+                onSlideChange={(swiper) => {
+                  // optional: keep index in sync if you need it elsewhere
+                  // setCurrentPhotoIndex(swiper.activeIndex);
+                }}
+              >
+                {selectedVariant?.images_urls?.map((img, idx) => (
+                  <SwiperSlide key={idx}>
+                    <img
+                      className={styles.productImage}
+                      src={img.url}
+                      alt="Product"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-
             <div className={styles.imageSliderCtn}>
-              <div className={clsx(styles.dot)}></div>
-              <div className={clsx(styles.dot)}></div>
-              <div className={clsx(styles.dot)}></div>
-              <div className={clsx(styles.dot, styles.active)}></div>
-              <div className={styles.dot}></div>
+              <button className={styles.prev}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m14 16-4-4 4-4" />
+                </svg>
+              </button>
+              <div className={styles.pagination} />
+
+              <button className={styles.next}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m10 8 4 4-4 4" />
+                </svg>
+              </button>
             </div>
+            {/* <div className={styles.imageSliderCtn}>
+                <div className={clsx(styles.dot)}></div>
+                <div className={clsx(styles.dot)}></div>
+                <div className={clsx(styles.dot)}></div>
+                <div className={clsx(styles.dot, styles.active)}></div>
+                <div className={styles.dot}></div>
+              </div> */}
           </div>
           <div className={styles.rightCtn}>
             <div className={styles.variantSelectorCtn}>
@@ -400,16 +450,20 @@ const ProductPageClient = ({ product, variants }) => {
                     el: `.${styles.pagination}`,
                     clickable: true,
                   }}
+                  onSlideChange={(swiper) => {
+                    // optional: keep index in sync if you need it elsewhere
+                    // setCurrentPhotoIndex(swiper.activeIndex);
+                  }}
                 >
-                  <SwiperSlide>
-                    <img className={styles.productImage} src="/bottle.png" />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <img className={styles.productImage} src="/bottle1.jpeg" />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <img className={styles.productImage} src="/bottle1.jpeg" />
-                  </SwiperSlide>
+                  {selectedVariant?.images_urls?.map((img, idx) => (
+                    <SwiperSlide key={idx}>
+                      <img
+                        className={styles.productImage}
+                        src={img.url}
+                        alt="Product"
+                      />
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
               <div className={styles.imageSliderCtn}>

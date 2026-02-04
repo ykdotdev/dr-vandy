@@ -10,7 +10,7 @@
     gap: var(--spacings-xl5);
     /* padding-bottom: var(--spacings-xs); */
     isolation: isolate;
-    width: 99dvw;
+    /* width: 99dvw; */
     /* position: relative; */
     height: 100dvh;
 

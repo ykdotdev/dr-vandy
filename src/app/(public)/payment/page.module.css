@@ -1,6 +1,7 @@
 .loadIcon{
     width: 10dvh;
     height: 10dvh;
+    
     color: var(--dark-gray);
     animation: spin 1.5s linear infinite;
 }
@@ -16,16 +17,16 @@
 
 .layoutFrame {
     margin: 0;
-    min-height: 100vh;
+    min-height: calc(100dvh - 2*var(--spacings-xs));
+    padding: var(--spacings-xs);
     display: flex;
     justify-content: center;
     /* horizontal */
     align-items: center;
-    background-color: var(--white);
 }
 
-.mainCtn {
-    /* Main_Container */
+.paymentCard {
+    /* Payment_Card */
 
     /* Auto layout */
     display: flex;
@@ -37,6 +38,8 @@
     /* position: absolute; */
     /* width: 780px; */
     max-width: 56rem;
+    min-width: 32rem;
+    width: 70%;
     height: fit-content;
     margin: 0 auto;
     /* top: calc(50%); */
@@ -138,7 +141,6 @@
 
     font-weight: 500;
     font-size: var(--font-sizes-s-text);
-    line-height: 2.4rem;
     letter-spacing: 0.02rem;
 
     /* White */
@@ -214,7 +216,7 @@
 .paymentStatusCtn .iconSuccess{
 /* Vector */
 
-    width: 8dvw;
+    width: var(--spacings-xl6);
 
     /* Green */
     fill: #467845;
@@ -229,13 +231,13 @@
 .paymentStatusCtn .iconFail {
     /* Vector */
 
-    width: 8dvw;
-
+    width: var(--spacings-xl6);
+    rotate: 45deg;
     /* RED */
     fill: var(--red);
     /* White */
     color: #FCFDF8;
-
+    
     /* Inside auto layout */
     order: 0;
     flex-grow: 0;
@@ -311,8 +313,7 @@ content: '';
 /* Payment Successful */
 
     font-weight: 500;
-    font-size: 40px;
-    line-height: 48px;
+    font-size: var(--font-sizes-l-text);
     letter-spacing: 0.02rem;
 
     /* Black */
@@ -347,8 +348,7 @@ content: '';
 /* You will receive shipping updates via SMS/Email once your order is dispatched. */
 
     font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: var(--font-sizes-s-text);
     text-align: center;
 
     /* Black */
@@ -387,9 +387,7 @@ content: '';
 /* Order ID */
 
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
+    font-size: var(--font-sizes-xs-text);
 
     /* Gray */
     color: #6E7070;
@@ -405,10 +403,8 @@ content: '';
 /* ORD_2025_00123 */
 
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
-    letter-spacing: 0.02em;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
 
     /* Gray */
     color: #6E7070;

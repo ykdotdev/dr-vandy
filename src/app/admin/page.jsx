@@ -5,8 +5,11 @@ import clsx from "clsx";
 import { useState } from "react";
 import styles from './page.module.css'
 import InventoryClient from "./InventoryClient";
+import { supabase } from "@/lib/supabaseClient";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState("inventory");
         const handleActivePage = (requiredPage) => {
           if (currentPage != requiredPage) {
@@ -78,7 +81,10 @@ const page = () => {
             <span className={styles.label}>Orders</span>
           </button>
         </div>
-        <button className={styles.logoutBtn}>
+        <button className={styles.logoutBtn} onClick={async ()=>{
+          await supabase.auth.signOut();
+          router.replace("/admin-login");
+        }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

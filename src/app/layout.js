@@ -1,8 +1,12 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ToastProvider";
+// import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
+// const pathname = usePathname();
+// const isCheckout = pathname.startsWith("/checkout");
 
 export const metadata = {
   title: "Dr. Vandy's",
@@ -10,12 +14,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  console.log("Children:", children)
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastProvider>
-          {children} {/* All pages/components go here */}
-        </ToastProvider>
+        <main
+          className="page-wrapper"
+          // styles={{ backgroundColor: isCheckout ? "#fcfdf8" : "#fcfdf8" }}
+        >
+          <ToastProvider>
+            {children} {/* All pages/components go here */}
+          </ToastProvider>
+        </main>
       </body>
     </html>
   );

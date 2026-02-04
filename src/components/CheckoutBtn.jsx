@@ -9,7 +9,7 @@ const CheckoutBtn = ({ qty, vID, label }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { showToast } = useToast();
-  
+
   const handleCheckout = async () => {
     setLoading(true);
 
@@ -23,7 +23,6 @@ const CheckoutBtn = ({ qty, vID, label }) => {
     });
 
     const stockCheck = await stockCheckRes.json();
-
 
     if (!stockCheck.success) {
       console.log("INSUFFICIENT STOCK");

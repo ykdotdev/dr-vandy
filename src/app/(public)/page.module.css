@@ -5,16 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--spacings-sm);
-    /* padding-bottom: var(--spacings-xs); */
     gap: var(--spacings-xl5);
-    isolation: isolate;
-    width: 99dvw;
-    position: relative;
     height: fit-content;
-
-    /* White */
-    background: var(--white);
 }
 
 /* #region Navbar */
@@ -44,7 +36,6 @@
 
     font-weight: 700;
     font-size: var(--font-sizes-l-text);
-    line-height: 4.8rem;
 
     /* Black */
     color: var(--black);
@@ -184,6 +175,49 @@ line-height: 120%;
     flex-grow: 0;
 }
 
+/* Mobile Navigation Menu */
+.mobileNavMenu {
+    border-radius: var(--border-radius-pill);
+    gap: var(--spacings-sm);
+    transition: all 0.3s ease;
+}
+
+.mobileNavMenu .icon {
+    user-select: none;
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+    color: var(--black);
+}
+
+
+
+/* menu items */
+.mobileNavMenu .navItems {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    gap: var(--spacings-sm);
+    transition: opacity 0.25s ease;
+}
+
+.mobileNavMenu .ctaContainer {
+    display: none;
+}
+
+.mobileNavMenu.open .navItems {
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+}
+
+.navArrow {
+    transition: transform 0.25s ease;
+}
+
+.navArrow.open {
+    transform: rotate(90deg);
+}
+
 /* #endregion */
 
 /* #region Hero Section */
@@ -259,7 +293,7 @@ line-height: 120%;
 /* BOTTLE TEST */
 .bottleImg{
     user-select: none;
-    height: 130%;
+    height: 120%;
     position: absolute;
     /* top: 50%; */
     left: 50%;
@@ -364,7 +398,7 @@ line-height: 120%;
 
 .secondarySection {
     /* Secondary_Section */
-
+    margin-left: var(--spacings-l);
     /* Auto layout */
     display: flex;
     flex-direction: column;
@@ -404,7 +438,7 @@ line-height: 120%;
     will-change: transform;
     cursor: pointer;
     box-sizing: border-box;
-
+    z-index: 1;
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -1244,47 +1278,4 @@ line-height: 120%;
         content: © 2026 YourSite;
     }
 
-}
-
-/* mobile shell */
-.mobileNavMenu {
-    border-radius: var(--border-radius-pill);
-    gap: var(--spacings-sm);
-    transition: all 0.3s ease;
-}
-
-.mobileNavMenu .icon{
-    user-select: none;
-    height: var(--font-sizes-m-text);
-    width: var(--font-sizes-m-text);
-    color: var(--black);
-}
-
-
-
-/* menu items */
-.mobileNavMenu .navItems {
-    display: none;
-    opacity: 0;
-    flex-direction: column;
-    gap: var(--spacings-sm);
-    transition: opacity 0.25s ease;
-}
-
-.mobileNavMenu .ctaContainer{
-    display: none;
-}
-
-.mobileNavMenu.open .navItems {
-    display: flex;
-    flex-direction: row;
-    opacity: 1;
-}
-
-.navArrow {
-    transition: transform 0.25s ease;
-}
-
-.navArrow.open {
-    transform: rotate(90deg);
 }

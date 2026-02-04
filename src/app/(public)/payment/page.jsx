@@ -62,7 +62,7 @@ const Page = () => {
           <path d="M21 12a9 9 0 1 1-6.219-8.56" />
         </svg>
       ) : (
-        <div className={styles.mainCtn}>
+        <div className={styles.paymentCard}>
           <div className={styles.headerCtn}>
             <div className={styles.stepLabelCtn}>
               <div className={styles.iconCtn}>
@@ -137,8 +137,9 @@ const Page = () => {
                       strokeLinejoin="round"
                       className={styles.iconFail}
                     >
-                      <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-                      <path d="m9 12 2 2 4-4" />
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M8 12h8" />
+                      <path d="M12 8v8" />
                     </svg>
                   </div>
                   <span className={styles.paymentStatusText}>
@@ -159,7 +160,7 @@ const Page = () => {
                 </div>
               </div>
             )}
-            <AnimatedCTA/>
+            <AnimatedCTA />
           </div>
         </div>
       )}

@@ -11,6 +11,7 @@ import { promoSchema } from "@/schemas/promo.schema";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ToastProvider";
 import InputError from "@/components/InputError";
+import Image from "next/image";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
       const router = useRouter();
@@ -284,7 +285,9 @@ const handlePayment = async () => {
               placeholder="Enter your full name"
               className={styles.input}
             />
-            {errors.fullName && <InputError message={errors.fullName.message} />}
+            {errors.fullName && (
+              <InputError message={errors.fullName.message} />
+            )}
           </div>
 
           {/* Email & Phone */}
@@ -483,10 +486,14 @@ const handlePayment = async () => {
             <div className={styles.cartItemCtn}>
               <div className={styles.itemDetailsCtn}>
                 <div className={styles.imageCtn}>
-                  <img
+                  <Image
                     className={styles.productImage}
                     src="/transparent.png"
                     alt="Product"
+                    width={155}
+                    height={103}
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
 
@@ -518,6 +525,7 @@ const handlePayment = async () => {
                         styles.iconBtnMinus,
                         decreaseActive ? styles.isActive : "",
                       )}
+                      aria-label="Reduce Quantity"
                       onClick={decrease}
                     >
                       <svg
@@ -541,6 +549,7 @@ const handlePayment = async () => {
                         styles.iconBtnPlus,
                         increaseActive ? styles.isActive : "",
                       )}
+                      aria-label="Increase Quantity"
                       onClick={increase}
                     >
                       <svg

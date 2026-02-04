@@ -1,3 +1,7 @@
+/* Screen Sizes
+--size-tablet: 768px;
+--size-mobile: 420px; */
+
 * {
   margin: 0;
   padding: 0;
@@ -60,6 +64,7 @@
   --ice-blue: #5cb1d6;
   --green: #467845;
   --red: #b91c19;
+
 }
 
 /* #endregion */
@@ -89,16 +94,20 @@ html {
 
 html,
 body {
-  background-color: var(--white);
   color: var(--black);
   /* Fallback */
   overscroll-behavior: contain;
   touch-action: manipulation;
+  background-color: var(--white);
 
 }
 
 ::selection {
   background-color: var(--green);
+}
+
+.page-wrapper{
+  padding: var(--spacings-xs);
 }
 
 @media (max-width: 1120px) {

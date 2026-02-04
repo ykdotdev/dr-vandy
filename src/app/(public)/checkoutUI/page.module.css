@@ -1,15 +1,14 @@
 .layoutFrame {
     margin: 0;
-    min-height: 100vh;
+    min-height: calc(100dvh - 2*var(--spacings-xs));
     display: grid;
     grid-template-columns: 1fr 0.5fr;
-    padding: var(--spacings-s);
     column-gap: var(--spacings-ml);
     justify-content: space-between;
-    /* horizontal */
     align-items: flex-start;
     background-color: #F6F6F6;
 }
+
 
 /* #region Toast */
 .errorToast {
@@ -775,7 +774,7 @@
     overflow: hidden;
     width: 30%;
     aspect-ratio: 15 / 17;
-
+    position: relative;
     /* Light Gray */
     background: #E9ECEC;
     border-radius: var(--border-radius-xs);
@@ -789,7 +788,7 @@
 
 .imageCtn .productImage {
     /* IMG_BOTTLE */
-
+    height: auto;
     width: 100%;
     /* Inside auto layout */
     flex: none;
