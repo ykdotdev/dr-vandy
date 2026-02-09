@@ -1,0 +1,969 @@
+.middleCtn {
+    /* Middle_Container */
+
+    /* Auto layout */
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1fr;
+    align-items: center;
+    /* padding: var(--spacings-sm) var(--spacings-m); */
+    /* isolation: isolate; */
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    order: 1;
+    align-self: stretch;
+}
+
+.leftCtn {
+    /* Left_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 0 var(--spacings-m);
+    gap: var(--spacings-m);
+
+    /* margin: 0 auto; */
+    /* width: 488px;
+        height: 474px; */
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.productDetailsCtn {
+    /* Product_Details_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.productDetailsCtn .textCtn {
+    /* Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.textCtn .productHeadingText {
+    /* Dr. Vandy’s OrthoHemp™ Pain Relief Oil */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-l-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.productHeadingText .productVariantText {
+    /* (Pack of 3) */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.textCtn .productSubtitleText {
+    /* Fast Relief • Reduces Inflammation • Improves Mobility */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.productDetailsCtn .productSizeText {
+    /* 50ml */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.leftCtn .pricingQuantityCtn {
+    /* Pricing_Quantity_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pricingCtn {
+    /* Pricing_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pricingCtn .priceText {
+    /* ₹399.99 */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-l-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.pricingCtn .MRPDiscountCtn {
+    /* MRP_Discount_Container */
+    user-select: none;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.MRPDiscountCtn .MRPText {
+    /* ₹899.99 */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    /* identical to box height */
+    letter-spacing: 0.02rem;
+    text-decoration-line: line-through;
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.MRPDiscountCtn .discountCtn {
+    /* Discount_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-xs) var(--spacings-sm);
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Red */
+    background: var(--red);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.indicator {
+
+    position: relative;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+/* first ring */
+.indicator::before,
+.indicator::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--light-yellow);
+    opacity: 0.6;
+    animation: ambient-pulse 2.2s infinite ease-out;
+}
+
+/* second ring (delayed + larger) */
+.indicator::after {
+    animation-delay: 1.1s;
+    opacity: 0.4;
+}
+
+@keyframes ambient-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.discountCtn .text {
+    /* 10% off */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: #FCFDF8;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.quantityCtn {
+    /* Quantity_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.quantityCtn .iconBtn {
+    cursor: default;
+    /* Gray */
+    color: #6E7070;
+}
+
+.quantityCtn .isActive {
+    cursor: pointer;
+    color: var(--black) !important;
+}
+
+.quantityCtn .icon {
+    /* Vector */
+
+    width: var(--font-sizes-s-text);
+    height: var(--font-sizes-s-text);
+
+    /* Inside auto layout */
+    flex: none;
+    flex-grow: 0;
+}
+
+.quantityCtn .iconBtnMinus {
+    order: 0;
+}
+
+.quantityCtn .iconBtnPlus {
+    order: 2;
+}
+
+.quantityCtn .quantityText {
+    /* 1 */
+
+    user-select: none;
+    width: 1ch;
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* OUT OF STOCK CTN */
+.outOfStockCtn {
+    /* Out_of_Stock_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.outOfStockCtn .icon {
+    /* Vector */
+
+    width: var(--font-sizes-s-text);
+    height: var(--font-sizes-s-text);
+
+    /* Red */
+    color: #B91C19;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.outOfStockCtn .text {
+    /* Out of Stock */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: 0.02rem;
+
+    /* Red */
+    color: #B91C19;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.centerCtn {
+    /* Center_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    align-self: stretch;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.productImageCtn {
+    /* Product_Image_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    gap: 0;
+    overflow: hidden;
+    /* height: 80dvh; */
+    aspect-ratio: 9 / 12;
+
+    border-radius: var(--border-radius-pill) var(--border-radius-pill) 24rem 24rem;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.productImage {
+    /* Product_Image */
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+    opacity: 0;
+    /* transform: translateY(8px) scale(0.98); */
+    animation: imageEnter 0.3s ease-out forwards;
+
+}
+
+@keyframes imageEnter {
+    to {
+        opacity: 1;
+        /* transform: translateY(0) scale(1); */
+    }
+}
+
+.rightCtn {
+    /* Right_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 var(--spacings-m);
+    /* background-color: orange; */
+    /* margin: 0 auto; */
+    /* width: 400px;
+    height: 474px; */
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.variantSelectorCtn {
+    /* Variant_Selector_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.variantSelectorCtn .Text {
+    /* Pack Of: */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.variantRadioCtn {
+    /* Variant_Radio_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-s);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.variantRadio {
+    /* Variant_Radio */
+
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 0;
+
+    width: var(--font-sizes-l-text);
+    height: var(--font-sizes-l-text);
+
+    /* Black */
+    border: 1px solid #07080C;
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    /* 1 */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+}
+
+.variantRadioActive {
+    background-color: var(--gold);
+    border: none;
+    color: var(--white);
+}
+
+.variantValueText {
+    /* 1 */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.accordionsCtn {
+    /* Accordians_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+
+    /* margin: 0 auto; */
+    /* width: 400px; */
+    width: 80%;
+    max-width: 32rem;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    /* align-self: stretch; */
+    flex-grow: 0;
+}
+
+.accordion {
+    /* Accordian */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--spacings-m) 0px;
+
+
+    /* width: 400px; */
+    height: fit-content;
+
+    border-bottom: 1px solid rgba(110, 112, 112, 0.4);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    transition: border-color, gap 0.25s ease;
+}
+
+.accordion.active {
+    gap: var(--spacings-m);
+    border-bottom-color: transparent;
+}
+
+.accordion .headerCtn {
+    /* Accordian */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacings-xs);
+
+    width: 100%;
+    height: fit-content;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.accordion .titleText {
+    /* How to Use */
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: color 0.25s ease;
+}
+
+.accordion.active .titleText {
+    /* How to Use */
+    /* Black */
+    color: var(--black);
+}
+
+.accordion .icon {
+    /* Vector */
+    width: var(--font-sizes-s-text);
+    /* height: var(--font-sizes-s-text); */
+
+    /* Gray */
+    color: #6E7070;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    transition: color, transform 0.25s ease;
+}
+
+.accordion.active .icon {
+    /* Vector */
+
+    /* Black */
+    color: var(--black);
+
+}
+
+.accordion.active .iconExpand {
+    transform: rotate(45deg);
+}
+
+.accordion .iconContract {
+    transform: rotate(-45deg);
+    display: none;
+    opacity: 0;
+}
+
+.accordion .contentText {
+    /* Ideal for joint pain, arthritis, muscle stiffness, nerve discomfort, sports recovery, and daily mobility support. Safe for long-term use and all age groups. */
+    opacity: 0;
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.accordion.active .contentText {
+    opacity: 100%;
+}
+
+.contentCtn {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.25s ease;
+}
+
+.contentCtn>* {
+    overflow: hidden;
+}
+
+.accordion.active .contentCtn {
+    grid-template-rows: 1fr;
+}
+
+.bottomSection {
+    /* Bottom_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 0;
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.badgesText {
+    /* Doctor-Formulated • GMP Certified • THC-Free */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.imageSliderCtn {
+    /* Image_Slider_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xs);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.tabletTopCtn {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+}
+
+/* arrows */
+.prev,
+.next {
+    height: var(--font-sizes-s-text);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.prev .icon,
+.next .icon {
+    color: var(--black);
+}
+
+
+/* pagination below */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5%;
+}
+
+.pagination :global(.swiper-pagination-bullet) {
+    width: var(--spacings-s);
+    height: var(--spacings-s);
+    background-color: var(--gray);
+    border-radius: 50%;
+    /* circle */
+    transition: all 0.3s ease;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
+    width: calc(2.2 * var(--spacings-s));
+    /* pill width */
+    border-radius: var(--border-radius-pill);
+    /* pill shape */
+    background-color: var(--gold);
+    /* active color */
+}
+
+:global(.swiper-slide) {
+    width: 100% !important;
+}
+
+@media (max-width: 1000px) {
+    .middleCtn {
+        grid-template-columns: 1fr;
+    }
+
+    .leftCtn {
+        align-self: flex-start;
+    }
+
+    .rightCtn {
+        align-self: flex-start;
+        gap: var(--spacings-m);
+    }
+
+    .centerCtn {
+        width: 50dvw;
+        margin: 0 auto;
+    }
+
+    .rightCtn {
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .middleCtn {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+}
+
+@media (max-width: 470px) {
+    .tabletTopCtn {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacings-l);
+    }
+
+    .prev,
+    .next {
+        display: none;
+    }
+}

@@ -8,85 +8,83 @@ import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
 import { sizeMobile, sizeTablet } from "@/config/constants";
 import FeatureCardSection from "@/components/FeatureCardSection";
+import { useRouter } from "next/navigation";
+import { FlipCard } from "@/components/FlipCard";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const LandingPage = () => {
-const [menuOpen, setMenuOpen] = useState(false);
 const isDesktop = useMediaQuery({ query: "(max-width: 1120px)" });
 const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
 const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
 
 const [mounted, setMounted] = React.useState(false);
-
+const router = useRouter();
 React.useEffect(() => {
   setMounted(true);
 }, []);
 
+const cardData = [
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={styles.icon}
+      >
+        <path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <circle cx="17.5" cy="17.5" r="3.5" />
+      </svg>
+    ),
+    title: "Doctor-Formulated Relief",
+    description:
+      "Developed with a clinical understanding of pain, Dr. Vandy’s OrthoHemp Oil is thoughtfully formulated to address inflammation, stiffness, and muscular discomfort at the root — not just mask symptoms. Every ingredient is chosen for safety, synergy, and real-world effectiveness.",
+  },
+  {
+    icon: <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className={styles.icon}
+>
+  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+</svg>,
+    title: "Complete nutrition",
+    description:
+      "Complete nutrition with protein, Omegas, and all essential amino acids to support your overall wellness.",
+  },
+  {
+    icon: "💧",
+    title: "Heals and hydrates",
+    description:
+      "Heals and hydrates skin & scalp, calming irritation from within for a healthier complexion.",
+  },
+  {
+    icon: "🌍",
+    title: "Saves water, restores soil",
+    description:
+      "Saves water, restores soil, and absorbs more CO₂ than trees, making it an eco-friendly choice.",
+  },
+];
+
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.navbar}>
-        <h1 className={styles.logo}>Dr. Vandy’s™</h1>
-        {mounted && (
-          <div
-            className={clsx(
-              styles.navMenu,
-              isMobile && styles.mobileNavMenu,
-              isMobile && menuOpen && styles.open,
-            )}
-          >
-            {/* Nav items */}
-            <div className={styles.navItems}>
-              <a className={clsx(styles.navItem, styles.navItem01)}>Product</a>
-              <a className={clsx(styles.navItem, styles.navItem02)}>About</a>
-              <a className={clsx(styles.navItem, styles.navItem03)}>Contact</a>
-            </div>
-
-            {/* CTA */}
-            <div className={styles.ctaContainer}>
-              <button className={styles.ctaText}>Buy Now</button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.ctaIcon}
-              >
-                <path d="M18 8L22 12L18 16" />
-                <path d="M2 12H22" />
-              </svg>
-            </div>
-            {/* Mobile toggle button */}
-            {isMobile && (
-              <button
-                className={clsx(styles.navArrow, menuOpen && styles.open)}
-                onClick={() => setMenuOpen((prev) => !prev)}
-                aria-label="Toggle navigation"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={styles.icon}
-                >
-                  <path d="M4 5h16" />
-                  <path d="M4 12h16" />
-                  <path d="M4 19h16" />
-                </svg>
-              </button>
-            )}
-          </div>
-        )}
-      </div>
-
+      <Navbar />
+      
       <div className={styles.heroSection}>
-        <h1 className={styles.heroTitle}>Dr. Vandy’s</h1>
+        {/* <h1 className={styles.heroTitle}>Dr. Vandy’s</h1> */}
 
         <div className={styles.primaryCtn}>
           <div className={styles.mainSection}>
@@ -101,7 +99,12 @@ React.useEffect(() => {
             <div className={styles.ctaRow}>
               <CTA productSlug="orthohemp-oil" label="Buy Now" />
               {mounted && isDesktop && (
-                <div className={styles.learnMoreBtn}>
+                <button
+                  className={styles.learnMoreBtn}
+                  onClick={() => {
+                    router.push("/products/orthohemp-oil?i=1");
+                  }}
+                >
                   <span className={styles.label}>Learn More</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +122,7 @@ React.useEffect(() => {
                     <path d="M12 16V2" />
                     <circle cx="12" cy="21" r="1" />
                   </svg>
-                </div>
+                </button>
               )}
             </div>
           </div>
@@ -130,7 +133,12 @@ React.useEffect(() => {
               Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp
               and virgin coconut base.
             </span>
-            <div className={styles.learnMoreBtn}>
+            <button
+              className={styles.learnMoreBtn}
+              onClick={() => {
+                router.push("/products/orthohemp-oil?i=1");
+              }}
+            >
               <span className={styles.label}>Learn More</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +156,7 @@ React.useEffect(() => {
                 <path d="M12 16V2" />
                 <circle cx="12" cy="21" r="1" />
               </svg>
-            </div>
+            </button>
           </div>
           <img src="/bottle.png" className={styles.bottleImg} />
         </div>
@@ -194,7 +202,12 @@ React.useEffect(() => {
                 : "Our mission, our process, and the science behind natural healing."}
           </span>
 
-          <div className={styles.aboutCTA}>
+          <button
+            className={styles.aboutCTA}
+            onClick={() => {
+              router.push("/about");
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -208,14 +221,22 @@ React.useEffect(() => {
               <path d="M18 8L22 12L18 16" />
               <path d="M2 12H22" />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
 
-      {/* <div className={styles.featureSection}>
-        <FeatureCard />
-      </div> */}
-      <FeatureCardSection/>
+      <div className={styles.featureSection}>
+        {cardData.map((card, index) => (
+          <FlipCard
+            key={index}
+            icon={card.icon}
+            title={card.title}
+            description={card.description}
+          />
+        ))}
+      </div>
+      {/* <FeatureCardSection /> */}
+
       <div className={styles.testimonialSection}>
         <div className={styles.testimonialCard}>
           <span className={styles.iconContainer}>
@@ -256,67 +277,10 @@ React.useEffect(() => {
             Move better. Live better.
           </span>
         </div>
-        <CTA label="Shop Now" />
+        <CTA productSlug="orthohemp-oil" label="Shop Now" />
       </div>
 
-      <div className={styles.footer}>
-        <span className={styles.privacyPolicyText}>Privacy Policy</span>
-        <span className={styles.copyrightText}>
-          {!mounted
-            ? "Copyright © 2025 drvandys.com - All Rights Reserved."
-            : isTablet
-              ? "© 2025 Dr. Vandy’s"
-              : "Copyright © 2025 drvandys.com - All Rights Reserved."}
-        </span>
-
-        <div className={styles.iconsCtn}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={clsx(styles.footerIcon, styles.instagramIcon)}
-          >
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={clsx(styles.footerIcon, styles.facebookIcon)}
-          >
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={clsx(styles.footerIcon, styles.youtubeIcon)}
-          >
-            <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-            <path d="m10 15 5-3-5-3z" />
-          </svg>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

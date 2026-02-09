@@ -1,0 +1,65 @@
+"use client"
+
+import Navbar from '@/components/Navbar'
+import styles from './page.module.css'
+import Footer from '@/components/Footer'
+
+const page = () => {
+  return (
+    <div className={styles.mainContainer}>
+      <Navbar />
+
+      <div className={styles.contactCtn}>
+        <div className={styles.header}>
+          <span className={styles.heading}>Contact us</span>
+          <span className={styles.subheading}>
+            Get in touch with us for any enquiries and questions
+          </span>
+        </div>
+
+        <div className={styles.detailsMap}>
+          <div className={styles.details}>
+            <div className={styles.item}>
+              <span className={styles.title}>General inquiries</span>
+              <span className={styles.content}>drvandys@gmail.com</span>
+            </div>
+            <div className={styles.item}>
+              <span className={styles.title}>General inquiries</span>
+              <span className={styles.content}>drvandys@gmail.com</span>
+            </div>
+            <div className={styles.item}>
+              <span className={styles.title}>General inquiries</span>
+              <span className={styles.content}>drvandys@gmail.com</span>
+            </div>
+            <div className={styles.item}>
+              <span className={styles.title}>General inquiries</span>
+              <span className={styles.content}>drvandys@gmail.com</span>
+            </div>
+          </div>
+
+          <div className={styles.mapCtn}>
+            <div style={{ width: "100%" }}>
+              <iframe
+                title="Google Map"
+                width="100%"
+                height="600"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=faridabad+(Dr.%20Vandy's)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default page

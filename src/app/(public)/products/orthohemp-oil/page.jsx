@@ -1,7 +1,11 @@
 import { supabase } from "@/lib/supabaseClient";
 import ProductPageClient from "./MainPageClient";
+import MainPageClient from "./MainPageClient";
 
-const page = async () => {
+const page = async ({searchParams}) => {
+    const params = await searchParams;
+    const pageStatus = params.i || 0;
+    console.log(pageStatus)
   const slug = "orthohemp-oil";
   const { data: product } = await supabase
     .from("products")
@@ -20,7 +24,7 @@ const page = async () => {
 
   return(
     <>
-    <ProductPageClient product={product} variants={variants} />
+    <MainPageClient product={product} variants={variants} pageStatus={pageStatus}/>
     </>
   ); 
 }

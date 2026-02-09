@@ -1299,6 +1299,7 @@
 }
 
 .labelInfoCtn .infoBtn {
+    position: relative;
     /* Info_Button */
     cursor: pointer;
     /* Auto layout */
@@ -1316,6 +1317,31 @@
     order: 1;
     /* align-self: stretch; */
     flex-grow: 0;
+}
+
+.infoBtn.active::before {
+    content: "Ships in 2–3 business days. Tracking included.";
+    position: absolute;
+    white-space: nowrap;
+    top: -3.2rem;
+    left: 0;
+    padding: var(--spacings-xs);
+    background: var(--gray);
+    color: var(--white);
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: var(--border-radius-pill);
+
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.infoBtn.active:focus::before{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .infoBtn .icon {

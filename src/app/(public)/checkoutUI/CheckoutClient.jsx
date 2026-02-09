@@ -14,10 +14,11 @@ import InputError from "@/components/InputError";
 import Image from "next/image";
 
 const CheckoutClient = ({product, variant, qty, amount}) => {
-      const router = useRouter();
-        const { showToast } = useToast();
-      
-    console.log("variant", variant)
+  const router = useRouter();
+  const { showToast } = useToast();
+  const [infoActive, setInfoActive] = useState(false);
+  console.log("info", infoActive)
+  console.log("variant", variant)
   const {
     register,
     getValues,
@@ -668,7 +669,7 @@ const handlePayment = async () => {
                 <div className={clsx(styles.pricingRow, styles.shippingFeeCtn)}>
                   <div className={styles.labelInfoCtn}>
                     <span className={styles.chargeLabel}>Shipping Fee</span>
-                    <div className={styles.infoBtn}>
+                    <button className={clsx(styles.infoBtn, infoActive && styles.active)} onClick={()=>{setInfoActive((prev)=>!prev)}}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -683,7 +684,7 @@ const handlePayment = async () => {
                         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
                         <path d="M12 17h.01" />
                       </svg>
-                    </div>
+                    </button>
                   </div>
                   <span className={styles.priceValue}>
                     ₹{totals.shipping.toFixed(2)}

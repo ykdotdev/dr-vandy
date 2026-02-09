@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CheckoutBtn from "@/components/CheckoutBtn";
-import styles from "./page.module.css";
+import styles from "./ProductPageClient.module.css";
 import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";

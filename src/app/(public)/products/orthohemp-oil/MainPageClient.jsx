@@ -4,10 +4,12 @@ import styles from "./page.module.css";
 import clsx from "clsx";
 import ProductPageClient from "./ProductPageClient";
 import BackBtn from "@/components/BackBtn";
+import { useParams } from "next/navigation";
+import InfoPageClient from "./InfoPageClient";
 
-const MainPageClient = ({product, variants}) => {
-
-  const [currentPage, setCurrentPage] = useState("product");
+const MainPageClient = ({product, variants, pageStatus}) => {
+console.log("status",pageStatus)
+  const [currentPage, setCurrentPage] = useState(pageStatus === "1" ? "info" : "product");
 
   const handleActivePage = (requiredPage)=>{
     if(currentPage!=requiredPage){
@@ -46,12 +48,12 @@ const MainPageClient = ({product, variants}) => {
         </div>
       </div>
 
-      {currentPage === "product" ? (
+      {currentPage === "product" && (
         <ProductPageClient product={product} variants={variants} />
-      ) : (
-        ""
+      ) || currentPage === "info" && (
+        <InfoPageClient />
       )}
-
+      {/* <InfoPageClient /> */}
       {/* <div className={styles.bottomSection}>
           <span className={styles.badgesText}>
             Doctor-Formulated • GMP Certified • THC-Free

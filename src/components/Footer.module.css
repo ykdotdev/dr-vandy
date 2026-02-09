@@ -1,0 +1,100 @@
+.footer {
+    /* Footer */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-sm) 0 0 0;
+    gap: var(--spacings-m);
+    height: fit-content;
+
+    border-top: 1px solid var(--gray);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 6;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 6;
+}
+
+.footer .privacyPolicyText {
+    /* Privacy Policy */
+    cursor: pointer;
+    /* margin: 0 auto; */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 2rem;
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.footer .copyrightText {
+    /* Copyright © 2025 drvandys.com - All Rights Reserved. */
+
+    /* margin: 0 auto; */
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;
+    letter-spacing: 0.02rem;
+
+    /* Dark Gray */
+    color: var(--dark-gray);
+
+
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+}
+
+.footer .iconsCtn {
+    /* Icons Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    /* margin: 0 auto; */
+    width: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.iconsCtn .footerIcon {
+    /* Vector */
+    cursor: pointer;
+    width: 1.8rem;
+    height: 1.8rem;
+
+    /* Black */
+    color: var(--black);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.footer .privacyPolicyText:hover,
+.footer .footerIcon:hover {
+    transform: scale(1.01);
+}

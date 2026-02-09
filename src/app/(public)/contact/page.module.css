@@ -1,0 +1,219 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100dvh - 2*var(--spacings-xs));
+}
+
+.contactCtn{
+/* Contact_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px var(--spacings-l);
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.header{
+/* Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    width: fit-content;
+    height: fit-content;
+    white-space: normal;
+
+    /* Inside auto layout */
+    /* flex: none; */
+    order: 0;
+    flex-grow: 0;
+}
+
+.header .heading{
+/* Contact us */
+
+    font-weight: 400;
+    font-size: 10rem;
+
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.header .subheading{
+/* Get in touch with us for any enquiries and questions */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    color: var(--black);
+
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.detailsMap{
+/* Details_Map */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-xl4);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.details{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    row-gap: var(--spacings-l);
+    justify-content: space-between;
+    align-self: stretch;
+    column-gap: var(--spacings-m);
+}
+
+.details .item{
+/* Item */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+    
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.item .title{
+/* General inquiries */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-s-text);
+
+    /* Gray */
+    color: #6E7070;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.item .content{
+/* drvandys@gmail.com */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-s-text);
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.mapCtn{
+/* Map_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 56rem;
+    height: 24rem;
+
+    border-radius: var(--border-radius-s);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media (max-width: 1280px) {
+
+    .contactCtn{
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacings-xl2);
+    }
+
+    .header{
+        align-items: center;
+        text-align: center;
+        gap: var(--spacings-sm);
+    }
+
+    .header .heading{
+        font-weight: 500;
+        font-size: var(--font-sizes-l-text);
+    }
+
+    .detailsMap {
+        width: 100%;
+    }
+
+    .item{
+        margin: 0 auto;
+    }
+
+    .mapCtn{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+}

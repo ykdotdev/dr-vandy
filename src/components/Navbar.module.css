@@ -1,0 +1,210 @@
+/* #region Navbar */
+.navbar {
+    /* Navbar */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.navbar .logo {
+    /* Logo */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-l-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navMenu {
+    /* Nav_Menu */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-ml);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.navItems {
+    /* Nav_Items */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navItem {
+    /* Nav_Item_$nn */
+    will-change: transform;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;
+    ;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: transform 0.1s ease-in-out;
+}
+
+.navItem:hover {
+    transform: scale(1.01);
+}
+
+.navbar .ctaContainer {
+    /* CTA */
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Gold */
+    background: var(--gold);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.navbar .ctaContainer:hover {
+    transform: scale(1.01);
+}
+
+.navbar .ctaContainer .ctaText {
+    /* Get Started */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+    line-height: 120%;
+    ;
+    letter-spacing: 0.2rem;
+    line-height: 120%;
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navbar .ctaContainer .ctaIcon {
+    /* Vector */
+
+    width: 2rem;
+    height: 2rem;
+
+    /* White */
+    color: var(--white);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* Mobile Navigation Menu */
+.mobileNavMenu {
+    border-radius: var(--border-radius-pill);
+    gap: var(--spacings-sm);
+    transition: all 0.3s ease;
+}
+
+.mobileNavMenu .icon {
+    user-select: none;
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+    color: var(--black);
+}
+
+/* menu items */
+.mobileNavMenu .navItems {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    gap: var(--spacings-sm);
+    transition: opacity 0.25s ease;
+}
+
+.mobileNavMenu .ctaContainer {
+    display: none;
+}
+
+.mobileNavMenu.open .navItems {
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+}
+
+.navArrow {
+    transition: transform 0.25s ease;
+}
+
+.navArrow.open {
+    transform: rotate(90deg);
+}
+
+/* #endregion */
