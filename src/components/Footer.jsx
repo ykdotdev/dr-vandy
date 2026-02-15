@@ -69,7 +69,7 @@ const Footer = () => {
           <a
             className={styles.label}
             onClick={() => {
-              router.push("/privacy");
+              router.push("/privacy-policy");
             }}
           >
             Privacy Policy
