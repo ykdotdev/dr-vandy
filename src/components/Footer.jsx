@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { sizeTablet } from '@/config/constants';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
     const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
@@ -16,18 +17,27 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.topCtn}>
         <div className={styles.footerLogoCtn}>
-          <img className={styles.logo} src="/logo.avif" />
-          <span className={styles.label}>
-            Authorized Indian distributor of The Biomechanics Method CES.
-          </span>
+            <Image
+              width={600}
+              height={150}
+              src={"/logoSecondary.svg"}
+              alt='logo'
+              className={styles.logo}
+            />
         </div>
 
         <div className={clsx(styles.footerColumn, styles.quickLinks)}>
           <span className={styles.heading}>Quick Links</span>
           <div className={styles.footerItems}>
-            <Link className={styles.item} href='/contact'>Contact Us</Link>
-            <Link className={styles.item} href='/about'>About Us</Link>
-            <Link className={styles.item} href='/faq'>FAQ</Link>
+            <Link className={styles.item} href="/contact">
+              Contact Us
+            </Link>
+            <Link className={styles.item} href="/about">
+              About Us
+            </Link>
+            <Link className={styles.item} href="/faq">
+              FAQ
+            </Link>
           </div>
         </div>
 
@@ -74,10 +84,7 @@ const Footer = () => {
           >
             Privacy Policy
           </a>
-          <Link
-            className={styles.label}
-            href='/terms-of-usage'
-          >
+          <Link className={styles.label} href="/terms-of-usage">
             Terms of Usage
           </Link>
         </div>

@@ -90,6 +90,7 @@
     transform: translate(-50%);
 }
 
+
 .mainSection {
     /* Main_Section */
 
@@ -301,7 +302,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    height: fit-content;
+    /* height: fit-content; */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     width: 100%;

@@ -3,9 +3,11 @@ import styles from './page.module.css'
 const page = () => {
   return (
     <div className={styles.mainCtn}>
-      <h1>What Makes Us Different?</h1>
+      <h1>About Us</h1>
 
       <div className={styles.contentWrapper}>
+        <h2>About Our Founder</h2>
+
         <p>
           <strong>Dr. Vandana Tanwar</strong> is a highly experienced{" "}
           <strong>Sports Physiotherapist</strong> with over 15 years of hands-on
@@ -19,6 +21,7 @@ const page = () => {
           effectively, enhance performance, and return stronger.
         </p>
 
+        <h2>About Dr. Vandy's</h2>
         <p>
           <strong>Dr. Vandy’s</strong> was born from real-world clinical
           experience — understanding how everyday aches, pain relief, recovery,

@@ -5,6 +5,7 @@ import { sizeMobile } from '@/config/constants';
 import { useRouter } from 'next/navigation';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
     const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
@@ -18,7 +19,9 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <Link href={"/"}>
-        <h1 className={styles.logo}>Dr. Vandy’s™</h1>
+        <div className={styles.logoWrapper}>
+          <Image width={600} height={150} src={"/logoPrimary.svg"} alt='logo' className={styles.logo} />
+        </div>
       </Link>
       {mounted && (
         <div

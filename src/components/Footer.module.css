@@ -19,10 +19,6 @@
     flex-grow: 0;
 }
 
-.footer ::selection{
-    background-color: var(--light-gray);
-}
-
 .topCtn {
     /* Top_container */
 
@@ -67,30 +63,8 @@
 }
 
 .footerLogoCtn .logo {
-    /* Logo.png */
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-}
-
-.footerLogoCtn .label {
-    /* Authorized Indian distributor of The Biomechanics Method CES. */
-    display: none;
-    font-weight: 400;
-    font-size: var(--font-sizes-xs-text);
-
-    /* Gray */
-    color: var(--light-gray);
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+    width: 100%;
+    margin-top: 0;
 }
 
 .footerColumn {

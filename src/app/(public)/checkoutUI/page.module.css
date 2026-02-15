@@ -1321,7 +1321,7 @@
 
 .infoBtn.active::before {
     /* content: "Ships in 2–3 business days. Tracking included."; */
-    content: "Tracking Details shared on Whatsapp/SMS";
+    content: "Will be delivered within 5–10 business days.";
     position: absolute;
     white-space: nowrap;
     top: -3.2rem;

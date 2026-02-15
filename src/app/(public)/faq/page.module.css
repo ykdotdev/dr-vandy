@@ -1,0 +1,105 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* min-height: 100vh; */
+  padding: var(--spacings-l) var(--spacings-sm);
+}
+
+.content {
+  width: 100%;
+  max-width: 92rem;
+  background-color: #ffffff;
+  padding: var(--spacings-xl2);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-xs);
+  color: var(--dark-gray);
+}
+
+.h1 {
+  font-size: var(--font-sizes-m-text);
+  font-weight: 600;
+  color: var(--black);
+  margin-top: 0;
+  margin-bottom: var(--spacings-ml);
+  text-align: center;
+  letter-spacing: 0.2rem;
+  border-bottom: 0.4rem solid var(--gold);
+  padding-bottom: var(--spacings-sm);
+}
+
+.section h2 {
+  font-size: var(--font-sizes-xs-text);
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-top: var(--spacings-ml);
+  margin-bottom: var(--spacings-sm);
+  padding-bottom: var(--spacings-xs);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.section {
+  margin-bottom: var(--spacings-m);
+}
+
+.section p {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+  color: var(--gray);
+  text-align: justify;
+}
+
+.content ol{
+  padding-left: var(--spacings-sm);
+}
+
+.alphaList {
+  list-style: upper-alpha;
+}
+
+.romanList {
+  list-style: upper-roman;
+}
+
+.content li{
+  font-size: 1.4rem;
+  color: var(--dark-gray);
+}
+
+.list {
+  margin: var(--spacings-sm) 0 var(--spacings-sm) var(--spacings-ml);
+  padding: 0;
+  list-style-type: disc;
+}
+
+.list li {
+  font-size: 1.4rem;
+  margin-bottom: var(--spacings-s);
+  color: var(--dark-gray);
+  text-align: justify;
+}
+
+.list li::marker {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.lastUpdated {
+  margin-top: var(--spacings-lg);
+  padding-top: var(--spacings-m);
+  border-top: 2px solid var(--light-gray);
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+
+@media (max-width: 768px) {
+    .content{
+        padding: var(--spacings-m);
+    }
+
+    .section p{
+        line-height: 1.2;
+    }
+}

@@ -20,21 +20,14 @@
     z-index: 0;
 }
 
-.navbar .logo {
-    /* Logo */
-    user-select: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: var(--font-sizes-l-text);
+.navbar .logoWrapper{
+    height: var(--font-sizes-l-text);
+    aspect-ratio: 32 / 9;
+}
 
-    /* Black */
-    color: var(--black);
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+.logo {
+    height: 100%;
+    width: 100%;
 }
 
 .navMenu {

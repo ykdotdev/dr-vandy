@@ -123,7 +123,7 @@ const featureCardData = [
 
           <div className={styles.secondarySection}>
             <span className={styles.promoText}>
-              India’s first pain relief blend powered by Hemp Seed Oil, CBD,
+              Pain relief blend powered by Hemp Seed Oil, CBD,
               Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp
               and virgin coconut base.
             </span>
@@ -158,11 +158,7 @@ const featureCardData = [
         <div className={styles.featureStrip}>
           <div className={styles.card01}>
             <span className={styles.text}>
-              {!mounted
-                ? "POWERFUL TRIPLE ACTION RELIEF"
-                : isTablet
-                  ? "TRIPLE ACTION RELIEF"
-                  : "POWERFUL TRIPLE ACTION RELIEF"}
+              TRIPLE ACTION RELIEF
             </span>
           </div>
           <div className={styles.card02}>
@@ -172,7 +168,7 @@ const featureCardData = [
           </div>
           <div className={styles.card03}>
             <div className={styles.container}>
-              <span className={styles.countText}>5K+</span>
+              <span className={styles.countText}>1K+</span>
               <span className={styles.text}>Satisfied Customers</span>
             </div>
           </div>
@@ -232,9 +228,7 @@ const featureCardData = [
             />
           ))}
         </div>
-        
       </div>
-      
 
       <div className={styles.pillarsSection}>
         {mounted && isPillarMobile && (
@@ -248,7 +242,7 @@ const featureCardData = [
             {/* {pillarData.map((pillar, index) => (
               <Pillar label={pillar.label} number={index + 1} key={index} />
             ))} */}
-            <ExpandablePillars/>
+            <ExpandablePillars />
           </div>
           {mounted && !isPillarMobile && (
             <div className={styles.textCtn}>

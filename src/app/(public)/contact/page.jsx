@@ -24,17 +24,10 @@ const page = () => {
               <span className={styles.content}>drvandys@gmail.com</span>
             </div>
             <div className={styles.item}>
-              <span className={styles.title}>General inquiries</span>
-              <span className={styles.content}>drvandys@gmail.com</span>
+              <span className={styles.title}>Contact Number</span>
+              <span className={styles.content}>+91 9871801077</span>
             </div>
-            <div className={styles.item}>
-              <span className={styles.title}>General inquiries</span>
-              <span className={styles.content}>drvandys@gmail.com</span>
-            </div>
-            <div className={styles.item}>
-              <span className={styles.title}>General inquiries</span>
-              <span className={styles.content}>drvandys@gmail.com</span>
-            </div>
+
           </div>
 
           <div className={styles.mapCtn}>
