@@ -3,6 +3,7 @@ import styles from './Footer.module.css'
 import { useEffect, useState } from 'react';
 import { sizeTablet } from '@/config/constants';
 import { useMediaQuery } from 'react-responsive';
+import Link from 'next/link';
 
 const Footer = () => {
     const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
@@ -13,61 +14,73 @@ const Footer = () => {
     }, []);
   return (
     <footer className={styles.footer}>
-      <span className={styles.privacyPolicyText}>Privacy Policy</span>
-      <span className={styles.copyrightText}>
-        {!mounted
-          ? "Copyright © 2025 drvandys.com - All Rights Reserved."
-          : isTablet
-            ? "© 2025 Dr. Vandy’s"
-            : "Copyright © 2025 drvandys.com - All Rights Reserved."}
-      </span>
+      <div className={styles.topCtn}>
+        <div className={styles.footerLogoCtn}>
+          <img className={styles.logo} src="/logo.avif" />
+          <span className={styles.label}>
+            Authorized Indian distributor of The Biomechanics Method CES.
+          </span>
+        </div>
 
-      <div className={styles.iconsCtn}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={clsx(styles.footerIcon, styles.instagramIcon)}
-        >
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={clsx(styles.footerIcon, styles.facebookIcon)}
-        >
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={clsx(styles.footerIcon, styles.youtubeIcon)}
-        >
-          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-          <path d="m10 15 5-3-5-3z" />
-        </svg>
+        <div className={clsx(styles.footerColumn, styles.quickLinks)}>
+          <span className={styles.heading}>Quick Links</span>
+          <div className={styles.footerItems}>
+            <Link className={styles.item} href='/contact'>Contact Us</Link>
+            <Link className={styles.item} href='/about'>About Us</Link>
+            <Link className={styles.item} href='/faq'>FAQ</Link>
+          </div>
+        </div>
+
+        <div className={styles.footerColumn}>
+          <span className={styles.heading}>Resources</span>
+          <div className={styles.footerItems}>
+            <Link className={styles.item} href="/shipping-policy">
+              Shipping Policy
+            </Link>
+            <Link className={styles.item} href="/return-policy">
+              Return Policy
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.footerColumn}>
+          <span className={styles.heading}>Get in Touch</span>
+          <div className={styles.footerItems}>
+            <a
+              className={clsx(styles.item, styles.mail)}
+              href="mailto:info@drvandys.com"
+            >
+              info@drvandys.com
+            </a>
+            <a className={styles.item} style={{ cursor: "default" }}>
+              Dr. Vandy's Lab Regd. Office: 7/16, Ground Floor, Sector-2,
+              Rajinder Nagar, Sahibabad, Ghaziabad, Uttar Pradesh - 201005,
+              India
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.legalTerms}>
+        <span className={styles.copyrightText}>
+          2026 Physiolution. All rights reserved
+        </span>
+        <div className={styles.boringCtn}>
+          <a
+            className={styles.label}
+            onClick={() => {
+              router.push("/privacy");
+            }}
+          >
+            Privacy Policy
+          </a>
+          <Link
+            className={styles.label}
+            href='/terms-of-usage'
+          >
+            Terms of Usage
+          </Link>
+        </div>
       </div>
     </footer>
   );

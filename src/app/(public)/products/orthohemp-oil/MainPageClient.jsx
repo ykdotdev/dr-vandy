@@ -8,7 +8,7 @@ import { useParams } from "next/navigation";
 import InfoPageClient from "./InfoPageClient";
 
 const MainPageClient = ({product, variants, pageStatus}) => {
-console.log("status",pageStatus)
+// console.log("status",pageStatus)
   const [currentPage, setCurrentPage] = useState(pageStatus === "1" ? "info" : "product");
 
   const handleActivePage = (requiredPage)=>{

@@ -47,7 +47,7 @@ const page = () => {
                 scrolling="no"
                 marginHeight="0"
                 marginWidth="0"
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=faridabad+(Dr.%20Vandy's)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=7/16,%20sector-2,%20Rajinder%20Nagar+(Dr.%20Vandy's%20Lab)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

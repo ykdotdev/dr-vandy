@@ -1,204 +1,101 @@
-/* #region Feature Section */
-.featureSectionCtn {
-    /* Feature_Section */
+.featureCard {
+    /* Feature_Card */
 
     /* Auto layout */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* padding: 0px var(--spacings-xl8); */
-    gap: var(--spacings-l);
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--spacings-m);
+    gap: var(--spacings-m);
 
-    height: fit-content;
+    width: 100%;
+    /* height: fit-content; */
+    height: 100%;
 
+    /* Light Gray */
+    border: 1px solid #ADADAD;
+    border-radius: 8px;
+}
+
+.featureCard .icon {
+    /* Vector */
+
+    width: var(--font-sizes-m-text);
+    height: var(--font-sizes-m-text);
 
     /* Inside auto layout */
     flex: none;
     order: 0;
-    align-self: stretch;
     flex-grow: 0;
-    z-index: 3;
 }
 
-/* #endregion */
+.featureCard.n1 .icon {
+    color: var(--gold);
+}
 
-.featureCard{
-    /* Feature_Card */
-    position: sticky;
-    /* background-color: var(--white); */
-    top: 10%;
+.featureCard.n2 .icon {
+    color: var(--dark-gray);
+}
+
+.featureCard.n3 .icon {
+    color: var(--dark-green);
+}
+
+.featureCard.n4 .icon {
+    color: var(--red);
+}
+
+.featureCard .textCtn {
+    /* Text_Container */
+
     /* Auto layout */
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 0px;
-    gap: var(--spacings-ml);
+    gap: var(--spacings-sm);
 
-    /* width: fit-content; */
     height: fit-content;
 
 
     /* Inside auto layout */
-    /* flex: none; */
-    align-self: stretch;
-    order: 0;
-    flex-grow: 0;
-
-}
-
-.featureCard1{
-    order: 0;
-}
-
-.featureCard2 {
+    flex: none;
     order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
-.featureCard3 {
-    order: 2;
-}
+.featureCard .heading {
+    /* Worldwide Recognition */
 
-.featureCard .icon{
-/* Vector */
+    font-weight: 600;
+    font-size: var(--font-sizes-s-text);
 
-    width: 24dvw;
-    height: 24dvw;
-    max-width: 16rem;
-    max-height: 16rem;
-    min-width: 8rem;
-    min-height: 8rem;
+    /* Dark Gray */
+    color: #323232;
+
+
     /* Inside auto layout */
     flex: none;
     order: 0;
+    align-self: stretch;
     flex-grow: 0;
 }
 
-.icon1{
-/* Green */
-    color: var(--green);
-}
+.featureCard .description {
+    /* Join specialists in over 80 countries with the highest-rated corrective exercise credential in the fitness industry */
 
-.icon2{
-/* Ice Blue */
-    color: var(--ice-blue);
-}
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
 
-.icon3{
-/* Gold */
-    color: var(--gold);
-}
+    /* Gray */
+    color: #737373;
 
-.featureCard .contentCtn{
-    /* Card */
-        background-color: var(--white);
-        /* Auto layout */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: var(--spacings-m);
-        gap: var(--spacings-m);
-    
-        width: 56dvw;
-        max-width: 56rem;
-        max-width: 56rem;
-        align-self: stretch;
-        height: fit-content;
-    
-        /* Black */
-        border: 1px solid #07080C;
-        border-radius: var(--border-radius-xs);
-    
-        /* Inside auto layout */
-        /* flex: none; */
-        order: 1;
-        flex-grow: 0;
-}
 
-.contentCtn .headingCtn{
-    /* Heading_Container */
-    
-        /* Auto layout */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0px;
-        gap: var(--spacings-s);
-    
-        height: fit-content;
-    
-    
-        /* Inside auto layout */
-        /* flex: none; */
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
-}
-
-.headingCtn .headingIndex{
-    /* 01 */
-    
-        font-weight: 700;
-        font-size: var(--font-sizes-l-text);
-        /* Inside auto layout */
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
-}
-
-.headingIndex1 {
-    /* Green */
-    color: var(--green);
-}
-
-.headingIndex2 {
-    /* Ice Blue */
-    color: var(--ice-blue);
-}
-
-.headingIndex3 {
-    /* Gold */
-    color: var(--gold);
-}
-
-.headingIndex::selection{
-    color: var(--black);
-}
-
-.headingCtn .headingText{
-    /* Fast Relief */
-    
-        font-weight: 500;
-        font-size: var(--font-sizes-l-text);
-        letter-spacing: 0.02rem;
-    
-        /* Black */
-        color: #07080C;
-    
-    
-        /* Inside auto layout */
-        /* flex: none; */
-        order: 1;
-        align-self: stretch;
-        flex-grow: 0;
-}
-
-.contentCtn .subheadingText{
-    /* CBD calms pain receptors for instant comfort. */
-    
-        font-weight: 400;
-        font-size: var(--font-sizes-m-text);
-        letter-spacing: 0.02rem;
-    
-        /* Black */
-        color: #07080C;
-    
-    
-        /* Inside auto layout */
-        /* flex: none; */
-        order: 1;
-        align-self: stretch;
-        flex-grow: 0;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }

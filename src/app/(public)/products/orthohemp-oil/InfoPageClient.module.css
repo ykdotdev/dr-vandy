@@ -8,7 +8,7 @@
     padding-bottom: var(--spacings-xs);
     margin-top: 12rem;
     gap: 12rem;
-
+    padding: 0 var(--spacings-xl4);
     height: fit-content;
 
 
@@ -212,6 +212,22 @@
     flex-grow: 0;
 }
 
+.stair.s1{
+    background-color: var(--dark-green);
+}
+
+.stair.s2 {
+    background-color: var(--gold);
+}
+
+.stair.s3 {
+    background-color: var(--red);
+}
+
+.stair.s4 {
+    background-color: var(--dark-gray);
+}
+
 .indicator {
 
     position: relative;
@@ -309,7 +325,6 @@
 
 .suitableForSection .tags .tag{
 /* Tag_01 */
-
     width: 100%;
     height: fit-content;
     /* Auto layout */
@@ -361,7 +376,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
     gap: var(--spacings-l);
 
     width: fit-content;

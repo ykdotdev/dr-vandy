@@ -87,10 +87,6 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   el: `.${styles.pagination}`,
                   clickable: true,
                 }}
-                onSlideChange={(swiper) => {
-                  // optional: keep index in sync if you need it elsewhere
-                  // setCurrentPhotoIndex(swiper.activeIndex);
-                }}
                 slidesPerView={1}
                 roundLengths={true}
               >
@@ -222,9 +218,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Apply a small amount to the affected area and gently
+                      massage until absorbed. Use 2–3 times daily or as advised
+                      by your healthcare professional. Suitable for regular use
+                      as part of your pain management routine.
                     </p>
                   </div>
                 </div>
@@ -269,9 +266,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf
+                      Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
+                      blend of therapeutic botanicals that work together to
+                      support joint, muscle, and nerve comfort.
                     </p>
                   </div>
                 </div>
@@ -316,9 +314,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Designed for individuals experiencing joint stiffness,
+                      muscle fatigue, back pain, or nerve discomfort — including
+                      active adults, working professionals, athletes, and
+                      seniors seeking daily relief support.
                     </p>
                   </div>
                 </div>
@@ -467,9 +466,11 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                 >
                   {imageArr?.map((img, idx) => (
                     <SwiperSlide key={idx}>
-                      <img
+                      <Image
                         className={styles.productImage}
                         src={img.url}
+                        width={800}
+                        height={600}
                         alt="Product"
                       />
                     </SwiperSlide>
@@ -590,9 +591,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Apply a small amount to the affected area and gently
+                      massage until absorbed. Use 2–3 times daily or as advised
+                      by your healthcare professional. Suitable for regular use
+                      as part of your pain management routine.
                     </p>
                   </div>
                 </div>
@@ -637,9 +639,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf
+                      Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
+                      blend of therapeutic botanicals that work together to
+                      support joint, muscle, and nerve comfort.
                     </p>
                   </div>
                 </div>
@@ -684,9 +687,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Ideal for joint pain, arthritis, muscle stiffness, nerve
-                      discomfort, sports recovery, and daily mobility support.
-                      Safe for long-term use and all age groups.
+                      Designed for individuals experiencing joint stiffness,
+                      muscle fatigue, back pain, or nerve discomfort — including
+                      active adults, working professionals, athletes, and
+                      seniors seeking daily relief support.
                     </p>
                   </div>
                 </div>

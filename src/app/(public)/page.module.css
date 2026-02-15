@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacings-xl5);
+    gap: var(--spacings-xl6);
     height: fit-content;
 }
 
@@ -459,7 +459,7 @@
 /* #region About Section */
 .aboutSection {
     /* About_Section */
-
+    
     /* Auto layout */
     display: flex;
     flex-direction: column;
@@ -595,10 +595,12 @@
     /* Feature_Section */
 
     /* Auto layout */
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--spacings-sm);
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xl2);
+
     height: fit-content;
 
 
@@ -607,24 +609,54 @@
     order: 3;
     align-self: stretch;
     flex-grow: 0;
-    z-index: 3;
+}
+
+.sectionHeading{
+/* The Power Behind the Relief */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    /* Black */
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.featureGrid {
+    /* Feature_Grid */
+
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacings-sm);
+    padding: 0 var(--spacings-l);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
 /* #endregion */
 
-/* #region Testimonial Section */
-.testimonialSection {
-    /* Testimonials_Section */
+.pillarsSection{
+/* Pllars_Section */
+
     /* Auto layout */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0 var(--spacings-xl5);
-    gap: 0;
-    isolation: isolate;
+    padding: 0px;
+    gap: var(--spacings-xl2);
 
-    /* width: 1360px; */
     height: fit-content;
 
 
@@ -633,139 +665,200 @@
     order: 4;
     align-self: stretch;
     flex-grow: 0;
-    z-index: 4;
+    z-index: 5;
 }
 
-.testimonialSection .testimonialCard {
-    /* Testimonial_Card */
-
-    /* Auto layout */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--spacings-xl4) var(--spacings-l) var(--spacings-l);
-    gap: var(--spacings-xl);
-
-    /* width: 1200px; */
-    height: fit-content;
-
-    background: rgba(70, 120, 69, 0.1);
-    border-radius: var(--border-radius-s);
-
-    /* Inside auto layout */
-    /* flex: none; */
-    order: 1;
-    flex-grow: 0;
-    z-index: 1;
-}
-
-.testimonialSection .iconContainer {
-    /* Testimonial_Icon_Container */
+.largeCtn{
+/* Large_Container */
 
     /* Auto layout */
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: var(--spacings-m);
+    padding: 0px var(--spacings-l);
+    gap: var(--spacings-m);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    /* Light Yellow */
-    background: var(--light-yellow);
-    border-radius: 50%;
-
-    /* Inside auto layout */
-    /* flex: none; */
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
-}
-
-.testimonialSection .iconContainer .icon {
-    /* Vector */
-
-    width: 3.6rem;
-    height: 3.6rem;
-
-    /* Black */
-    color: var(--black);
-    transform: rotate(180deg);
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.testimonialCard .contentCtn {
-    /* Testimonial_Content */
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    gap: var(--spacings-xl4);
+    height: fit-content;
 
 
     /* Inside auto layout */
     flex: none;
-    order: 0;
+    order: 1;
     align-self: stretch;
     flex-grow: 0;
 }
 
-.testimonialCard .contentCtn .text {
-    /* This oil reduced my mother’s knee pain within a week. It's now a part of her daily routine! */
-
-    font-weight: 500;
-    font-size: var(--font-sizes-l-text);
-    text-align: center;
-    letter-spacing: 0.02rem;
-
-    /* Black */
-    color: var(--black);
-
-
-    /* Inside auto layout */
-    /* flex: none; */
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-}
-
-.testimonialCard .userDetailsCtn {
-    /* Testimonial_UserDetails */
+.pillars{
+/* Pillars */
 
     /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: var(--spacings-sm);
+    gap: var(--spacings-ml);
+
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.textCtn{
+/* Text_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
 
 
     /* Inside auto layout */
     flex: none;
     order: 1;
-    align-self: stretch;
     flex-grow: 0;
 }
 
-.userDetailsCtn .nameText {
-    /* – Priya */
+.pillarsSection .number{
+/* 3 */
 
-    font-weight: 700;
-    font-size: var(--font-sizes-m-text);
-    line-height: 3.2rem;
+    font-weight: 600;
+    font-size: var(--font-sizes-title);
     text-align: center;
-    letter-spacing: 0.02rem;
+    letter-spacing: -0.02em;
 
+    /* Gray */
+    color: #6E7070;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.pillarsSection .specialStyling{
+    color: var(--dark-green);
+}
+
+/* TESTIMONIAL SECTION */
+.testimonialSection{
+/* Testimonial_Section */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px var(--spacings-l);
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 5;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 8;
+}
+
+.sectionHeader{
+/* Section_Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    width: fit-content;
+    height: fit-content;
+    
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.testimonialSection .sectionHeading{
+    text-align: left;
+}
+
+.sectionSubheadingWrapper{
+    
+    overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+}
+
+.sectionSubheading{
+/* We take pride in delivering exceptional sihdihfs ishdfishfs sihfishfishf */
+    font-weight: 400;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: -0.02em;
+
+    /* Gray */
+    color: #6E7070;
+width: 0;
+    /* ignore its intrinsic width */
+    min-width: 100%;
+
+    /* Inside auto layout */
+    order: 1;
+}
+
+.testimonialCtn{
+/* Testimonial_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    width: 100%;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+}
+
+.testimonial{
+/* “This oil reduced my mother’s knee pain within a week. It's now a part of her daily routine! This oil reduced my mother’s knee pain within a week. It's now a part of her daily routine! */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+    
     /* Black */
-    color: var(--black);
+    color: #07080C;
 
 
     /* Inside auto layout */
@@ -775,27 +868,65 @@
     flex-grow: 0;
 }
 
-.userDetailsCtn .detailsText {
-    /* 38, Mumbai */
+.testimonialCtn .detailsCtn{
+/* Details_Container */
 
-    font-weight: 500;
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacings-m) 0px 0px;
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Light Gray */
+    border-top: 1px solid #E9ECEC;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.testimonialCtn .name{
+/* Priya */
+
+    font-weight: 700;
     font-size: var(--font-sizes-s-text);
-    line-height: 120%;;
     text-align: center;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.02em;
 
     /* Black */
-    color: var(--black);
+    color: #07080C;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.testimonialCtn .subDetails{
+/* 38, Mumbai */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    /* Gray */
+    color: #6E7070;
 
 
     /* Inside auto layout */
     flex: none;
     order: 1;
-    align-self: stretch;
     flex-grow: 0;
 }
-
-/* #endregion */
 
 /* #region CTA Section */
 .ctaSection {
@@ -897,12 +1028,6 @@
     .learnMoreBtn{
         height: 100%;
     }
-
-    .featureSection{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(2, minmax(0, 1fr));
-        row-gap: var(--spacings-l);
-    }
 }
 @media (max-width: 768px) {
     .heroTitle{
@@ -960,24 +1085,44 @@
     }
 
     .testimonialSection{
-        padding: var(--spacings-l);
+        grid-template-columns: 1fr;
     }
 
-    .testimonialCard{
-        align-self: stretch;
+    .testimonialSection .sectionHeader{
+        width: 100%;
+        align-items: center;
     }
 
-    .copyrightText{
-        content: © 2026 YourSite;
+    .testimonialSection .sectionHeading{
+        text-align: center;
+    }
+
+    .testimonialCtn{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .testimonial{
+        text-align: center;
+    }
+
+    .detailsCtn{
+        align-items: center !important;
     }
 
 }
 
 
 @media (max-width: 470px) {
-.featureSection {
+.featureGrid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-template-rows: repeat(4, minmax(0, 1fr));
-    row-gap: var(--spacings-sm);
+    row-gap: var(--spacings-l);
 }
+}
+
+@media (max-width: 1000px) {
+    .largeCtn {
+        grid-template-columns: 1fr;
+    }
 }

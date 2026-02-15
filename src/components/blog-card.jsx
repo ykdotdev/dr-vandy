@@ -15,21 +15,19 @@ export default function BlogCard({ post }) {
             loading="eager"
           />
         </div>
-        <div className={styles.cardContent}>
-          <h3 className={styles.title}>{post.title}</h3>
-          <p className={styles.excerpt}>{post.excerpt}</p>
-          <div className={styles.meta}>
-            <span className={styles.readTime}>{post.readTime}</span>
-            <span className={styles.date}>
-              {new Date(post.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              })}
-            </span>
+        <div className={styles.wrapper}>
+          <div className={styles.readTime}>
+            <span className={styles.label}>{post.readTime}</span>
           </div>
+          <div className={styles.cardContent}>
+            <div className={styles.header}>
+              <h3 className={styles.title}>{post.title}</h3>
+              <p className={styles.excerpt}>{post.excerpt}</p>
+            </div>
+          </div>
+          <div className={styles.cta}>Read more</div>
         </div>
       </article>
     </Link>
-  )
+  );
 }

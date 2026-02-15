@@ -1,0 +1,106 @@
+.pillar {
+    /* Pillar_01 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacings-s);
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+    
+    border-radius: 999px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.pillar.n1{
+    /* Dark Green */
+    background: #1d5e44;
+}
+
+.pillar.n2 {
+    /* Gold */
+    background: var(--gold);
+}
+
+.pillar.n3 {
+    /* Dark Gray */
+    background: var(--dark-gray);
+}
+
+.indicator {
+
+    position: relative;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+}
+
+.pillar.n1 .indicator{
+    background-color: var(--white);
+}
+
+.pillar.n2 .indicator {
+    background-color: var(--light-yellow);
+}
+
+.pillar.n3 .indicator {
+    background-color: var(--light-gray);
+}
+
+/* first ring */
+.indicator::before,
+.indicator::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgb(252, 253, 248, 0.3);
+    opacity: 0.6;
+    animation: ambient-pulse 2.2s infinite ease-out;
+}
+
+/* second ring (delayed + larger) */
+.indicator::after {
+    animation-delay: 1.1s;
+    opacity: 0.4;
+}
+
+@keyframes ambient-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.label {
+    /* Provides localized, targeted relief exactly where you apply it */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+
+    /* White */
+    color: #FCFDF8;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}

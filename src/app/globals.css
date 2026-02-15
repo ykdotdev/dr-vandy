@@ -64,6 +64,8 @@
   --ice-blue: #5cb1d6;
   --green: #467845;
   --red: #b91c19;
+  --light-gray: #e9ecec;
+  --dark-green: #1d5e44;
 
 }
 
@@ -99,6 +101,7 @@ body {
   overscroll-behavior: contain;
   touch-action: manipulation;
   background-color: var(--white);
+  
 
 }
 

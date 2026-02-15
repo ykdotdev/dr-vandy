@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   will-change: transform;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border: 1px solid var(--gray);
-  /* border-radius: var(--border-radius-l); */
+  border-radius: var(--border-radius-xs);
   overflow: hidden;
   cursor: pointer;
   width: 100%;
@@ -34,47 +34,149 @@
   transform: scale(1.1);
 }
 
-.cardContent {
+.wrapper{
+  height: calc((100% - 20rem));
   display: flex;
-  flex-direction: row;
-  height: calc(100% - 20rem);
-  border-top: 1px solid #e9ecec;
-  padding: var(--spacings-sm);
   flex-direction: column;
-  justify-content: space-between;
-  gap: var(--spacings-sm);
+  gap: var(--spacings-m);
+  padding: var(--spacings-l) var(--spacings-sm) var(--spacings-sm) var(--spacings-sm);
+}
+
+.cardContent {
+/* Card_Content */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacings-ml);
+
+  height: fit-content;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.header{
+/* Frame */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: var(--spacings-m);
+  
+  overflow: hidden;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .title {
-  color: var(--black);
+/* The Power of Mindful Mornings */
+
+  font-weight: 500;
   font-size: var(--font-sizes-s-text);
-  font-weight: 600;
+  letter-spacing: 0.02em;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: ellipsis;
+  color: var(--black);
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .excerpt {
-  color: var(--gray);
+/* Disdnsijfijdifdifjij Disdns ijfijdifdifjij Disdns ijfijdifdifjij Disd nsijfijdifdifjij */
+
+  font-weight: 400;
   font-size: var(--font-sizes-xs-text);
+  letter-spacing: 0.02em;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: ellipsis;
+  /* Dark Gray */
+  color: #2C2D31;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
-.meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cta{
+/* Read more */
+  margin-top: auto;
+  font-weight: 400;
+  font-size: var(--font-sizes-xs-text);
+  letter-spacing: 0.02em;
+  text-decoration-line: underline;
+
+  /* Dark Gray */
+  color: #2C2D31;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  justify-self: flex-end;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .readTime {
-  color: var(--gold);
-  font-size: var(--font-sizes-xs-text);
-  font-weight: 500;
+/* Read_Time */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacings-xs) var(--spacings-sm);
+
+  width: fit-content;
+  height: fit-content;
+
+  /* Gold */
+  background: var(--gray);
+  border-radius: var(--border-radius-pill);
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
-.date {
-  color: var(--dark-gray);
+.readTime .label{
+/* 8 min read */
+
   font-weight: 400;
   font-size: var(--font-sizes-xs-text);
+  letter-spacing: 0.02em;
+
+  /* White */
+  color: #FCFDF8;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }

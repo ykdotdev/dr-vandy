@@ -17,8 +17,8 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
   const router = useRouter();
   const { showToast } = useToast();
   const [infoActive, setInfoActive] = useState(false);
-  console.log("info", infoActive)
-  console.log("variant", variant)
+  // console.log("info", infoActive)
+  // console.log("variant", variant)
   const {
     register,
     getValues,
@@ -43,7 +43,7 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
   });
 
   const onApplyPromo = async ({ promo }) => {
-    console.log("FUNCTION WORKING");
+    // console.log("FUNCTION WORKING");
     const res = await fetch("/api/promoCode", {
       method: "POST",
       body: JSON.stringify({ promoCode: promo }),
@@ -55,17 +55,17 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
       setPromoError("promo", {
         message: "Invalid promo code",
       });
-      console.log(data);
+      // console.log(data);
     } else {
-      console.log("APPLIED SUCCESSFULLY");
-      console.log(data.discount);
+      // console.log("APPLIED SUCCESSFULLY");
+      // console.log(data.discount);
       setAppliedPromoCode(data)
     }
   };
 
   const MIN_QTY = 1;
   const MAX_QTY = Math.min(variant.current_stock, 9);
-  console.log(MIN_QTY)
+  // console.log(MIN_QTY)
   const [currentQty, setCurrentQty] = useState(Number(qty));
 
   const decreaseActive = currentQty > MIN_QTY;
@@ -78,17 +78,16 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
   const increase = () => {
     setCurrentQty((prevQty) => Math.min(prevQty + 1, MAX_QTY));
   };
-  console.log(errors);
+  // console.log(errors);
 
   const [totals, setTotals] = useState({
     subtotal: 0, //price*qty
-    tax: 0,
     discount: 0,
     shipping: 0,
     totalPaise: 0,
     totalRupees: 0,
   });
-  console.log("PAISE", totals.totalPaise)
+  // console.log("PAISE", totals.totalPaise)
   const [appliedPromoCode, setAppliedPromoCode] = useState(null);
 
   useEffect(() => {
@@ -101,18 +100,17 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
           ? round2(subtotal * (appliedPromoCode.discount / 100))
           : 0;
 
-        const taxable = round2(subtotal - discount);
+        const finalPrice = round2(subtotal - discount);
 
-        const tax = round2(taxable * 0.18); // 18% GST
+        // const tax = round2(taxable * 0.18); // 18% GST
         const shipping = 0;
 
-        const totalRupees = round2(taxable + tax + shipping);
+        const totalRupees = round2(finalPrice + shipping);
         const totalPaise = Math.round(totalRupees * 100);
 
         setTotals({
           subtotal,
           discount,
-          tax,
           shipping,
           totalPaise,
           totalRupees,
@@ -137,7 +135,7 @@ const handlePayment = async () => {
   try {
     // 1️⃣ Get validated shipping details from form
     const formData = getValues();
-    console.log("Shipping data:", formData);
+    // console.log("Shipping data:", formData);
 
     // 2️⃣ Load Razorpay SDK
     const loaded = await loadRazorpay();
@@ -145,7 +143,7 @@ const handlePayment = async () => {
       alert("Razorpay SDK failed to load.");
       return;
     }
-    console.log("appliedPromoCode: ", appliedPromoCode?.code)
+    // console.log("appliedPromoCode: ", appliedPromoCode?.code)
     // 3️⃣ Create order via API (Supabase RPC + Razorpay order)
     const res = await fetch("/api/createOrder", {
       method: "POST",
@@ -172,13 +170,13 @@ const handlePayment = async () => {
 
     const { order, razorpayOrder, error } = await res.json();
     if (error) {
-      console.log("Order creation failed:", error);
+      // console.log("Order creation failed:", error);
       showToast(error, "error");
       return;
     }
 
-    console.log("Supabase order:", order);
-    console.log("Razorpay order:", razorpayOrder);
+    // console.log("Supabase order:", order);
+    // console.log("Razorpay order:", razorpayOrder);
 
     // 4️⃣ Open Razorpay modal
     const options = {
@@ -193,7 +191,7 @@ const handlePayment = async () => {
         contact: formData.phone,
       },
       handler: async (paymentResponse) => {
-        console.log(paymentResponse)
+        // console.log(paymentResponse)
         try {
           await fetch("/api/confirmPayment", {
             method: "POST",
@@ -209,14 +207,14 @@ const handlePayment = async () => {
 
           router.push(`/payment/?oID=${razorpayOrder.id}`);
         } catch (verifyError) {
-          console.error("Payment verification failed:", verifyError);
+          // console.error("Payment verification failed:", verifyError);
           showToast("Payment verification failed", "error");
         }
       },
       theme: { color: "#000000" },
       modal: {
     ondismiss: async function () {
-      console.log("Razorpay modal closed without payment");
+      // console.log("Razorpay modal closed without payment");
       try {
         await fetch("/api/confirmPayment", {
           method: "POST",
@@ -227,7 +225,7 @@ const handlePayment = async () => {
           }),
         });
       } catch (err) {
-        console.error("Error cancelling order:", err);
+        // console.error("Error cancelling order:", err);
       }
     }
   }
@@ -237,7 +235,7 @@ const handlePayment = async () => {
     const rzp = new window.Razorpay(options);
     rzp.open();
   } catch (err) {
-    console.error("Payment error:", err);
+    // console.error("Payment error:", err);
     alert(err.message || "Something went wrong");
   }
 };
@@ -641,7 +639,7 @@ const handlePayment = async () => {
             <div className={styles.billingCtn}>
               <div className={styles.pricingBreakdownCtn}>
                 <div className={clsx(styles.pricingRow, styles.netPricingCtn)}>
-                  <span className={styles.chargeLabel}>2 Items</span>
+                  <span className={styles.chargeLabel}>{currentQty} Items</span>
                   <span className={styles.priceValue}>
                     ₹{totals.subtotal.toFixed(2)}
                   </span>
@@ -650,7 +648,7 @@ const handlePayment = async () => {
                 <div className={clsx(styles.pricingRow, styles.taxCtn)}>
                   <span className={styles.chargeLabel}>Tax</span>
                   <span className={styles.priceValue}>
-                    ₹{totals.tax.toFixed(2)}
+                    Inclusive
                   </span>
                 </div>
 

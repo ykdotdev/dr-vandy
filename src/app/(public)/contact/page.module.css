@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: calc(100dvh - 2*var(--spacings-xs));
+    gap: var(--spacings-xl);
+    height: fit-content;
 }
 
 .contactCtn{

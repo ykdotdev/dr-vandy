@@ -22,7 +22,7 @@ const PaymentClient = ({ orderID }) => {
         });
 
         const data = await res.json();
-        console.log("Payment status:", data);
+        // console.log("Payment status:", data);
         if (data?.status === "paid") {
           setStatus("success");
           setLoading(false);
@@ -31,7 +31,7 @@ const PaymentClient = ({ orderID }) => {
           setLoading(false);
         }
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         setStatus("fail");
         setLoading(false);
       }

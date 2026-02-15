@@ -17,7 +17,7 @@ const page = async ({searchParams}) => {
       .eq("id", variant?.product_id)
       .maybeSingle();
 
-       console.log("2: ", product, variant)
+      //  console.log("2: ", product, variant)
   return (
     <CheckoutClient product={product} variant={variant} qty={qtyFromParams} amount={variant?.price}/>
   )

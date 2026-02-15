@@ -17,7 +17,9 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <h1 className={styles.logo}>Dr. Vandy’s™</h1>
+      <Link href={"/"}>
+        <h1 className={styles.logo}>Dr. Vandy’s™</h1>
+      </Link>
       {mounted && (
         <div
           className={clsx(
@@ -28,9 +30,24 @@ const Navbar = () => {
         >
           {/* Nav items */}
           <div className={styles.navItems}>
-            <Link className={clsx(styles.navItem, styles.navItem01)} href='/blog'>Blogs</Link>
-            <Link className={clsx(styles.navItem, styles.navItem02)} href='/about'>About</Link>
-            <Link className={clsx(styles.navItem, styles.navItem03)} href='/contact'>Contact</Link>
+            <Link
+              className={clsx(styles.navItem, styles.navItem01)}
+              href="/blog"
+            >
+              Blogs
+            </Link>
+            <Link
+              className={clsx(styles.navItem, styles.navItem02)}
+              href="/about"
+            >
+              About
+            </Link>
+            <Link
+              className={clsx(styles.navItem, styles.navItem03)}
+              href="/contact"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* CTA */}

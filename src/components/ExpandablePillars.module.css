@@ -1,0 +1,118 @@
+.pillarsWrapper {
+    display: flex;
+    gap: var(--spacings-l);
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.pillarItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacings-m);
+}
+
+.pillarButton {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+}
+
+.pillarButton:hover {
+    transform: translateY(-4px);
+}
+
+.pillarButton.expanded {
+    transform: scale(1.05);
+}
+
+/* Hide other pillars when one is expanded */
+.pillarsWrapper:has(.pillarButton.expanded) .pillarButton:not(.expanded) {
+    opacity: 0.2;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+/* Content box that appears below the pillar */
+.contentBox {
+    /* background: rgba(255, 255, 255, 0.05); */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--spacings-s);
+    padding: var(--spacings-m);
+    backdrop-filter: blur(1rem);
+    animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 var(--spacings-xs) var(--spacings-ml) rgba(0, 0, 0, 0.1);
+}
+
+.contentText {
+    margin: 0;
+    font-size: var(--font-sizes-xs-text);
+    color: var(--black);
+    font-weight: 400;
+}
+
+/* Backdrop for focus effect */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: -1;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.cta{
+    margin-left: auto;
+    cursor: pointer;
+    width: var(--font-sizes-m-text);
+    aspect-ratio: 1 / 1;
+    display: flex;
+}
+
+.icon{
+    color: var(--black);
+    align-self: stretch;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pillarsWrapper {
+        flex-direction: column;
+        gap: var(--spacings-m);
+        align-items: center;
+    }
+
+    .contentBox {
+        width: 100%;
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .pillarsWrapper {
+        align-items: center;
+    }
+}

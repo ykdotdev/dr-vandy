@@ -5,7 +5,7 @@ import MainPageClient from "./MainPageClient";
 const page = async ({searchParams}) => {
     const params = await searchParams;
     const pageStatus = params.i || 0;
-    console.log(pageStatus)
+    // console.log(pageStatus)
   const slug = "orthohemp-oil";
   const { data: product } = await supabase
     .from("products")
@@ -18,7 +18,7 @@ const page = async ({searchParams}) => {
      .eq("product_id", product.id)
      .order("qty_in_pack", { ascending: true });
     
-  console.log("Variants Array", variants);
+  // console.log("Variants Array", variants);
         
 
 

@@ -19,19 +19,6 @@ const InfoPageClient = () => {
 
   return (
     <div className={styles.infoWrapper}>
-      <span className={styles.painIntroText}>
-        When pain becomes a daily interruption, relief needs to be both
-        effective and safe.
-        <br />
-        <br />
-        <span className={styles.specificStyling}>
-          Dr. Vandy&apos;s OrthoHemp Pain Relief Oil
-        </span>{" "}
-        is a clinically advanced, doctor-formulated topical oil designed to
-        target pain at its source— muscles, joints, and deep tissues— without
-        harsh chemicals or synthetic painkillers.
-      </span>
-
       <div className={styles.differentiationSection}>
         <span className={styles.sectionTitle}>
           What Makes OrthoHemp Different ?
@@ -82,29 +69,38 @@ const InfoPageClient = () => {
         <span className={styles.sectionTitle}>How It Works ?</span>
 
         <div className={styles.stairs}>
-          <div className={styles.stair}>
-            <div className={styles.indicator}></div>
-            <span className={styles.label}>
-              Provides&nbsp;localized, targeted relief&nbsp;exactly where you
-              apply it
-            </span>
-          </div>
+          {mounted && !isMobile && (
+            <div className={clsx(styles.stair, styles.s1)}>
+              <div className={styles.indicator}></div>
+              <span className={styles.label}>
+                Provides&nbsp;localized, targeted relief&nbsp;exactly where you
+                apply it
+              </span>
+            </div>
+          )}
 
-          <div className={styles.stair}>
+          <div className={clsx(styles.stair, styles.s2)}>
             <div className={styles.indicator}></div>
             <span className={styles.label}>
               Helps reduce&nbsp;inflammation and stiffness
             </span>
           </div>
-
-          <div className={styles.stair}>
+          {mounted && isMobile && (
+            <div className={clsx(styles.stair, styles.s1)}>
+              <div className={styles.indicator}></div>
+              <span className={styles.label}>
+                Provides&nbsp;localized, targeted relief&nbsp;
+              </span>
+            </div>
+          )}
+          <div className={clsx(styles.stair, styles.s3)}>
             <div className={styles.indicator}></div>
             <span className={styles.label}>
               Supports&nbsp;muscle relaxation
             </span>
           </div>
 
-          <div className={styles.stair}>
+          <div className={clsx(styles.stair, styles.s4)}>
             <div className={styles.indicator}></div>
             <span className={styles.label}>Improves&nbsp;joint mobility</span>
           </div>
@@ -231,9 +227,10 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Ideal for joint pain, arthritis, muscle stiffness, nerve
-                discomfort, sports recovery, and daily mobility support. Safe
-                for long-term use and all age groups.
+                Apply a small amount to the affected area and gently massage
+                until absorbed. Use 2–3 times daily or as advised by your
+                healthcare professional. Suitable for regular use as part of
+                your pain management routine.
               </p>
             </div>
           </div>
@@ -278,9 +275,10 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Ideal for joint pain, arthritis, muscle stiffness, nerve
-                discomfort, sports recovery, and daily mobility support. Safe
-                for long-term use and all age groups.
+                Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf Extract,
+                Boswellia, Turmeric CO₂, Menthol, Camphor, and a blend of
+                therapeutic botanicals that work together to support joint,
+                muscle, and nerve comfort.
               </p>
             </div>
           </div>
@@ -325,23 +323,15 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Ideal for joint pain, arthritis, muscle stiffness, nerve
-                discomfort, sports recovery, and daily mobility support. Safe
-                for long-term use and all age groups.
+                Designed for individuals experiencing joint stiffness, muscle
+                fatigue, back pain, or nerve discomfort — including active
+                adults, working professionals, athletes, and seniors seeking
+                daily relief support.
               </p>
             </div>
           </div>
         </div>
       )}
-
-      <div className={styles.whyUsSection}>
-        <span className={styles.sectionTitle}>Why Dr. Vandy&apos;s</span>
-        <span className={styles.description}>
-          Rooted in physiotherapy and clinical pain care, Dr. Vandy&apos;s
-          focuses on understanding pain before treating it—bringing together
-          science, tradition, and real-world experience.
-        </span>
-      </div>
 
       <span className={styles.certificationText}>
         Doctor-Formulated • GMP Certified • THC-Free
