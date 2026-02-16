@@ -266,7 +266,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf
+                      Formulated with Hemp Seed Oil, Vijaya Leaf
                       Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
                       blend of therapeutic botanicals that work together to
                       support joint, muscle, and nerve comfort.
@@ -639,7 +639,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf
+                      Formulated with Hemp Seed Oil, Vijaya Leaf
                       Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
                       blend of therapeutic botanicals that work together to
                       support joint, muscle, and nerve comfort.

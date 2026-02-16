@@ -17,9 +17,9 @@ const page = () => {
                 OrthoHemp™ targets the root cause — inflammation, nerve
                 sensitivity, and tissue stiffness. It’s the only
                 doctor-formulated Ayurvedic pain relief oil enriched with Vijaya
-                (CBD), Hemp Seed Oil, and 16 clinically proven botanicals for
-                triple-action relief: Analgesic, Anti-Inflammatory, and
-                Restorative.
+                Leaf Extract , Hemp Seed Oil, and 16 clinically proven
+                botanicals for triple-action relief: Analgesic,
+                Anti-Inflammatory, and Restorative.
               </p>
             </li>
 
@@ -36,9 +36,9 @@ const page = () => {
             <li>
               <h2>Does OrthoHemp™ cause any psychoactive “high”?</h2>
               <p>
-                ❌ No. The CBD (Vijaya Leaf Extract) used is non-psychoactive,
-                meaning it provides pain-relieving and anti-inflammatory
-                benefits without altering mood or perception.
+                ❌ No. The Vijaya Leaf Extract used is non-psychoactive, meaning
+                it provides pain-relieving and anti-inflammatory benefits
+                without altering mood or perception.
               </p>
             </li>
 
@@ -89,8 +89,7 @@ const page = () => {
 
             <li>
               <h2>
-                Can I use OrthoHemp™ with physiotherapy or medical
-                treatments?
+                Can I use OrthoHemp™ with physiotherapy or medical treatments?
               </h2>
               <p>
                 Yes. It’s designed to complement physiotherapy, stretching, or
@@ -101,20 +100,19 @@ const page = () => {
 
             <li>
               <h2>
-                Is OrthoHemp™ effective for nerve-related pain like sciatica
-                or neuropathy?
+                Is OrthoHemp™ effective for nerve-related pain like sciatica or
+                neuropathy?
               </h2>
               <p>
-                Yes. The CBD, Menthol, Camphor, and Boswellia blend helps calm
-                nerve irritation and muscle spasms, making it beneficial for
-                sciatica, neuropathy, or pinched-nerve pain.
+                Yes. The Vijaya Leaf Extract, Menthol, Camphor, and Boswellia
+                blend helps calm nerve irritation and muscle spasms, making it
+                beneficial for sciatica, neuropathy, or pinched-nerve pain.
               </p>
             </li>
 
             <li>
               <h2>
-                Can it be used for sports recovery or post-workout
-                soreness?
+                Can it be used for sports recovery or post-workout soreness?
               </h2>
               <p>
                 Definitely. Ingredients like Arnica, Ginger, and Eucalyptus

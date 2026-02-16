@@ -37,7 +37,7 @@ const InfoPageClient = () => {
           </div>
 
           <div className={styles.differentiationCard}>
-            <span className={styles.heading}>CBD-Rich Vijaya Leaf Extract</span>
+            <span className={styles.heading}>Vijaya Leaf Extract</span>
             <span className={styles.detailsText}>
               Traditionally used in Ayurvedic pain management, Vijaya Leaf
               Extract supports natural pain modulation without intoxication or
@@ -178,7 +178,7 @@ const InfoPageClient = () => {
           <li>Natural Menthol</li>
           <li>Natural Camphor</li>
           <li>Neem Oil</li>
-          <li>Vijaya Leaf Extract (CBD-rich)</li>
+          <li>Vijaya Leaf Extract</li>
           <li>Rosemary Extract</li>
           <li>Natural Vitamin E</li>
         </ul>
@@ -275,7 +275,7 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Formulated with Hemp Seed Oil, CBD-rich Vijaya Leaf Extract,
+                Formulated with Hemp Seed Oil, Vijaya Leaf Extract,
                 Boswellia, Turmeric CO₂, Menthol, Camphor, and a blend of
                 therapeutic botanicals that work together to support joint,
                 muscle, and nerve comfort.

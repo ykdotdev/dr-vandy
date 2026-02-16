@@ -45,9 +45,9 @@ const featureCardData = [
         <path d="m2 22 .414-.414" />
       </>
     ),
-    heading: "CBD-Rich Vijaya Leaf Extract",
+    heading: "Vijaya Leaf Extract",
     description:
-      "Our formulation features Vijaya Leaf Extract, naturally rich in CBD-like compounds that interact with the body’s pain and inflammation pathways. This helps calm irritated tissues, reduce discomfort, and support faster recovery — without intoxicating effects.",
+      "Our formulation features Vijaya Leaf Extract, that interacts with the body’s pain and inflammation pathways. This helps calm irritated tissues, reduce discomfort, and support faster recovery — without intoxicating effects.",
   },
   {
     iconPath: (
@@ -87,7 +87,7 @@ const featureCardData = [
                 Dr. Vandy’s OrthoHemp™ Pain Relief Oil
               </span>
               <span className={styles.productDescription}>
-                Doctor-Formulated | CBD-Enriched | 100% Plant-Based Relief
+                Doctor-Formulated | Vijaya Leaf Extract | 100% Plant-Based Relief
               </span>
             </div>
             <div className={styles.ctaRow}>
@@ -123,7 +123,7 @@ const featureCardData = [
 
           <div className={styles.secondarySection}>
             <span className={styles.promoText}>
-              Pain relief blend powered by Hemp Seed Oil, CBD,
+              Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract,
               Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp
               and virgin coconut base.
             </span>

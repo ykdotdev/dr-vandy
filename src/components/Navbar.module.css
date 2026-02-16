@@ -1,7 +1,7 @@
 /* #region Navbar */
 .navbar {
     /* Navbar */
-
+    position: relative;
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -21,7 +21,9 @@
 }
 
 .navbar .logoWrapper{
-    height: var(--font-sizes-l-text);
+    position: absolute;
+    top: 0;
+    height: 100%;
     aspect-ratio: 32 / 9;
 }
 
