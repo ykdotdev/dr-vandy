@@ -266,10 +266,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Formulated with Hemp Seed Oil, Vijaya Leaf
-                      Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
-                      blend of therapeutic botanicals that work together to
-                      support joint, muscle, and nerve comfort.
+                      Formulated with Hemp Seed Oil, Vijaya Leaf Extract,
+                      Boswellia, Turmeric CO₂, Menthol, Camphor, and a blend of
+                      therapeutic botanicals that work together to support
+                      joint, muscle, and nerve comfort.
                     </p>
                   </div>
                 </div>
@@ -354,10 +354,12 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   <div className={styles.discountCtn}>
                     <span className={styles.indicator}></span>
                     <span className={styles.text}>
-                      {Math.round(
-                        ((selectedVariant.mrp - selectedVariant.price) /
-                          selectedVariant.mrp) *
-                          100,
+                      {Number(
+                        (
+                          ((selectedVariant.mrp - selectedVariant.price) /
+                            selectedVariant.mrp) *
+                          100
+                        ).toFixed(1),
                       )}
                       % off
                     </span>
@@ -639,10 +641,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   </button>
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
-                      Formulated with Hemp Seed Oil, Vijaya Leaf
-                      Extract, Boswellia, Turmeric CO₂, Menthol, Camphor, and a
-                      blend of therapeutic botanicals that work together to
-                      support joint, muscle, and nerve comfort.
+                      Formulated with Hemp Seed Oil, Vijaya Leaf Extract,
+                      Boswellia, Turmeric CO₂, Menthol, Camphor, and a blend of
+                      therapeutic botanicals that work together to support
+                      joint, muscle, and nerve comfort.
                     </p>
                   </div>
                 </div>
