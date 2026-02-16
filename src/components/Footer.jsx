@@ -17,13 +17,13 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.topCtn}>
         <div className={styles.footerLogoCtn}>
-            <Image
-              width={600}
-              height={150}
-              src={"/logoSecondary.svg"}
-              alt='logo'
-              className={styles.logo}
-            />
+          <Image
+            width={600}
+            height={150}
+            src={"/logoSecondary.svg"}
+            alt="logo"
+            className={styles.logo}
+          />
         </div>
 
         <div className={clsx(styles.footerColumn, styles.quickLinks)}>
@@ -73,7 +73,7 @@ const Footer = () => {
 
       <div className={styles.legalTerms}>
         <span className={styles.copyrightText}>
-          2026 Physiolution. All rights reserved
+          © 2026 Dr. Vandy's. All right reserved
         </span>
         <div className={styles.boringCtn}>
           <a
