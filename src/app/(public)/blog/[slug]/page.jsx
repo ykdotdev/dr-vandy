@@ -131,6 +131,21 @@ export default async function BlogPostPage({ params }) {
           </Link>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            datePublished: post.date,
+            author: {
+              "@type": "Person",
+              name: "Dr. Vandy's",
+            },
+          }),
+        }}
+      />
     </main>
   );
 }

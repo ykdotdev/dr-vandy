@@ -54,6 +54,21 @@ const page = () => {
       </div>
 
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            url: "https://drvandys.com/contact",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer support",
+              email: "info@drvandys.com",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

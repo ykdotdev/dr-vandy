@@ -94,6 +94,18 @@ const page = () => {
           </p>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About Your Brand",
+            url: "https://drvandys.com/about",
+            description: "Learn about Your Brand Name and what we do.",
+          }),
+        }}
+      />
     </>
   );
 }

@@ -291,6 +291,22 @@ const featureCardData = [
         <CTA productSlug="orthohemp-oil" label="Shop Now" />
       </div>
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Your Brand Name",
+            url: "https://drvandys.com",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://drvandys.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
     </div>
   );
 };
