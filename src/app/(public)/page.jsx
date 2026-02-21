@@ -297,7 +297,7 @@ const featureCardData = [
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Your Brand Name",
+            name: "Dr. Vandy's",
             url: "https://drvandys.com",
             potentialAction: {
               "@type": "SearchAction",
