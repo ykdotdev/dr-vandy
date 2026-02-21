@@ -1,13 +1,13 @@
 "use client"
 
-import Navbar from '@/components/Navbar'
 import styles from './page.module.css'
 import Footer from '@/components/Footer'
+import BackBtn from '@/components/BackBtn'
 
 const page = () => {
   return (
     <div className={styles.mainContainer}>
-      <Navbar />
+      <BackBtn />
 
       <div className={styles.contactCtn}>
         <div className={styles.header}>
@@ -21,13 +21,16 @@ const page = () => {
           <div className={styles.details}>
             <div className={styles.item}>
               <span className={styles.title}>General inquiries</span>
-              <span className={styles.content}>drvandys@gmail.com</span>
+              <a className={styles.content} href="mailto:info@drvandys.com">
+                info@drvandys.com
+              </a>
             </div>
             <div className={styles.item}>
               <span className={styles.title}>Contact Number</span>
-              <span className={styles.content}>+91 9871801077</span>
+              <a className={styles.content} href="tel:+919871801077">
+                +91 9871801077
+              </a>
             </div>
-
           </div>
 
           <div className={styles.mapCtn}>

@@ -25,6 +25,17 @@ export default function RootLayout({ children }) {
             {children} {/* All pages/components go here */}
           </ToastProvider>
         </main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Dr. Vandy's",
+              url: "https://drvandys.com",
+            }),
+          }}
+        />
       </body>
     </html>
   );

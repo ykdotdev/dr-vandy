@@ -56,9 +56,9 @@ const featureCardData = [
         <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
       </>
     ),
-    heading: "16 Therapeutic Botanicals",
+    heading: "Therapeutic Botanicals",
     description:
-      "A clinically inspired blend of 16 botanicals including Arnica CO₂, Boswellia, Turmeric CO₂, Ginger, Menthol, and Camphor works together to deliver fast, deep-tissue comfort. Each botanical plays a role — from easing soreness to improving circulation and mobility.",
+      "A clinically inspired blend of botanicals including Arnica CO₂, Boswellia, Turmeric CO₂, Ginger, Menthol, and Camphor works together to deliver fast, deep-tissue comfort. Each botanical plays a role — from easing soreness to improving circulation and mobility.",
   },
   {
     iconPath: (
@@ -87,7 +87,7 @@ const featureCardData = [
                 Dr. Vandy’s OrthoHemp™ Pain Relief Oil
               </span>
               <span className={styles.productDescription}>
-                Doctor-Formulated | Vijaya Leaf Extract | 100% Plant-Based Relief
+                Doctor-Formulated | Vijaya - Powered | 100% Plant-Based Relief
               </span>
             </div>
             <div className={styles.ctaRow}>
@@ -157,9 +157,7 @@ const featureCardData = [
 
         <div className={styles.featureStrip}>
           <div className={styles.card01}>
-            <span className={styles.text}>
-              TRIPLE ACTION RELIEF
-            </span>
+            <span className={styles.text}>TRIPLE ACTION RELIEF</span>
           </div>
           <div className={styles.card02}>
             <span className={styles.text}>
@@ -169,7 +167,7 @@ const featureCardData = [
           <div className={styles.card03}>
             <div className={styles.container}>
               <span className={styles.countText}>1K+</span>
-              <span className={styles.text}>Satisfied Customers</span>
+              <span className={styles.text}>Trusted by Physiotherapists</span>
             </div>
           </div>
         </div>
@@ -233,7 +231,7 @@ const featureCardData = [
       <div className={styles.pillarsSection}>
         {mounted && isPillarMobile && (
           <span className={styles.sectionHeading}>
-            16 <span className={styles.specialStyling}>Therapeutic</span>{" "}
+            18 <span className={styles.specialStyling}>Therapeutic</span>{" "}
             Botanicals
           </span>
         )}
@@ -246,7 +244,7 @@ const featureCardData = [
           </div>
           {mounted && !isPillarMobile && (
             <div className={styles.textCtn}>
-              <span className={styles.number}>16</span>
+              <span className={styles.number}>18</span>
               <span className={styles.sectionHeading}>
                 <span className={styles.specialStyling}>Therapeutic</span>{" "}
                 Botanicals

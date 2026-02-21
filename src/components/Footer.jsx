@@ -36,7 +36,7 @@ const Footer = () => {
               About Us
             </Link>
             <Link className={styles.item} href="/faq">
-              FAQ
+              FAQs
             </Link>
           </div>
         </div>
@@ -63,7 +63,7 @@ const Footer = () => {
               info@drvandys.com
             </a>
             <a className={styles.item} style={{ cursor: "default" }}>
-              Dr. Vandy's Lab Regd. Office: 7/16, Ground Floor, Sector-2,
+              Dr. Vandy's Lab <br/> Regd. Office: 7/16, Ground Floor, Sector-2,
               Rajinder Nagar, Sahibabad, Ghaziabad, Uttar Pradesh - 201005,
               India
             </a>

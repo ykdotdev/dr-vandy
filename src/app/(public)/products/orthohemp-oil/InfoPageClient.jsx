@@ -59,7 +59,7 @@ const InfoPageClient = () => {
             </span>
             <span className={styles.detailsText}>
               No steroids, parabens, silicones, or synthetic painkillers. Gentle
-              on skin. Strong on pain.
+              on skin. Strong on pain, THC free.
             </span>
           </div>
         </div>
@@ -112,11 +112,11 @@ const InfoPageClient = () => {
 
         <div className={styles.tags}>
           <div className={styles.tag}>
-            <span className={styles.label}>Muscle soreness &amp; spasms</span>
+            <span className={styles.label}>Joint pain &amp; stiffness</span>
           </div>
 
           <div className={styles.tag}>
-            <span className={styles.label}>Joint pain &amp; stiffness</span>
+            <span className={styles.label}>Arthritis</span>
           </div>
 
           <div className={styles.tag}>
@@ -275,10 +275,10 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Formulated with Hemp Seed Oil, Vijaya Leaf Extract,
-                Boswellia, Turmeric CO₂, Menthol, Camphor, and a blend of
-                therapeutic botanicals that work together to support joint,
-                muscle, and nerve comfort.
+                Formulated with Hemp Seed Oil, Vijaya Leaf Extract, Boswellia,
+                Turmeric CO₂, Menthol, Camphor, and a blend of therapeutic
+                botanicals that work together to support joint, muscle, and
+                nerve comfort.
               </p>
             </div>
           </div>

@@ -70,7 +70,7 @@
     /* Worldwide Recognition */
 
     font-weight: 600;
-    font-size: var(--font-sizes-s-text);
+    font-size: var(--font-sizes-m-text);
 
     /* Dark Gray */
     color: #323232;
@@ -87,7 +87,7 @@
     /* Join specialists in over 80 countries with the highest-rated corrective exercise credential in the fitness industry */
 
     font-weight: 400;
-    font-size: var(--font-sizes-xs-text);
+    font-size: var(--font-sizes-s-text);
 
     /* Gray */
     color: #737373;
