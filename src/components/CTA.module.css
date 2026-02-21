@@ -45,16 +45,33 @@
 }
 
 .CTAContainer .icon{
-    /* Vector */
-    
-        height: var(--font-sizes-m-text);
-        width: var(--font-sizes-m-text);
-    
-        /* Light Yellow */
-        color: var(--light-yellow);
-    
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        flex-grow: 0;
+/* Vector */
+
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+
+    /* Light Yellow */
+    color: var(--light-yellow);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.spinner {
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+    animation: spin 1.2s linear infinite;
+    color: var(--white);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

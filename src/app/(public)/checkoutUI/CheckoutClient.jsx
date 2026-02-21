@@ -171,7 +171,8 @@ const handlePayment = async () => {
     const { order, razorpayOrder, error } = await res.json();
     if (error) {
       // console.log("Order creation failed:", error);
-      showToast(error, "error");
+      showToast("Stock Error", "error");
+      router.back();
       return;
     }
 

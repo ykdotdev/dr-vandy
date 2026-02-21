@@ -23,6 +23,14 @@ React.useEffect(() => {
   setMounted(true);
 }, []);
 
+const [learnLoading, setLearnLoading] = useState(false);
+
+const handleLearnClick = () => {
+  setLearnLoading(true); // start loading (never ends)
+  router.push("/products/orthohemp-oil?i=1");
+
+};
+
 const testimonials = [
   {
     quote:
@@ -61,7 +69,7 @@ const [testimonialCurrentIndex, setTestimonialCurrentIndex] = useState(0)
   useEffect(() => {
     const interval = setInterval(() => {
       setTestimonialCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000) // Change testimonial every 5 seconds
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [])
@@ -141,27 +149,49 @@ const featureCardData = [
               {mounted && isDesktop && (
                 <button
                   className={styles.learnMoreBtn}
-                  onClick={() => {
-                    router.push("/products/orthohemp-oil?i=1");
-                  }}
+                  onClick={handleLearnClick}
+                  disabled={learnLoading}
                 >
                   <span className={styles.label}>Learn More</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={styles.icon}
-                  >
-                    <path d="m5 9 7-7 7 7" />
-                    <path d="M12 16V2" />
-                    <circle cx="12" cy="21" r="1" />
-                  </svg>
+                  {learnLoading ? (
+                    // Spinner SVG
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={styles.spinner}
+                    >
+                      <path d="M12 2v4" />
+                      <path d="m16.2 7.8 2.9-2.9" />
+                      <path d="M18 12h4" />
+                      <path d="m16.2 16.2 2.9 2.9" />
+                      <path d="M12 18v4" />
+                      <path d="m4.9 19.1 2.9-2.9" />
+                      <path d="M2 12h4" />
+                      <path d="m4.9 4.9 2.9 2.9" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={styles.icon}
+                    >
+                      <path d="m5 9 7-7 7 7" />
+                      <path d="M12 16V2" />
+                      <circle cx="12" cy="21" r="1" />
+                    </svg>
+                  )}
                 </button>
               )}
             </div>
@@ -175,27 +205,49 @@ const featureCardData = [
             </span>
             <button
               className={styles.learnMoreBtn}
-              onClick={() => {
-                router.push("/products/orthohemp-oil?i=1");
-              }}
+              onClick={handleLearnClick}
+              disabled={learnLoading}
             >
               <span className={styles.label}>Learn More</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.icon}
-              >
-                <path d="m5 9 7-7 7 7" />
-                <path d="M12 16V2" />
-                <circle cx="12" cy="21" r="1" />
-              </svg>
+              {learnLoading ? (
+                // Spinner SVG
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.spinner}
+                >
+                  <path d="M12 2v4" />
+                  <path d="m16.2 7.8 2.9-2.9" />
+                  <path d="M18 12h4" />
+                  <path d="m16.2 16.2 2.9 2.9" />
+                  <path d="M12 18v4" />
+                  <path d="m4.9 19.1 2.9-2.9" />
+                  <path d="M2 12h4" />
+                  <path d="m4.9 4.9 2.9 2.9" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <path d="m5 9 7-7 7 7" />
+                  <path d="M12 16V2" />
+                  <circle cx="12" cy="21" r="1" />
+                </svg>
+              )}
             </button>
           </div>
           <img src="/bottle.png" className={styles.bottleImg} />

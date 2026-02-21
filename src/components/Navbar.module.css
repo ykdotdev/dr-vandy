@@ -135,10 +135,7 @@
 
     font-weight: 400;
     font-size: var(--font-sizes-xs-text);
-    line-height: 120%;
-    ;
     letter-spacing: 0.2rem;
-    line-height: 120%;
     /* White */
     color: var(--white);
 
@@ -152,8 +149,8 @@
 .navbar .ctaContainer .ctaIcon {
     /* Vector */
 
-    width: 2rem;
-    height: 2rem;
+    height: var(--font-sizes-s-text);
+    width: var(--font-sizes-s-text);
 
     /* White */
     color: var(--white);
@@ -162,6 +159,23 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.spinner {
+    height: var(--font-sizes-s-text);
+    width: var(--font-sizes-s-text);
+    animation: spin 1.2s linear infinite;
+    color: var(--white);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Mobile Navigation Menu */

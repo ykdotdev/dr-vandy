@@ -290,6 +290,23 @@
     flex-grow: 0;
 }
 
+.spinner {
+    height: var(--font-sizes-s-text);
+    width: var(--font-sizes-stext);
+    animation: spin 1.2s linear infinite;
+    color: var(--black);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* #endregion */
 
 /* #region Feature Strip */
