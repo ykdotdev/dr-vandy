@@ -24,6 +24,9 @@ const Footer = () => {
             alt="logo"
             className={styles.logo}
           />
+          <span className={styles.label}>
+            Powered by Nature<br/>Perfected by Science
+          </span>
         </div>
 
         <div className={clsx(styles.footerColumn, styles.quickLinks)}>
@@ -63,7 +66,7 @@ const Footer = () => {
               info@drvandys.com
             </a>
             <a className={styles.item} style={{ cursor: "default" }}>
-              Dr. Vandy's Lab <br/> Regd. Office: 7/16, Ground Floor, Sector-2,
+              Dr. Vandy's Lab <br /> Regd. Office: 7/16, Ground Floor, Sector-2,
               Rajinder Nagar, Sahibabad, Ghaziabad, Uttar Pradesh - 201005,
               India
             </a>
@@ -76,14 +79,9 @@ const Footer = () => {
           © 2026 Dr. Vandy's. All right reserved
         </span>
         <div className={styles.boringCtn}>
-          <a
-            className={styles.label}
-            onClick={() => {
-              router.push("/privacy-policy");
-            }}
-          >
+          <Link className={styles.label} href="/privacy-policy">
             Privacy Policy
-          </a>
+          </Link>
           <Link className={styles.label} href="/terms-of-usage">
             Terms of Usage
           </Link>

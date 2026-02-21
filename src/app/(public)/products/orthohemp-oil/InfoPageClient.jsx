@@ -227,10 +227,18 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Apply a small amount to the affected area and gently massage
-                until absorbed. Use 2–3 times daily or as advised by your
-                healthcare professional. Suitable for regular use as part of
-                your pain management routine.
+                - Take 3 ml oil
+                <br />
+                - Gently massage for 3–5 minutes on affected area
+                <br />
+                - Use 2–3 times daily
+                <br />
+                <br />
+                “For chronic conditions, use consistently for 7–14 days to
+                observe cumulative benefits.”
+                <br />
+                For best results, use a warm compress post-use for enhanced
+                penetration
               </p>
             </div>
           </div>
@@ -323,10 +331,11 @@ const InfoPageClient = () => {
             </button>
             <div className={styles.contentCtn}>
               <p className={styles.contentText}>
-                Designed for individuals experiencing joint stiffness, muscle
-                fatigue, back pain, or nerve discomfort — including active
-                adults, working professionals, athletes, and seniors seeking
-                daily relief support.
+                Anybody having the indications as mentioned below: Arthritis
+                Conditions: Rheumatoid Arthritis, Osteoarthritis, Spondylitis
+                Nerve & Muscle Conditions: Sciatica, Neuropathy, Muscle Cramps,
+                Frozen Shoulder Others: Sports Injuries, Tendonitis, Postural
+                Pain
               </p>
             </div>
           </div>

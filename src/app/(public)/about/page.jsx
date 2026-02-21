@@ -1,4 +1,5 @@
 "use client"
+import Footer from '@/components/Footer';
 import styles from './page.module.css'
 import BackBtn from '@/components/BackBtn';
 
@@ -94,6 +95,7 @@ const page = () => {
           </p>
         </div>
       </div>
+      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

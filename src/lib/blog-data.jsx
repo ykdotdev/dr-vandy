@@ -5,9 +5,9 @@ export const BLOG_POSTS = [
       "Lower Back Pain From Sitting Too Long: Causes, Symptoms, and What Actually Helps",
     excerpt:
       "Lower back pain caused by extended sitting has gradually become a major source of discomfort for people with sedentary routines.",
-    image: "/blog/backPain.png",
+    image: "/blog/backPain.svg",
     readTime: "8 min read",
-    date: "2024-02-01",
+    date: "2026-02-18",
     tags: [
       "arthritis pain",
       "arthritis",
@@ -178,9 +178,9 @@ It can support muscle relaxation and comfort, but should be combined with moveme
     title: "Arthritis Pain: Causes, Symptoms, and Effective Relief Options",
     excerpt:
       "Arthritis pain has quietly become one of the most common causes of chronic discomfort and reduced mobility in daily life.",
-    image: "/blog/backPain.png",
-    readTime: "8 min read",
-    date: "2024-02-01",
+    image: "/blog/arthritis.svg",
+    readTime: "10 min read",
+    date: "2026-02-18",
     tags: [
       "arthritis pain",
       "arthritis",
@@ -417,9 +417,9 @@ Yes. Low-impact, controlled exercise helps maintain joint function and reduce pa
     title: "Muscle Pain Without Injury: Common Causes and What It Means",
     excerpt:
       "Muscle pain without injury has increasingly become a common concern linked to posture, fatigue, and daily lifestyle patterns.",
-    image: "/blog/backPain.png",
-    readTime: "8 min read",
-    date: "2024-02-01",
+    image: "/blog/musclePain.svg",
+    readTime: "9 min read",
+    date: "2026-02-18",
     tags: [
       "muscle pain",
       "muscle pain without injury",

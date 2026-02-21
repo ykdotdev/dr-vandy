@@ -30,7 +30,7 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 0px;
-    gap: var(--spacings-m);
+    gap: var(--spacings-l);
 
     height: fit-content;
 
@@ -48,7 +48,7 @@
     /* Auto layout */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 0px;
     gap: var(--spacings-sm);
@@ -66,6 +66,23 @@
     width: 100%;
     height: auto;
     margin-top: 0;
+}
+
+.footerLogoCtn .label {
+    /* Authorized Indian distributor of The Biomechanics Method CES. */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
 .footerColumn {

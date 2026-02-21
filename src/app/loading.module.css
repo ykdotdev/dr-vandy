@@ -1,0 +1,24 @@
+.loadWrapper{
+    height: calc(100dvh - 2*var(--spacings-xs));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadIcon {
+    width: 10dvh;
+    height: 10dvh;
+
+    color: var(--dark-gray);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

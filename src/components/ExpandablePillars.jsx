@@ -60,7 +60,7 @@ const ExpandablePillars = () => {
             {expandedId === pillar.id && (
               <div className={styles.contentBox}>
                 <p className={styles.contentText}>{pillar.description}</p>
-                <Link className={styles.cta} href="/about">
+                <Link className={styles.cta} href="/blog">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

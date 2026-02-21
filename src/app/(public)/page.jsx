@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import FeatureCard from "@/components/FeatureCard";
 import CTA from "@/components/CTA";
-import clsx from "clsx";
 import { useMediaQuery } from "react-responsive";
 import { sizeMobile, sizeTablet } from "@/config/constants";
 import { useRouter } from "next/navigation";
@@ -23,6 +22,53 @@ const router = useRouter();
 React.useEffect(() => {
   setMounted(true);
 }, []);
+
+const testimonials = [
+  {
+    quote:
+      "Dr. Vandy’s OrthoHemp Pain Relief Oil is ideal for hockey players. Its fast absorption and natural formulation make it suitable for regular athletic use",
+    name: "Bharat Kumar Chettri",
+    details: "Former captain of the Indian National Team",
+  },
+  {
+    quote:
+      "Dr. Vandy’s OrthoHemp Pain Relief Oil Helps control muscle inflammation and soreness during heavy workloads. Very reliable.",
+    name: "Vandana Katariya",
+    details: "Former Indian Hockey Player",
+  },
+  {
+    quote:
+      "Dr. Vandy’s OrthoHemp Pain Relief Oil is Perfect for back and shoulder stiffness from defensive drills. Very soothing and effective.",
+    name: "Mahima Choudhary",
+    details: "Member of Indian Women Hockey Team",
+  },
+  {
+    quote:
+      "Dr. Vandy’s OrthoHemp Pain Relief Oil Improves mobility and reduces stiffness significantly after endurance sessions",
+    name: "Noor Orpa de Baat (Midfielder)",
+    details: "Dutch Hockey Player",
+  },
+  {
+    quote:
+      "Dr. Vandy’s OrthoHemp Pain Relief Oil is Natural yet powerful—helps control inflammation after long, intense practice days",
+    name: "Sosha Carina Benninga",
+    details: "Dutch Hockey Player (Forward)",
+  },
+];
+
+const [testimonialCurrentIndex, setTestimonialCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTestimonialCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    }, 5000) // Change testimonial every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const goToSlide = (index) => {
+    setTestimonialCurrentIndex(index)
+  }
 
 const featureCardData = [
   {
@@ -167,7 +213,7 @@ const featureCardData = [
           <div className={styles.card03}>
             <div className={styles.container}>
               <span className={styles.countText}>1K+</span>
-              <span className={styles.text}>Trusted by Physiotherapists</span>
+              <span className={styles.text}>Satisfied Customers</span>
             </div>
           </div>
         </div>
@@ -266,15 +312,29 @@ const featureCardData = [
             </span>
           )}
         </div>
-        <div className={styles.testimonialCtn}>
+        <div className={styles.testimonialCtn} key={testimonialCurrentIndex}>
+          <div className={styles.dotsContainer}>
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${
+                  index === testimonialCurrentIndex ? styles.activeDot : ""
+                }`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
           <span className={styles.testimonial}>
-            “This oil reduced my mother’s knee pain within a week. It's now a
-            part of her daily routine! This oil reduced my mother’s knee pain
-            within a week. It's now a part of her daily routine!
+            “{testimonials[testimonialCurrentIndex].quote}
           </span>
           <div className={styles.detailsCtn}>
-            <span className={styles.name}>Priya</span>
-            <span className={styles.subDetails}>38, Mumbai</span>
+            <span className={styles.name}>
+              {testimonials[testimonialCurrentIndex].name}
+            </span>
+            <span className={styles.subDetails}>
+              {testimonials[testimonialCurrentIndex].details}
+            </span>
           </div>
         </div>
       </div>
