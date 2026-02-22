@@ -16,7 +16,7 @@ const page = () => {
             setCurrentPage(requiredPage);
           }
         };
-        console.log(currentPage)
+        // console.log(currentPage)
   return (
     <div className={styles.mainContainer}>
       <div className={styles.navbar}>

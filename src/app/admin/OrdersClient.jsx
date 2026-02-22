@@ -25,9 +25,9 @@ const OrdersClient = () => {
 
         const data = await res.json();
         setRows(data.orders || []);
-        console.log(data)
+        // console.log("orders:",data)
       } catch (err) {
-        console.error("Fetch error:", err);
+        // console.error("Fetch error:", err);
       }
     };
 
@@ -62,40 +62,6 @@ const OrdersClient = () => {
             </tr>
           </thead>
           <tbody className={styles.tableBody}>
-            {rows.map((row) => (
-              <tr
-                key={row.id}
-                onClick={() => {
-                  router.push(`/admin/orders/${row.id}`);
-                }}
-              >
-                <td className={styles.orderID}>{row.id}</td>
-                <td>{row.shipping_info.user_name}</td>
-                <td>{formatDate(row.created_at)}</td>
-                <td>₹{row.amount}</td>
-                <td>{row.shiprocket_status === null && "Pending"}</td>
-                <td>
-                  <StatusIndicator status={row.status} />
-                </td>
-              </tr>
-            ))}
-            {rows.map((row) => (
-              <tr
-                key={row.id}
-                onClick={() => {
-                  router.push(`/admin/orders/${row.id}`);
-                }}
-              >
-                <td className={styles.orderID}>{row.id}</td>
-                <td>{row.shipping_info.user_name}</td>
-                <td>{formatDate(row.created_at)}</td>
-                <td>₹{row.amount}</td>
-                <td>{row.shiprocket_status === null && "Pending"}</td>
-                <td>
-                  <StatusIndicator status={row.status} />
-                </td>
-              </tr>
-            ))}
             {rows.map((row) => (
               <tr
                 key={row.id}

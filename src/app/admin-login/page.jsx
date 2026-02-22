@@ -19,7 +19,7 @@ export default function AdminLoginPage() {
     try {
       const user = await login(email, password);
 
-      console.log("Logged-in user metadata:", user.user_metadata);
+      // console.log("Logged-in user metadata:", user.user_metadata);
 
       // Check if user is admin
       if (user.user_metadata?.role === "admin") {

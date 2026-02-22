@@ -20,12 +20,12 @@ const InventoryClient = () => {
      .order("qty_in_pack", { ascending: true });
         setVariantsData(variants)
         variants.map((variant)=>{
-            console.log(variant)
+            // console.log(variant)
         });
      }
      getVariants()
     }, [])
-  console.log(variantsData)
+  // console.log(variantsData)
   return (
     <div className={styles.mainInventoryCtn}>
       <div className={styles.pageHeader}>
@@ -48,7 +48,7 @@ const InventoryClient = () => {
         </span>
       </div>
       <div className={styles.variantCards}>
-        {console.log(2)}
+        {/* {console.log(2)} */}
         {variantsData.map((variant, index) => (
           <div className={styles.variantCard} key={index}>
             <div className={styles.header}>
