@@ -471,7 +471,7 @@ const handlePayment = async () => {
                 <span className={styles.customRadio} />
                 <div className={styles.textCtn}>
                   <span className={styles.optionLabel}>Free Shipping</span>
-                  <span className={styles.shippingTime}>| 7-20 Days</span>
+                  <span className={styles.shippingTime}>| 5-10 Days</span>
                 </div>
               </div>
               <span className={styles.shippingPrice}>₹0</span>

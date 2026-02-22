@@ -34,7 +34,7 @@ const CheckoutBtn = ({ qty, vID, label }) => {
     }
     // setLoading(false);
 
-    router.push(`/checkoutUI?v_id=${vID}&qty=${qty}`);
+    router.push(`/checkout?v_id=${vID}&qty=${qty}`);
   };
 
   return (

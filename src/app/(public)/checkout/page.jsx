@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckoutClient from '../checkoutUI/CheckoutClient'
+import CheckoutClient from './CheckoutClient'
 import { supabase } from '@/lib/supabaseClient';
 
 const page = async ({searchParams}) => {
