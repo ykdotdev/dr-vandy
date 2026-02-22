@@ -63,6 +63,12 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            <Link
+              className={clsx(styles.navItem, styles.navItem04)}
+              href="/faq"
+            >
+              FAQs
+            </Link>
           </div>
 
           {/* CTA */}

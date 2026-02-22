@@ -36,7 +36,7 @@ const testimonials = [
     quote:
       "Dr. Vandy’s OrthoHemp Pain Relief Oil is ideal for hockey players. Its fast absorption and natural formulation make it suitable for regular athletic use",
     name: "Bharat Kumar Chettri",
-    details: "Former captain of the Indian National Team",
+    details: "Former captain of the Indian Hockey National Team",
   },
   {
     quote:
@@ -275,17 +275,17 @@ const featureCardData = [
         <div className={styles.aboutCard}>
           <span className={styles.headingText}>
             {!mounted
-              ? "Our Journey to Better Relief"
+              ? "The Vision Behind Dr. Vandy's"
               : isMobile
                 ? "About Us"
-                : "Our Journey to Better Relief"}
+                : "The Vision Behind Dr. Vandy's"}
           </span>
           <span className={styles.subheadingText}>
             {!mounted
-              ? "Our mission, our process, and the science behind natural healing."
+              ? "From Elite Athletes to Everyday Families - Care That Evolves With You."
               : isTablet
                 ? ""
-                : "Our mission, our process, and the science behind natural healing."}
+                : "From Elite Athletes to Everyday Families - Care That Evolves With You."}
           </span>
 
           <button
