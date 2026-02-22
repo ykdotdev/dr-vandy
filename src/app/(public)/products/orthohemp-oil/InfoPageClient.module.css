@@ -467,6 +467,10 @@
     border-bottom-color: transparent;
 }
 
+.specialStyling {
+    font-weight: 600;
+}
+
 .accordion .headerCtn {
     /* Accordian */
 

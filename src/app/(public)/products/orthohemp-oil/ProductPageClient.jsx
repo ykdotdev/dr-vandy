@@ -323,10 +323,21 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
                       Anybody having the indications as mentioned below:
-                      Arthritis Conditions: Rheumatoid Arthritis,
-                      Osteoarthritis, Spondylitis Nerve & Muscle Conditions:
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Arthritis Conditions:
+                      </span>{" "}
+                      Rheumatoid Arthritis, Osteoarthritis, Spondylitis Nerve &{" "}
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Muscle Conditions:
+                      </span>
                       Sciatica, Neuropathy, Muscle Cramps, Frozen Shoulder
-                      Others: Sports Injuries, Tendonitis, Postural Pain
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Others:
+                      </span>{" "}
+                      Sports Injuries, Tendonitis, Postural Pain
                     </p>
                   </div>
                 </div>
@@ -707,10 +718,21 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   <div className={styles.contentCtn}>
                     <p className={styles.contentText}>
                       Anybody having the indications as mentioned below:
-                      Arthritis Conditions: Rheumatoid Arthritis,
-                      Osteoarthritis, Spondylitis Nerve & Muscle Conditions:
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Arthritis Conditions:
+                      </span>{" "}
+                      Rheumatoid Arthritis, Osteoarthritis, Spondylitis Nerve &{" "}
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Muscle Conditions:
+                      </span>
                       Sciatica, Neuropathy, Muscle Cramps, Frozen Shoulder
-                      Others: Sports Injuries, Tendonitis, Postural Pain
+                      <br />
+                      <span className={styles.specialStyling}>
+                        Others:
+                      </span>{" "}
+                      Sports Injuries, Tendonitis, Postural Pain
                     </p>
                   </div>
                 </div>

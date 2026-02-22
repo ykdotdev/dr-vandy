@@ -801,6 +801,10 @@
     opacity: 100%;
 }
 
+.specialStyling{
+    font-weight: 600;
+}
+
 .contentCtn {
     display: grid;
     grid-template-rows: 0fr;
