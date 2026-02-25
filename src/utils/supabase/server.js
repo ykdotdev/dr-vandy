@@ -1,12 +1,24 @@
-// utils/supabase/server.js
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-export function createClient() {
-  // ⚡ Lazy initialization: executed when the server component runs
-  return createServerClient({
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseKey: process.env.SUPABASE_ANON_KEY,
-    cookies,
-  });
+export async function createClient() {
+  const cookieStore = await cookies(); // ✅ await here
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name) {
+          return cookieStore.get(name)?.value;
+        },
+        set(name, value, options) {
+          cookieStore.set(name, value, options);
+        },
+        remove(name, options) {
+          cookieStore.delete(name, options);
+        },
+      },
+    },
+  );
 }

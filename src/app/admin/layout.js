@@ -1,46 +1,27 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { supabase } from "@/utils/supabaseAuth";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/supabase/server";
 import { ToastProvider } from "@/components/ToastProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+export default async function AdminLayout({ children }) {
+  const supabase = await createClient();
 
-export default function AdminLayout({ children }) {
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  // ✅ Securely verify with Supabase Auth server
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
 
-  useEffect(() => {
-    const checkAdmin = async () => {
-      const { data: sessionData, error } = await supabase.auth.getSession();
-      if (error || !sessionData?.session) {
-        router.replace("/admin-login");
-        return;
-      }
+  if (error || !user) {
+    redirect("/admin-login");
+  }
 
-      const user = sessionData.session.user;
-      console.log("Logged-in user metadata:", user.user_metadata);
+  if (user.user_metadata?.role !== "admin") {
+    redirect("/admin-login");
+  }
 
-      if (user.user_metadata?.role !== "admin") {
-        router.replace("/admin-login");
-        return;
-      }
-
-      setLoading(false);
-    };
-
-    checkAdmin();
-  }, [router]);
-
-  if (loading) return <p>Loading...</p>;
   return (
-            <main className="page-wrapper">
-              <ToastProvider>
-                {children} {/* All pages/components go here */}
-              </ToastProvider>
-            </main>
+    <main className="page-wrapper">
+      <ToastProvider>{children}</ToastProvider>
+    </main>
   );
 }

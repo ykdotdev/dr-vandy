@@ -115,8 +115,6 @@ body {
   overscroll-behavior: contain;
   touch-action: manipulation;
   background-color: var(--white);
-  
-
 }
 
 ::selection {

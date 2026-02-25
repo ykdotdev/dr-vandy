@@ -1,5 +1,4 @@
 import { createBrowserClient } from "@supabase/ssr";
-import "dotenv/config"; 
 
 export function createAuthClient() {
   return createBrowserClient(
