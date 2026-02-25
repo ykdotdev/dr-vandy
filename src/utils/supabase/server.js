@@ -1,8 +1,10 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-
+if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
+}
 export async function createClient() {
-  const cookieStore = await cookies(); // ✅ await here
+  const cookieStore = await cookies();
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -12,12 +14,9 @@ export async function createClient() {
         get(name) {
           return cookieStore.get(name)?.value;
         },
-        set(name, value, options) {
-          cookieStore.set(name, value, options);
-        },
-        remove(name, options) {
-          cookieStore.delete(name, options);
-        },
+        // ❌ Do nothing (cannot modify cookies in layout)
+        set() {},
+        remove() {},
       },
     },
   );

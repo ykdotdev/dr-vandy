@@ -1,17 +1,17 @@
 import React from 'react'
 import CheckoutClient from './CheckoutClient'
-import { supabase } from '@/lib/supabaseClient';
+import { supabaseServer } from '@/lib/supabaseServer';
 
 const page = async ({searchParams}) => {
   const params = await searchParams;
   const qtyFromParams = params.qty;
   // const variant=params.v_id;
-  const { data: variant} = await supabase
+  const { data: variant} = await supabaseServer
        .from("product_variants")
        .select("*")
        .eq("id", params.v_id)
        .maybeSingle();
-    const { data: product } = await supabase
+    const { data: product } = await supabaseServer
       .from("products")
       .select("*")
       .eq("id", variant?.product_id)

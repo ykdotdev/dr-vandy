@@ -1,8 +1,8 @@
 import styles from './InventoryClient.module.css'
 import clsx from 'clsx';
-import { supabase } from "@/lib/supabaseClient";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+// import { supabaseServer } from '@/lib/supabaseServer';
 
 
 
@@ -11,20 +11,16 @@ const InventoryClient = () => {
   const product_id = "9bc79877-98df-4831-b697-4650b8481804"; //Orthohemp Oil
   const [variantsData, setVariantsData] = useState([]);
 
-  useEffect(()=>{
-     const getVariants = async()=>{
-        const { data: variants } = await supabase
-     .from("product_variants")
-     .select("*")
-     .eq("product_id", product_id)
-     .order("qty_in_pack", { ascending: true });
-        setVariantsData(variants)
-        variants.map((variant)=>{
-            // console.log(variant)
-        });
-     }
-     getVariants()
-    }, [])
+useEffect(() => {
+  const getVariants = async () => {
+    const res = await fetch(`/api/admin/variants?product_id=${product_id}`);
+
+    const data = await res.json();
+    setVariantsData(data);
+  };
+
+  getVariants();
+}, []);
   // console.log(variantsData)
   return (
     <div className={styles.mainInventoryCtn}>

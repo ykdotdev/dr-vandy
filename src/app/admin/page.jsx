@@ -5,10 +5,11 @@ import clsx from "clsx";
 import { useState } from "react";
 import styles from './page.module.css'
 import InventoryClient from "./InventoryClient";
-import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
+import { getBrowserClient } from "@/utils/supabase/browser";
 
 const page = () => {
+  const supabase = getBrowserClient();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState("inventory");
         const handleActivePage = (requiredPage) => {

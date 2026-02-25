@@ -2,10 +2,11 @@
 import { useParams } from "next/navigation";
 import styles from "./page.module.css";
 import { useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
 import { useToast } from "@/components/ToastProvider";
+import { getBrowserClient } from "@/utils/supabase/browser";
 
 const Page = () => {
+  const supabase = getBrowserClient();
   const { showToast } = useToast();
   const params = useParams();
   const { variantID } = params;
@@ -36,7 +37,6 @@ const Page = () => {
 
     console.log(data);
     showToast("Updated Successfully", "success");
-    
   };
 
   return (
