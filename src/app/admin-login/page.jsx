@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getBrowserClient } from "@/utils/supabase/browser";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -11,25 +10,25 @@ export default function AdminLoginPage() {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
-  const supabase = getBrowserClient();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
     });
 
-    if (error) {
-      setError(error.message);
+    const result = await res.json();
+
+    if (!res.ok) {
+      setError(result.error);
       setLoading(false);
       return;
     }
-
-    // Server layout will securely verify role using getUser()
 
     router.replace("/admin");
   };

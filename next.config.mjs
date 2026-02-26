@@ -7,10 +7,18 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "itcioasmcvbiavlxclvq.supabase.co", 
-        pathname: "/storage/v1/object/public/**", 
+        hostname: "itcioasmcvbiavlxclvq.supabase.co",
+        pathname: "/storage/v1/object/public/**",
       },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/supabase/:path*",
+        destination: "https://itcioasmcvbiavlxclvq.supabase.co/:path*",
+      },
+    ];
   },
 };
 

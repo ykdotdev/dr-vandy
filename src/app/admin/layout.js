@@ -1,15 +1,25 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
+import { createClient } from "@supabase/supabase-js";
 import { ToastProvider } from "@/components/ToastProvider";
 
 export default async function AdminLayout({ children }) {
-  const supabase = await createClient();
+  const cookieStore = await cookies(); // ✅ MUST await
+  const accessToken = cookieStore.get("sb-access-token")?.value;
 
-  // ✅ Securely verify with Supabase Auth server
+  if (!accessToken) {
+    redirect("/admin-login");
+  }
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY,
+  );
+
   const {
     data: { user },
     error,
-  } = await supabase.auth.getUser();
+  } = await supabase.auth.getUser(accessToken);
 
   if (error || !user) {
     redirect("/admin-login");

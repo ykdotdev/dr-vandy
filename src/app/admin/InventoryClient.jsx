@@ -2,7 +2,6 @@ import styles from './InventoryClient.module.css'
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-// import { supabaseServer } from '@/lib/supabaseServer';
 
 
 
