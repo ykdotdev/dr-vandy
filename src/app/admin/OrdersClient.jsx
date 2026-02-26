@@ -83,7 +83,7 @@ const OrdersClient = () => {
         </table>
         <div className={styles.bottomCtn}>
           <span className={styles.footer}>
-            Copyright © 2025 drvandys.com - All Rights Reserved.
+            Copyright © 2026 drvandys.com - All Rights Reserved.
           </span>
         </div>
       </div>
