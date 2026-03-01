@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }) {
               href="/blog"
               className={styles.backLink}
             >
-              Back to Blog
+              Back to Blogs
             </Link>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }) {
       <div className={styles.headerBar}>
         <div className={styles.headerContent}>
           <Link href="/blog" className={styles.backLink}>
-            ← Back to Blog
+            ← Back to Blogs
           </Link>
         </div>
       </div>
@@ -124,10 +124,10 @@ export default async function BlogPostPage({ params }) {
           </footer>
         </article>
 
-        {/* Back to Blog Link */}
+        {/* Back to Blogs Link */}
         <div className={styles.footer}>
           <Link href="/blog" className={styles.backLink}>
-            ← Back to Blog
+            ← Back to Blogs
           </Link>
         </div>
       </div>
