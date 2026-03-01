@@ -111,9 +111,6 @@ html {
 html,
 body {
   color: var(--black);
-  /* Fallback */
-  overscroll-behavior: contain;
-  touch-action: manipulation;
   background-color: var(--white);
 }
 
