@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ToastProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,12 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main
-          className="page-wrapper"
-        >
-          <ToastProvider>
-            {children}
-          </ToastProvider>
+        <main className="page-wrapper">
+          <ToastProvider>{children}</ToastProvider>
+          <Analytics />
         </main>
         <script
           type="application/ld+json"
