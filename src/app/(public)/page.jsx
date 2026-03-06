@@ -250,7 +250,7 @@ const featureCardData = [
               )}
             </button>
           </div>
-          <img src="/bottle.png" className={styles.bottleImg} />
+          <img src="/bannerBottle.png" className={styles.bottleImg} />
         </div>
 
         <div className={styles.featureStrip}>

@@ -36,7 +36,7 @@ const page = async ({searchParams}) => {
             "@context": "https://schema.org",
             "@type": "Product",
             name: "Orthohemp Pain Relief Oil",
-            image: "https://drvandys.com/bottle.png",
+            image: "https://drvandys.com/bannerBottle.png",
             description: "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base.",
             brand: {
               "@type": "Brand",
