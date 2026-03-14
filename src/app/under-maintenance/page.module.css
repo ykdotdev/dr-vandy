@@ -1,0 +1,26 @@
+.wrapper {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacings-sm);
+}
+
+.heading {
+    font-size: 10rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.subheading {
+    font-size: var(--font-sizes-m-text);
+    color: var(--dark-gray);
+}
