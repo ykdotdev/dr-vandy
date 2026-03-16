@@ -37,7 +37,8 @@ const page = async ({searchParams}) => {
             "@type": "Product",
             name: "Orthohemp Pain Relief Oil",
             image: "https://drvandys.com/bannerBottle.png",
-            description: "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base.",
+            description:
+              "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base.",
             brand: {
               "@type": "Brand",
               name: "Dr. Vandy's",
@@ -49,6 +50,42 @@ const page = async ({searchParams}) => {
               price: variants[0].price,
               availability: "https://schema.org/InStock",
             },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            productID: "orthohemp_oil_001",
+            name: "Orthohemp Pain Relief Oil",
+            description:
+              "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base.",
+            url: "https://drvandys.com/product/orthohemp-oil",
+            image: "https://drvandys.com/bannerBottle.png",
+            brand: {
+              "@type": "Brand",
+              name: "Dr. Vandy's",
+            },
+            offers: [
+              {
+                "@type": "Offer",
+                price: variants?.[0]?.price,
+                priceCurrency: "INR",
+                itemCondition: "https://schema.org/NewCondition",
+                availability: "https://schema.org/InStock",
+                url: "https://drvandys.com/product/orthohemp-oil",
+              },
+            ],
+            additionalProperty: [
+              {
+                "@type": "PropertyValue",
+                propertyID: "item_group_id",
+                value: "orthohemp_oil",
+              },
+            ],
           }),
         }}
       />
