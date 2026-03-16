@@ -59,33 +59,35 @@ const page = async ({searchParams}) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
+            "@id": "https://drvandys.com/products/orthohemp-oil",
             productID: "orthohemp_oil_001",
+            sku: "orthohemp_oil_001",
+
             name: "Orthohemp Pain Relief Oil",
+            title: "Orthohemp Pain Relief Oil",
+
             description:
-              "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia — optimized with a dual-absorption hemp and virgin coconut base.",
-            url: "https://drvandys.com/product/orthohemp-oil",
+              "Pain relief blend powered by Hemp Seed Oil, Vijaya Leaf Extract, Arnica CO₂, and Boswellia.",
+
             image: "https://drvandys.com/bannerBottle.png",
+            image_link: "https://drvandys.com/bannerBottle.png",
+
+            url: "https://drvandys.com/products/orthohemp-oil",
+            link: "https://drvandys.com/products/orthohemp-oil",
+
             brand: {
               "@type": "Brand",
               name: "Dr. Vandy's",
             },
-            offers: [
-              {
-                "@type": "Offer",
-                price: variants?.[0]?.price,
-                priceCurrency: "INR",
-                itemCondition: "https://schema.org/NewCondition",
-                availability: "https://schema.org/InStock",
-                url: "https://drvandys.com/product/orthohemp-oil",
-              },
-            ],
-            additionalProperty: [
-              {
-                "@type": "PropertyValue",
-                propertyID: "item_group_id",
-                value: "orthohemp_oil",
-              },
-            ],
+
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "INR",
+              price: variants?.[0]?.price || "0",
+              availability: "https://schema.org/InStock",
+              condition: "https://schema.org/NewCondition",
+              url: "https://drvandys.com/products/orthohemp-oil",
+            },
           }),
         }}
       />
