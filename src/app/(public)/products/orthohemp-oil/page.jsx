@@ -60,7 +60,7 @@ const page = async ({searchParams}) => {
             "@context": "https://schema.org",
             "@type": "Product",
             "@id": "https://drvandys.com/products/orthohemp-oil",
-            productID: "orthohemp_oil_001",
+            id: "orthohemp_oil_001",
             sku: "orthohemp_oil_001",
 
             name: "Orthohemp Pain Relief Oil",
