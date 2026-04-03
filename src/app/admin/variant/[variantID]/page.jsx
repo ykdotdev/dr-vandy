@@ -30,12 +30,12 @@ const Page = () => {
       .select();
 
     if (error) {
-      console.error(error);
+      // console.error(error);
       showToast("Error Please Retry", "error");
       return;
     }
 
-    console.log(data);
+    // console.log(data);
     showToast("Updated Successfully", "success");
   };
 

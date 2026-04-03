@@ -15,7 +15,6 @@ const supabase = createClient(
 export async function POST(req) {
   try {
     const body = await req.json();
-    console.log("Incoming body:", body);
 
     const { promoCode } = body;
 
@@ -32,8 +31,6 @@ export async function POST(req) {
       .eq("code", promoCode)
       .maybeSingle(); // <-- IMPORTANT
 
-    console.log("Supabase data:", data);
-    console.log("Supabase error:", error);
 
     if (error) {
       return NextResponse.json(
@@ -52,7 +49,6 @@ export async function POST(req) {
       discount: data.discount_percentage,
     });
   } catch (err) {
-    console.error("Route error:", err);
     return NextResponse.json(
       { valid: false, message: "Server error" },
       { status: 500 }

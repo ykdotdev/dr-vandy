@@ -25,9 +25,9 @@ const Page = () => {
 
         const data = await res.json();
         setOrderData(data);
-        console.log(data);
+        // console.log(data);
       } catch (err) {
-        console.error("Fetch error:", err);
+        // console.error("Fetch error:", err);
       }
     };
     getorder();

@@ -18,12 +18,10 @@ export async function POST(req) {
       .select("current_stock", qty)
       .eq("id", variant_id)
       .maybeSingle();
-    console.log("STOCK CHECK LOG",data, error?.message)
     if (error) throw error;
     
     return NextResponse.json({ success: data.current_stock >= qty });
   } catch (err) {
-    console.error(err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

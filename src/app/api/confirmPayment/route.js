@@ -14,12 +14,10 @@ const supabase = createClient(
 export async function POST(req) {
   try {
     const body = await req.json();
-    console.log("ConfirmPayment body:", body);
 
     const { order_id, razorpay_payment_id, razorpay_order_id, status } = body;
 
     if (!order_id || !status) {
-      console.log("Missing required fields:", body);
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
         {
@@ -35,7 +33,6 @@ export async function POST(req) {
       p_status: status,
     });
 
-    console.log("RPC result:", data, error);
 
     if (error)
       return new Response(JSON.stringify({ error: error.message }), {
@@ -46,7 +43,6 @@ export async function POST(req) {
       status: 200,
     });
   } catch (err) {
-    console.error("Route error:", err);
     return new Response(JSON.stringify({ error: err.message }), {
       status: 500,
     });

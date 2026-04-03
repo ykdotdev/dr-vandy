@@ -4,14 +4,11 @@ import { createContext, useContext, useState } from "react";
 import styles from "./ToastProvider.module.css"; // your toast CSS
 import clsx from "clsx";
 
-// 1️⃣ Create context
 const ToastContext = createContext(null);
 
-// 2️⃣ Define the provider component
 export const ToastProvider = ({ children }) => {
   const [toast, setToast] = useState(null);
 
-  // Function to show toast
   const showToast = (message, type, duration = 2000) => {
     setToast({message, type});
     return new Promise((resolve) => {
@@ -48,9 +45,7 @@ export const ToastProvider = ({ children }) => {
 
   return (
     <ToastContext.Provider value={{ showToast }}>
-      {/* 3️⃣ children = all nested components */}
       {children}
-      {/* 4️⃣ render the toast */}
       <div className={clsx(styles.toast, (toast && styles.show))}>
         {toast && svgHTML[toast.type]}
         {toast && toast.message}
@@ -59,5 +54,4 @@ export const ToastProvider = ({ children }) => {
   );
 };
 
-// 5️⃣ Helper hook for easy access
 export const useToast = () => useContext(ToastContext);

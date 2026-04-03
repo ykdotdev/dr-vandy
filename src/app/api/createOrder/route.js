@@ -31,11 +31,9 @@ export async function POST(req) {
     p_shipping: shipping_info,
     p_promo_code: promo_code || null,
   });
-  console.log("CURRENT ITEM ARRAY: ", items);
   //   if (!isUuid(items[0].variant_id)) {
   //     throw new Error(`Invalid UUID: ${variantId}`);
   //   }
-  console.log("RPC returned order:", data);
 
   if (error)
     return new Response(JSON.stringify({ error: error.message }), {

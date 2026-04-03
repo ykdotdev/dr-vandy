@@ -133,18 +133,18 @@ const CheckoutClient = ({product, variant, qty, amount}) => {
 
 const handlePayment = async () => {
   try {
-    // 1️⃣ Get validated shipping details from form
+    // Get validated shipping details from form
     const formData = getValues();
     // console.log("Shipping data:", formData);
 
-    // 2️⃣ Load Razorpay SDK
+    // Load Razorpay SDK
     const loaded = await loadRazorpay();
     if (!loaded || typeof window.Razorpay === "undefined") {
       alert("Razorpay SDK failed to load.");
       return;
     }
     // console.log("appliedPromoCode: ", appliedPromoCode?.code)
-    // 3️⃣ Create order via API (Supabase RPC + Razorpay order)
+    // Create order via API (Supabase RPC + Razorpay order)
     const res = await fetch("/api/createOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -179,7 +179,7 @@ const handlePayment = async () => {
     // console.log("Supabase order:", order);
     // console.log("Razorpay order:", razorpayOrder);
 
-    // 4️⃣ Open Razorpay modal
+    // Open Razorpay modal
     const options = {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: razorpayOrder.amount, // paise

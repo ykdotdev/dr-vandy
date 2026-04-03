@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Vandy’s
 
-## Getting Started
+A production e-commerce website developed for a real client to enable seamless product discovery, ordering, and payment processing.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 1. Project Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dr. Vandy’s is a live e-commerce platform built to sell physical products through a clean and efficient online experience. The project focuses on reliability, performance, and straightforward product purchasing, with an admin dashboard for managing inventory and orders.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2. Overview
 
-## Learn More
+- Built as a real client project under **Dexabl**
+- Designed for direct-to-consumer product sales
+- Includes a custom admin dashboard for internal management
+- Fully deployed and operational
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. Key Highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Clean and responsive storefront built with Next.js
+- Secure payment integration using Razorpay
+- Admin dashboard with authentication
+- Serverless backend using Next.js API routes
+- Supabase-powered database and storage
+- Optimized for performance and fast load times
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 4. Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### User Side
+- Product listing and detail pages  
+- Seamless checkout flow  
+- Razorpay payment integration  
+- Responsive UI for mobile, tablet, and desktop  
+
+### Admin Side
+- Secure authentication for admin access  
+- Product management  
+- Order tracking and management  
+
+---
+
+## 5. Tech Stack
+
+**Frontend**
+- Next.js (React Framework)
+- TypeScript
+- Modern CSS
+
+**Design**
+- Figma (UI/UX design)
+
+**Backend**
+- Next.js API Routes (serverless functions)
+
+**Database & Services**
+- Supabase (PostgreSQL)
+
+**Storage**
+- Supabase Storage (S3-compatible bucket)
+
+**Payments**
+- Razorpay Payment Gateway
+
+---
+
+## 6. Architecture
+
+The application follows a **serverless architecture**:
+
+- Frontend and backend are handled within Next.js  
+- API routes act as backend endpoints  
+- Supabase manages database and storage  
+- Razorpay handles external payment processing  
+
+This approach reduces infrastructure overhead while maintaining scalability for typical e-commerce usage.
+
+---
+
+## 7. Database
+
+- PostgreSQL database managed via Supabase  
+- Stores:
+  - Product data  
+  - Order details  
+  - Admin-related data  
+- Structured for simple and efficient querying  
+
+---
+
+## 8. Security
+
+- Admin authentication implemented for dashboard access  
+- Secure API handling through server-side routes  
+- Payment processing handled via Razorpay (no sensitive payment data stored on server)  
+- Environment variables used for sensitive keys  
+
+---
+
+## 9. Live Project
+
+🔗 https://drvandys.com
+
+---
+
+## 10. Development
+
+Designed and Developed by [Yatharth Katyal] as part of client work at **Dexabl**  
+
+---
+
+## 11. License
+
+This repository is a showcase of work developed by Dexabl.
+
+All rights to the original product belong to the respective client.  
+The code may not be copied, modified, or redistributed without explicit permission.
+
+---

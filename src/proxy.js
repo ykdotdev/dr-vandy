@@ -15,7 +15,6 @@ export function proxy(req) {
     return NextResponse.next();
   }
 
-  console.log('LIVE:', process.env.NEXT_PUBLIC_LIVE)
 
   // redirect all other routes to coming-soon
   return NextResponse.redirect(new URL('/under-maintenance', req.url))
