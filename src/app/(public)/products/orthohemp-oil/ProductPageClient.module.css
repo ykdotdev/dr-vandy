@@ -450,6 +450,12 @@
     flex-grow: 0;
 }
 
+.ctaRow{
+    display: flex;
+    gap: var(--spacings-m);
+    order: 2;
+}
+
 .centerCtn {
     /* Center_Container */
 

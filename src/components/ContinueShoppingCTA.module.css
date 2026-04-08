@@ -1,0 +1,57 @@
+.CTA {
+    /* Payment_CTA */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-sm) var(--spacings-m);
+    gap: var(--spacings-sm);
+
+    height: fit-content;
+
+    /* Black */
+    border: 1px solid var(--black);
+    border-radius: var(--border-radius-xs);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+
+    transition: scale 0.3s ease;
+}
+
+.CTA:hover{
+    scale: 1.02;
+}
+
+.CTA .icon {
+    color: var(--black);
+    height: var(--font-sizes-s-text);
+    width: auto;
+    order: 1;
+    transition: transform 0.3s ease;
+}
+
+.CTA:hover .icon {
+    transform: translateX(var(--spacings-xs));
+}
+
+.CTA .ctaLabel {
+    /* Pay with Razorpay */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* White */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}

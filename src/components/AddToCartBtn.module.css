@@ -1,0 +1,77 @@
+.CTA {
+    /* CTA_Container */
+    cursor: pointer;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
+    gap: var(--spacings-s);
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: var(--black);
+    border-radius: var(--border-radius-pill);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    transition: transform 0.2s ease;
+}
+
+.CTA:hover {
+    transform: scale(1.01);
+}
+
+.CTA .label {
+    /* CTA_Label */
+
+    font-weight: 400;
+    font-size: var(--font-sizes-s-text);
+    letter-spacing: 0.02rem;
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.CTA .icon {
+    /* Vector */
+
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+
+    /* Light Yellow */
+    color: var(--light-yellow);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.spinner {
+    height: var(--font-sizes-m-text);
+    width: var(--font-sizes-m-text);
+    animation: spin 1.2s linear infinite;
+    color: var(--white);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -6,8 +6,9 @@ import ProductPageClient from "./ProductPageClient";
 import BackBtn from "@/components/BackBtn";
 import { useParams } from "next/navigation";
 import InfoPageClient from "./InfoPageClient";
+import CartBtn from "@/components/CartBtn";
 
-const MainPageClient = ({product, variants, pageStatus}) => {
+const MainPageClient = ({pageStatus}) => {
 // console.log("status",pageStatus)
   const [currentPage, setCurrentPage] = useState(pageStatus === "1" ? "info" : "product");
 
@@ -46,10 +47,12 @@ const MainPageClient = ({product, variants, pageStatus}) => {
             <span className={styles.label}>Info</span>
           </button>
         </div>
+
+        <CartBtn/>
       </div>
 
       {currentPage === "product" && (
-        <ProductPageClient product={product} variants={variants} />
+        <ProductPageClient/>
       ) || currentPage === "info" && (
         <InfoPageClient />
       )}

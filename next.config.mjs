@@ -4,6 +4,7 @@ const nextConfig = {
   reactCompiler: true,
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
+    domains: ["cdn.shopify.com"],
     remotePatterns: [
       {
         protocol: "https",

@@ -1,0 +1,1111 @@
+.loadWrapper{
+    margin: 0 auto;
+}
+
+.loadIcon {
+    width: 10dvh;
+    height: 10dvh;
+
+    color: var(--dark-gray);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.layoutFrame {
+    height: calc(100dvh - 2*var(--spacings-xs));
+    border-radius: var(--border-radius-xs);
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    overflow: hidden;
+}
+
+.leftCtn {
+    /* Frame 66 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-l);
+    gap: 0;
+    height: 100%;
+    width: 100%;
+
+    background-color: #F4F6F8;
+    /* White */
+    border-right: 1px solid #FAFAFA;
+}
+
+
+.cartModal {
+    /* Cart_Modal */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-xl4);
+    min-width: 48rem;
+    width: 72%;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.cartHeader {
+    /* Cart_Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.cartTitle {
+    /* Physiolution.co */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.cartHeader .itemDetails {
+    /* Item_Details */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.cartHeader .title {
+    /* TBMM-CES Course */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.cartHeader .subTitle {
+    /* The BioMechanics Method Corrective Exercise Specialist (TBMM- CES) Course */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.cartWrapper{
+    width: 100%;
+    height: 100%;
+    height: 60dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noItemCtn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noItemText{
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+
+    /* Gray */
+    color: var(--black);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.cartItems{
+/* Cart_Items */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+    gap: var(--spacings-m);
+    width: fit-content;
+    height: 100%;
+    overflow: scroll;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.cartItems::-webkit-scrollbar {
+    display: none;
+}
+
+.itemCard {
+    /* Item_Card */
+    overflow: hidden;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: var(--spacings-sm);
+    gap: var(--spacings-sm);
+    /* max-width: 92rem; */
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    border: 1px solid var(--light-gray);
+
+    border-radius: var(--border-radius-xs);
+    background-color: #fafafa;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.itemCard .imageCtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.itemCard .image{
+    border-radius: 4%;
+    width: 100%;
+    height: auto;   
+    object-fit: cover;
+}
+
+.itemCard .contentCtn{
+/* Content_Ctn */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+}
+
+.itemCard .header {
+    /* Header */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px var(--spacings-sm);
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+    /* Light Gray */
+    border-bottom: 0.5px solid var(--light-gray);
+
+    /* Inside auto layout */
+    order: 0;
+    /* flex-wrap: wrap; */
+    align-self: stretch;
+    /* flex-grow: 0; */
+    flex: none;
+}
+
+.itemCard .itemDetails {
+    /* Item_Details */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nameBadge {
+    /* Name_Badge */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-xs);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nameBadge .title {
+    /* TBMM-CES Course */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-s-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nameBadge .badge {
+    /* Badge */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+
+    width: fit-content;
+    height: fit-content;
+
+    /* Black */
+    background: var(--black);
+    border-radius: 0.8rem;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.nameBadge .label {
+    /* Most Popular */
+
+    font-weight: 500;
+    font-size: 1.4rem;
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.itemCard .subTitle {
+    /* | Corrective Exercise Specilaist */
+
+    font-weight: 400;
+    font-size: 1.4rem;
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pricingQuantityCtn{
+/* Pricing_Quantity_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.pricingQuantityCtn .price{
+/* ₹34250 */
+
+    font-weight: 700;
+    font-size: var(--font-sizes-m-text);
+
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.quantityCtn {
+    /* Quantity_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-s);
+
+    width: fit-content;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.quantityCtn .iconBtn {
+    cursor: default;
+    /* Gray */
+    color: #6E7070;
+}
+
+.quantityCtn .isActive {
+    cursor: pointer;
+    color: var(--black) !important;
+}
+
+.quantityCtn .icon {
+    /* Vector */
+
+    width: var(--font-sizes-xs-text);
+    height: var(--font-sizes-xs-text);
+
+    /* Inside auto layout */
+    flex: none;
+    flex-grow: 0;
+}
+
+.quantityCtn .iconBtnMinus {
+    order: 0;
+}
+
+.quantityCtn .iconBtnPlus {
+    order: 2;
+}
+
+.quantityCtn .quantityText {
+    /* 1 */
+
+    user-select: none;
+    width: 1ch;
+    text-align: center;
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+
+.cardFooter{
+/* Card_Footer */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+
+    /* Inside auto layout */
+    order: 1;
+    align-self: stretch;
+}
+
+.cardFooter .textWrapper{
+    background-color: yellow;
+    white-space: normal;
+    min-width: 0;
+    display: flex;
+        overflow-wrap: anywhere;
+
+}
+
+.cardFooter .text {
+    /* The only authorised distributor The BioMechanics Method Corrective Exercise Specialist (TBMM- CES) Course */
+    white-space: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    
+    /* Dark Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    order: 0;
+    /* flex: 1; */
+        /* take available space */
+        /* min-width: 0; */
+        /* 🔥 VERY IMPORTANT for wrapping in flex */
+        overflow-wrap: anywhere;
+        align-self: stretch;
+
+}
+
+.bottomCtn .text a{
+    color: var(--blue);
+}
+
+.removeBtn .icon{
+/* Vector */
+
+    width: var(--font-sizes-xs-text);
+    height: var(--font-sizes-xs-text);
+
+    /* Dark Gray */
+    color: #2C2D31;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.rightCtn {
+    background-color: #ffffff;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-l);
+}
+
+.continueShoppingCtn{
+    display: grid;
+    grid-template-rows: 1fr 0.2fr;
+    place-items: center;
+}
+
+.continueShoppingCtn .imageCtn{
+    width: 100%;
+    height: 100%;
+    padding: var(--spacings-l);
+}
+
+.continueShoppingCtn .image{
+    width: 100%;
+    height: auto;
+}
+
+.paymentModal {
+    width: 72%;
+    min-width: 32rem;
+    max-width: 48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacings-xl4);
+    align-self: center;
+    max-height: 64rem;
+}
+
+.inputErrorWrapper{
+    position: relative;
+}
+
+.input {
+    /* Input */
+    /* Auto layout */
+    padding: 0 calc(var(--font-sizes-xs-text) + var(--spacings-s)) 0 var(--spacings-s);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    width: 100%;
+    height: var(--font-sizes-l-text);
+    background: var(--white);
+    /* Light Gray */
+    border: 1px solid var(--light-gray);
+    box-shadow: none;
+    border-radius: var(--border-radius-xs);
+
+    /* Inside auto layout */
+    flex: none;
+    align-self: stretch;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.input::placeholder {
+    /* Placeholder Text */
+
+    font-weight: 400;
+    font-size: 1.4rem;
+    /* Light Gray */
+    color: var(--light-gray);
+}
+
+.label {
+    /* Personal details */
+
+    font-weight: 500;
+    font-size: 1.4rem;
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.shippingForm {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacings-m);
+    align-self: stretch;
+    order: 0;
+}
+
+.formRow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacings-xs);
+}
+
+.combinedInputs {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+}
+
+.input1 {
+    border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
+}
+
+.input2 {
+    border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs)
+}
+
+.billingInputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--spacings-xs);
+    /* height: fit-content; */
+    align-self: stretch;
+}
+
+.inputState:invalid {
+    font-weight: 400;
+    /* Dark Gray */
+    color: var(--dark-gray);
+
+}
+
+.selectWrapper {
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+}
+
+.selectWrapper select {
+    flex: 1;
+    /* White */
+    background-color: var(--white) !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: var(--black);
+    padding-right: var(--spacings-sm);
+    width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Light Gray */
+    border: 1px solid var(--light-gray);
+
+}
+
+.input.error{
+    box-shadow: 0 0 4px var(--red);
+    border: 1px solid var(--red);
+}
+
+.selectWrapper .icon {
+    pointer-events: none;
+    position: absolute;
+    /* Dark Gray */
+    color: var(--light-gray);
+    right: var(--spacings-xs);
+    top: 50%;
+    transform: translateY(-50%);
+    order: 1;
+    height: 1.2rem;
+
+
+}
+
+.selectWrapper option {
+    /* Black */
+    color: var(--black);
+}
+
+.selectWrapper select {
+    font-weight: 400;
+    font-size: 1.4rem;
+    /* Light Gray */
+    color: var(--light-gray);
+}
+
+/* Hide number input arrows (Chrome, Safari, Edge) */
+.billingInputs input[type="number"]::-webkit-outer-spin-button,
+.billingInputs input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.billingInputs input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.orderSummary{
+/* Order_Summary */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: var(--spacings-l);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.orderSummary .heading{
+/* Order Summary */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-m-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.billingCtn {
+    /* Billing_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pricingBreakdownCtn {
+    /* Pricing_Breakdown_Container */
+
+    /* Auto layout */
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0px 0px var(--spacings-sm) 0px;
+    row-gap: var(--spacings-s);
+    /* Gray */
+    border-bottom: 0.5px solid var(--light-gray);
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+.pricingRow {
+    /* Net_Pricing_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pricingRow .chargeLabel {
+    /* 2 Items */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-xs-text);
+
+    /* Gray */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.pricingRow .priceValue {
+    /* ₹399.99 */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.subtotalValue {
+    color: var(--black) !important;
+}
+
+.discountCtn .discountValue {
+    /* ₹399.99 */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.02rem;
+
+    /* Green */
+    color: #467845 !important;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.totalCtn {
+    /* Total_Container */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacings-sm) 0px 0px 0px;
+    gap: var(--spacings-m);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+.totalLabel {
+    /* Total: */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-s-text);
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.totalAmount {
+    /* ₹661.00 */
+
+    font-weight: 600;
+    font-size: var(--font-sizes-m-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.checkoutCTA {
+    /* Payment_CTA */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacings-sm) var(--spacings-m);
+    gap: var(--spacings-sm);
+
+    height: fit-content;
+
+    /* Black */
+    background: var(--black);
+    border-radius: var(--border-radius-xs);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.checkoutCTA.disabled{
+    background-color: var(--dark-gray);
+}
+
+.checkoutCTA .icon {
+    color: var(--white);
+    height: var(--font-sizes-s-text);
+    width: auto;
+    order: 1;
+    transition: transform 0.3s ease;
+}
+
+.checkoutCTA:hover .icon{
+    transform: translateX(var(--spacings-xs));
+}
+
+.checkoutCTA .ctaLabel {
+    /* Pay with Razorpay */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* White */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+
+
+@media (max-width: 980px) {
+    .layoutFrame {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .leftCtn {
+        height: fit-content;
+    }
+
+    .cartWrapper{
+        height: fit-content;
+        max-height: 40rem;
+    }
+
+    .noItemText{display: none;}
+
+    .cartModal {
+        gap: var(--spacings-xl);
+        min-width: 24rem;
+        width: 100%;
+    }
+
+    .paymentModal {
+        max-height: 100%;
+    }
+
+    .input {
+        height: var(--spacings-xl2);
+    }
+
+}
+
+@media (max-width: 470px) {
+    .rightCtn {
+        background: none;
+    }
+
+    .input {
+        font-size: 16px !important;
+    }
+
+
+    .itemCard .header {
+        /* justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column; */
+    }
+
+    .itemCard .itemDetails {
+        /* width: 100%; */
+    }
+
+    .nameBadge {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .bottomCtn{
+        gap: var(--spacings-sm);
+    }
+
+    .bottomCtn .text{
+        line-height: 1.4;
+    }
+
+    .paymentModal {
+        width: 100%;
+    }
+
+}

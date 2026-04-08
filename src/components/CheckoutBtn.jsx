@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./CheckoutBtn.module.css";
 import { useRouter } from "next/navigation";
 import { useToast } from "./ToastProvider";
