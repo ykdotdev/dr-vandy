@@ -1,59 +1,55 @@
-import { addToCart } from '@/lib/cart';
-import styles from './AddToCartBtn.module.css';
+import { addToCart } from "@/lib/cart";
+import styles from "./AddToCartBtn.module.css";
+import { useState } from "react";
+import clsx from "clsx";
 
-const AddToCartBtn = ({variant_id, quantity}) => {
-    
+const AddToCartBtn = ({ variant_id, quantity }) => {
+  const [clicked, setClicked] = useState(false);
 
-    const handleClick = () => {
-      addToCart(variant_id, quantity);
-    };
+  const handleClick = () => {
+    if (clicked) return;
+
+    addToCart(variant_id, quantity);
+
+    setClicked(true);
+
+    setTimeout(() => {
+      setClicked(false);
+    }, 1200);
+  };
+
   return (
-    <></>
+    <button
+      onClick={handleClick}
+      className={clsx(styles.CTA, clicked && styles.active)}
+    >
+      {!clicked && (
+        <>
+          <span className={styles.label}>Add to Cart</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={styles.icon}
+          >
+            {" "}
+            <path d="M16 10a4 4 0 0 1-8 0" /> <path d="M3.103 6.034h17.794" />{" "}
+            <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />{" "}
+          </svg>
+        </>
+      )}
 
-    // <button
-    //   onClick={handleClick}
-    //   className={styles.CTA}
-    // >
-    //   <span className={styles.label}>{loading ? "Checking" : "label"}</span>
-    //   {loading ? (
-    //     // Spinner SVG
-    //     <svg
-    //       xmlns="http://www.w3.org/2000/svg"
-    //       viewBox="0 0 24 24"
-    //       fill="none"
-    //       stroke="currentColor"
-    //       strokeWidth="2"
-    //       strokeLinecap="round"
-    //       strokeLinejoin="round"
-    //       className={styles.spinner}
-    //     >
-    //       <path d="M12 2v4" />
-    //       <path d="m16.2 7.8 2.9-2.9" />
-    //       <path d="M18 12h4" />
-    //       <path d="m16.2 16.2 2.9 2.9" />
-    //       <path d="M12 18v4" />
-    //       <path d="m4.9 19.1 2.9-2.9" />
-    //       <path d="M2 12h4" />
-    //       <path d="m4.9 4.9 2.9 2.9" />
-    //     </svg>
-    //   ) : (
-    //     <svg
-    //       xmlns="http://www.w3.org/2000/svg"
-    //       viewBox="0 0 24 24"
-    //       fill="none"
-    //       stroke="currentColor"
-    //       strokeWidth="2"
-    //       strokeLinecap="round"
-    //       strokeLinejoin="round"
-    //       className={styles.icon}
-    //     >
-    //       <circle cx="12" cy="12" r="10" />
-    //       <path d="m12 16 4-4-4-4" />
-    //       <path d="M8 12h8" />
-    //     </svg>
-    //   )}
-    // </button>
+      {clicked && (
+        <svg className={styles.check} viewBox="0 0 24 24">
+          <path d="M5 12l5 5L20 7" />
+        </svg>
+      )}
+    </button>
   );
-}
+};
 
-export default AddToCartBtn
+export default AddToCartBtn;

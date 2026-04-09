@@ -4,6 +4,8 @@ import { ToastProvider } from "@/components/ToastProvider";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { CartProvider } from "@/context/CartContext";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,7 +47,11 @@ fbq('track', 'PageView');`,
         </noscript>
         <main className="page-wrapper">
           <ToastProvider>
-            <CartProvider>{children}</CartProvider>
+            <CartProvider>
+              {/* <Suspense fallback={<Loading />}> */}
+              {children}
+              {/* </Suspense> */}
+              </CartProvider>
           </ToastProvider>
           <Analytics />
         </main>

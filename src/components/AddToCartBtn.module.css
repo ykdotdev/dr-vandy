@@ -1,77 +1,112 @@
+/* =========================
+   BUTTON BASE
+========================= */
 .CTA {
-    /* CTA_Container */
     cursor: pointer;
-    /* Auto layout */
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
+    justify-content: center;
     gap: var(--spacings-s);
 
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
     width: fit-content;
-    height: fit-content;
+    /* important for smooth morph */
 
-    /* Black */
-    background: var(--black);
+    border: 1px solid var(--black);
     border-radius: var(--border-radius-pill);
+    background: transparent;
 
-    /* Inside auto layout */
-    flex: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
     order: 1;
-    flex-grow: 0;
-    transition: transform 0.2s ease;
 }
 
+/* Hover */
 .CTA:hover {
-    transform: scale(1.01);
+    transform: scale(1.03);
 }
 
-.CTA .label {
-    /* CTA_Label */
-
-    font-weight: 400;
+/* =========================
+   LABEL
+========================= */
+.label {
     font-size: var(--font-sizes-s-text);
     letter-spacing: 0.02rem;
+    color: var(--black);
 
-    /* White */
-    color: var(--white);
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.CTA .icon {
-    /* Vector */
-
-    height: var(--font-sizes-m-text);
+/* =========================
+   ICON
+========================= */
+.icon {
     width: var(--font-sizes-m-text);
-
-    /* Light Yellow */
-    color: var(--light-yellow);
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.spinner {
     height: var(--font-sizes-m-text);
-    width: var(--font-sizes-m-text);
-    animation: spin 1.2s linear infinite;
-    color: var(--white);
+
+    transition: transform 0.3s ease;
 }
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
+.CTA:hover .icon {
+    transform: rotate(18deg);
+}
+
+/* =========================
+   ACTIVE STATE (click)
+========================= */
+.active {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: var(--spacings-s);
+}
+
+/* hide text + icon */
+.active .label,
+.active .icon {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+/* =========================
+   CHECKMARK
+========================= */
+.check {
+    width: var(--font-sizes-m-text);
+    height: var(--font-sizes-m-text);
+
+    stroke: var(--black);
+    stroke-width: 2;
+    fill: none;
+
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+
+    animation: draw 0.4s ease 0.2s forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* =========================
+   POP EFFECT
+========================= */
+.active {
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.85);
     }
 
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

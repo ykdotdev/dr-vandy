@@ -26,9 +26,7 @@ export const addToCart = (variantId, quantity) => {
   const existing = cart.find((item) => item.variantId === variantId);
 
   if (existing) {
-    if (existing.quantity < quantity) {
-      existing.quantity = quantity;
-    }
+      existing.quantity += quantity;
   } else {
     cart.push({ variantId, quantity: quantity });
   }

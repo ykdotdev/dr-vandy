@@ -26,11 +26,7 @@ const ProductPageClient = () => {
       const data = await shopifyFetch(GET_VARIANTS_BY_SLUG, {
         handle: slug,
       });
-        console.log(data);
-      // const productImages = data.product.images.edges.map(
-      //   (img) => img.node.url,
-      // );
-      const productImages = data.product.images.edges.map(
+      const productImages = data?.product?.images.edges.map(
   (img) => ({ url: img.node.url })
 );
 
@@ -54,7 +50,6 @@ const ProductPageClient = () => {
           qty_in_pack: v.qty_in_pack?.value || "Standard",
         };
       });
-
 
       setVariants(mappedVariants);
       setSelectedVariant(mappedVariants[0]); // ✅ important
@@ -109,9 +104,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
     setImageArr(selectedVariant?.images);
 
   }, [selectedVariant]);
-  useEffect(() => {
-    console.log("imageArr", imageArr);
-  }, [imageArr]);
+
 
   const handlePreload = ()=>{
     if (currentPhotoIndex < photoIndexCount) {
@@ -526,7 +519,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   qty={currentQty}
                   label="Buy Now"
                 />
-                <AddToCartBtn variant_id={setSelectedVariant.id} quantity={currentQty}/>
+                <AddToCartBtn variant_id={selectedVariant.id} quantity={currentQty}/>
               </div>
             )}
           </div>

@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import styles from './AnimatedCTA.module.css';
+import styles from "./AnimatedCTA.module.css";
 import { useRouter } from "next/navigation";
 
 const AnimatedCTA = () => {
   const router = useRouter();
-    
+
   const btnRef = useRef(null);
 
   const handleClick = () => {
@@ -12,7 +12,7 @@ const AnimatedCTA = () => {
 
     if (!btn.classList.contains(styles.animate)) {
       btn.classList.add(styles.animate);
-      
+
       setTimeout(() => {
         router.push("/");
       }, 10000);
@@ -21,9 +21,7 @@ const AnimatedCTA = () => {
 
   return (
     <button ref={btnRef} onClick={handleClick} className={styles.order}>
-      <span className={`${styles.text} ${styles.default}`}>
-        Complete Order
-      </span>
+      <span className={`${styles.text} ${styles.default}`}>Complete Order</span>
 
       <span className={`${styles.text} ${styles.success}`}>
         Done
@@ -49,4 +47,3 @@ const AnimatedCTA = () => {
 };
 
 export default AnimatedCTA;
-

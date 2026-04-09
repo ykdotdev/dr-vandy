@@ -14,16 +14,23 @@ export const CartProvider = ({ children }) => {
     setCount(total);
   };
 
-  useEffect(() => {
-    updateCount();
+useEffect(() => {
+  updateCount();
 
-    // 🔥 listen for custom event
-    window.addEventListener("cartUpdated", updateCount);
+  const handleStorage = (e) => {
+    if (e.key === "cart") {
+      updateCount();
+    }
+  };
 
-    return () => {
-      window.removeEventListener("cartUpdated", updateCount);
-    };
-  }, []);
+  window.addEventListener("cartUpdated", updateCount);
+  window.addEventListener("storage", handleStorage);
+
+  return () => {
+    window.removeEventListener("cartUpdated", updateCount);
+    window.removeEventListener("storage", handleStorage);
+  };
+}, []);
 
   return (
     <CartContext.Provider value={{ count }}>{children}</CartContext.Provider>

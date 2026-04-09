@@ -21,13 +21,24 @@
     color: var(--white);
     width: var(--font-sizes-xs-text);
     height: var(--font-sizes-xs-text);
+    font-size: 1rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .cartBtn:hover .countBadge{
     transform: translateY(-10%);
+}
+
+.cartBtn.animate .countBadge{
+    transform: translateY(-10%);
+}
+
+@media (max-width: 470px) {
+    .countBadge{
+        font-size: 0.8rem;
+    }
 }
