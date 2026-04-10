@@ -125,6 +125,14 @@
     transition: transform 0.2s ease;
 }
 
+.navbar .ctaContainer.disabled{
+    cursor: default;
+}
+
+.navbar .ctaContainer.disabled:hover {
+    transform: none;
+}
+
 .navbar .ctaContainer:hover {
     transform: scale(1.01);
 }

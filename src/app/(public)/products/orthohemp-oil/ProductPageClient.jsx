@@ -45,7 +45,7 @@ const ProductPageClient = () => {
 
           shipping_status: v.shipping_status?.value || "Standard",
 
-          qty_in_pack: v.qty_in_pack?.value || "Standard",
+          qty_in_pack: v.qty_in_pack?.value || "1",
         };
       });
 

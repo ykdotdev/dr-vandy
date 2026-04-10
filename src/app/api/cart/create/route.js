@@ -20,9 +20,6 @@ export async function POST(req) {
       }),
     },
   );
-  console.log(lineItems)
-
-    console.log(process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN);
 
   const data = await res.json();
   return Response.json(data);

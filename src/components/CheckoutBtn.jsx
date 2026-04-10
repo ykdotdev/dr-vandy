@@ -32,6 +32,7 @@ const CheckoutBtn = ({ variant_id, quantity }) => {
         const checkoutUrl = data?.data?.cartCreate?.cart?.checkoutUrl;
         // console.log(checkoutUrl);
         window.location.href = checkoutUrl;
+        setLoading(false);
       } else {
         showToast("Something went wrong!", "error");
         setLoading(false);

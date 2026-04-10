@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ExpandablePillars from "@/components/ExpandablePillars";
+import clsx from "clsx";
 
 const LandingPage = () => {
 const isDesktop = useMediaQuery({ query: "(max-width: 1120px)" });
@@ -148,7 +149,10 @@ const featureCardData = [
               <CTA productSlug="orthohemp-oil" label="Buy Now" />
               {mounted && isDesktop && (
                 <button
-                  className={styles.learnMoreBtn}
+                  className={clsx(
+                    styles.learnMoreBtn,
+                    learnLoading && styles.disabled,
+                  )}
                   onClick={handleLearnClick}
                   disabled={learnLoading}
                 >
@@ -204,7 +208,10 @@ const featureCardData = [
               and virgin coconut base.
             </span>
             <button
-              className={styles.learnMoreBtn}
+              className={clsx(
+                styles.learnMoreBtn,
+                learnLoading && styles.disabled,
+              )}
               onClick={handleLearnClick}
               disabled={learnLoading}
             >
@@ -419,7 +426,6 @@ const featureCardData = [
           }),
         }}
       />
-      
     </div>
   );
 };

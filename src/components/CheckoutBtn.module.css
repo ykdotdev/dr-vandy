@@ -29,6 +29,10 @@
     cursor: default;
 }
 
+.CTAContainer.active:hover {
+    transform: none;
+}
+
 .CTAContainer:hover{
     transform: scale(1.01);
 }

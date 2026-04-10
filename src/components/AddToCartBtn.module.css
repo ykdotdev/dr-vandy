@@ -25,6 +25,10 @@
     cursor: default;
 }
 
+.CTA.active:hover {
+    transform: none;
+}
+
 /* Hover */
 .CTA:hover {
     transform: scale(1.03);

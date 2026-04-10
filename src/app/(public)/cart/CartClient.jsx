@@ -42,7 +42,7 @@ const CartClient = () => {
           mrp: Number(v.mrp.amount),
           quantity: cartItem.quantity,
           available_for_sale: v.availableForSale ? true : false,
-          shipping_status: v.metafield?.value || "Standard",
+          shipping_status: v.shipping_status?.value || "5-10",
           image: v.image?.url || null,
         };
       });
@@ -135,6 +135,8 @@ const CartClient = () => {
         const checkoutUrl = data?.data?.cartCreate?.cart?.checkoutUrl;
         // console.log(checkoutUrl);
         window.location.href = checkoutUrl;
+        setisCheckoutBtnLoading(false);
+
       } else {
         
         showToast("Something went wrong!", "error");
