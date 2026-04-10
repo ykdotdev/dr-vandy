@@ -37,11 +37,9 @@ const ProductPageClient = () => {
           variant_name: v.title,
           images: productImages,
 
-          price: Number(v.price.amount),
+          price: Number(v.price?.value),
 
-          mrp: v.compareAtPrice
-            ? Number(v.compareAtPrice.amount)
-            : Number(v.price.amount),
+          mrp: Number(v.mrp.amount),
 
           available_for_sale: v.availableForSale,
 
@@ -515,9 +513,8 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
             {selectedVariant.available_for_sale === true && (
               <div className={styles.ctaRow}>
                 <CheckoutBtn
-                  vID={selectedVariant.id}
-                  qty={currentQty}
-                  label="Buy Now"
+                  variant_id={selectedVariant.id}
+                  quantity={currentQty}
                 />
                 <AddToCartBtn variant_id={selectedVariant.id} quantity={currentQty}/>
               </div>

@@ -5,8 +5,13 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 const CartBtn = () => {
+  const [mounted, setMounted] = useState(false);
     const {count} = useCartCount();
     const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+    }, []);
 
     useEffect((()=>{
       if (count===0) return;
@@ -16,10 +21,12 @@ const CartBtn = () => {
       }, 200); // match css animation duration
 
       return () => clearTimeout(timer);
+      
     }), [count])
+    if (!mounted) return null;
 
   return (
-    <Link className={clsx(styles.cartBtn, animate && styles.animate)} href={"/test"}>
+    <Link className={clsx(styles.cartBtn, animate && styles.animate)} href={"/cart"}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -35,7 +42,7 @@ const CartBtn = () => {
         <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
       </svg>
 
-      <div className={styles.countBadge}>{count}</div>
+      <div className={styles.countBadge}>{!count ? 0 : count}</div>
     </Link>
   );
 }

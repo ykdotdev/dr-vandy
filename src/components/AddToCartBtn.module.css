@@ -21,6 +21,10 @@
     order: 1;
 }
 
+.CTA.active{
+    cursor: default;
+}
+
 /* Hover */
 .CTA:hover {
     transform: scale(1.03);

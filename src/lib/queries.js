@@ -6,12 +6,9 @@ query ($ids: [ID!]!) {
       title
       availableForSale
 
-      price {
+      mrp: price {
         amount
         currencyCode
-      }
-      compareAtPrice {
-        amount
       }
 
       image {
@@ -25,7 +22,10 @@ query ($ids: [ID!]!) {
 
       }
 
-      metafield(namespace: "custom", key: "shipping_status") {
+      shipping_status: metafield(namespace: "custom", key: "shipping_status") {
+        value
+      }
+      price: metafield(namespace: "custom", key: "price") {
         value
       }
     }
@@ -54,13 +54,13 @@ query getProduct($handle: String!) {
           title
           availableForSale
 
-          price {
-            amount
-            currencyCode
+          price: metafield(namespace: "custom", key: "price") {
+            value
           }
 
-          compareAtPrice {
+          mrp: price {
             amount
+            currencyCode
           }
 
 
@@ -68,9 +68,11 @@ query getProduct($handle: String!) {
             value
           }
 
-            qty_in_pack: metafield(namespace: "custom", key: "qty_in_pack") {
+          qty_in_pack: metafield(namespace: "custom", key: "qty_in_pack") {
             value
           }
+
+
         }
       }
     }

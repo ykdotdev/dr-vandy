@@ -4,46 +4,53 @@ import { useState } from "react";
 import styles from "./CheckoutBtn.module.css";
 import { useRouter } from "next/navigation";
 import { useToast } from "./ToastProvider";
+import clsx from "clsx";
 
-const CheckoutBtn = ({ qty, vID, label }) => {
+const CheckoutBtn = ({ variant_id, quantity }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { showToast } = useToast();
 
   const handleCheckout = async () => {
-    setLoading(true);
-
-    const stockCheckRes = await fetch("/api/supabase/stockCheck", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        qty,
-        variant_id: vID,
-      }),
-    });
-
-    const stockCheck = await stockCheckRes.json();
-
-    if (!stockCheck.success) {
-      // console.log("INSUFFICIENT STOCK");
-      // TODO: show modal / toast
-      await showToast("Item just went Out of Stock", "error");
-      window.location.reload();
-
+    try {
+      console.log(variant_id, quantity);
+      setLoading(true);
+      const res = await fetch("/api/cart/create", {
+        method: "POST",
+        body: JSON.stringify({
+          lineItems: [
+            {
+              quantity: Number(quantity),
+              merchandiseId: String(variant_id),
+            },
+          ],
+        }),
+      });
+      const data = await res.json();
+      // console.log("CART CHECKOUT", data);
+      if (data?.data?.cartCreate?.cart?.checkoutUrl) {
+        const checkoutUrl = data?.data?.cartCreate?.cart?.checkoutUrl;
+        // console.log(checkoutUrl);
+        window.location.href = checkoutUrl;
+      } else {
+        showToast("Something went wrong!", "error");
+        setLoading(false);
+      }
       return;
-    }
-    // setLoading(false);
+    } catch (err) {
+      showToast("Something went wrong!", "error");
 
-    router.push(`/checkout?v_id=${vID}&qty=${qty}`);
+      setLoading(false);
+    }
   };
 
   return (
     <button
       onClick={handleCheckout}
       disabled={loading}
-      className={styles.CTAContainer}
+      className={clsx(styles.CTAContainer, loading && styles.disabled)}
     >
-      <span className={styles.label}>{loading ? "Checking" : label}</span>
+      <span className={styles.label}>Buy Now</span>
       {loading ? (
         // Spinner SVG
         <svg
