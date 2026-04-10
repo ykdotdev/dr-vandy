@@ -80,6 +80,11 @@ a {
   cursor: pointer;
 }
 
+html body .Wsrspfapp-stars-list.Wsrspfapp-stars-shortfull,
+html body .Wsrspfapp-stars-list.Wsrspfapp-stars-shortfull * {
+  cursor: pointer !important;
+}
+
 img {
   user-select: none;
   -webkit-user-drag: none;

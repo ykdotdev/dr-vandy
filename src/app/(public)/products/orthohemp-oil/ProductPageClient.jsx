@@ -17,6 +17,7 @@ import AddToCartBtn from "@/components/AddToCartBtn";
 
 
 const ProductPageClient = () => {
+  
   const [loading, setLoading] = useState(false);
   const slug = "orthohemp-oil";
 
@@ -398,6 +399,13 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
           <div className={styles.leftCtn}>
             <div className={styles.productDetailsCtn}>
               <div className={styles.textCtn}>
+                <div
+                  data-pid="orthohemp-oil"
+                  data-id="69d91e00acdb29406906ae09"
+                  data-type="star_rating"
+                  className={styles.wiserStars}
+                  data-platform="ecomm_star_rating"
+                ></div>
                 <span className={styles.productHeadingText}>
                   Dr. Vandy’s OrthoHemp™ Pain Relief Oil{" "}
                   <span className={styles.productVariantText}>
@@ -516,7 +524,10 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                   variant_id={selectedVariant.id}
                   quantity={currentQty}
                 />
-                <AddToCartBtn variant_id={selectedVariant.id} quantity={currentQty}/>
+                <AddToCartBtn
+                  variant_id={selectedVariant.id}
+                  quantity={currentQty}
+                />
               </div>
             )}
           </div>

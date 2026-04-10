@@ -385,7 +385,7 @@ const featureCardData = [
             ))}
           </div>
           <span className={styles.testimonial}>
-            “{testimonials[testimonialCurrentIndex].quote}
+            {testimonials[testimonialCurrentIndex].quote}
           </span>
           <div className={styles.detailsCtn}>
             <span className={styles.name}>
