@@ -257,7 +257,14 @@ const featureCardData = [
               )}
             </button>
           </div>
-          <img src="/bannerBottle.png" className={styles.bottleImg} />
+          <img
+            src="/bannerBottle.png"
+            className={styles.bottleImg}
+            alt="Bottle"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
 
         <div className={styles.featureStrip}>

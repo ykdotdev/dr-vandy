@@ -138,21 +138,6 @@ const ProductPageClient = ({onReady}) => {
 
   }, [selectedVariant]);
 
-
-  const handlePreload = ()=>{
-    if (currentPhotoIndex < photoIndexCount) {
-      {
-        imageArr?.[currentPhotoIndex + 1] && (
-          <link
-            rel="preload"
-            as="image"
-            href={imageArr?.[currentPhotoIndex + 1]?.url}
-          />
-        );
-      }
-    }
-  }
-
   return variants.length > 0 && selectedVariant && (
     <>
       {mounted && isPhotoFrame && (
@@ -179,7 +164,7 @@ const ProductPageClient = ({onReady}) => {
                       src={img.url}
                       width={800}
                       height={600}
-                      alt="Product"
+                      alt="Product Image"
                       priority={idx === 0}
                     />
                   </SwiperSlide>
