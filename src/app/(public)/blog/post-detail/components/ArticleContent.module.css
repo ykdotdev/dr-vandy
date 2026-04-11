@@ -1,0 +1,61 @@
+.root {
+    max-width: none;
+    font-family: var(--font-body);
+    color: var(--black);
+    line-height: 1.85;
+    font-size: clamp(var(--font-sizes-xs-text), 2vw, var(--font-sizes-s-text));
+}
+
+.article {
+    font-family: var(--font-body);
+    color: var(--black);
+    line-height: 1.85;
+    font-size: clamp(var(--font-sizes-xs-text), 2vw, var(--font-sizes-s-text));
+}
+
+.article p {
+    margin-bottom: var(--spacings-sm);
+    color: var(--dark-gray);
+}
+
+.article p:first-child {
+    font-size: clamp(var(--font-sizes-s-text), 2.5vw, var(--font-sizes-m-text));
+    font-weight: 300;
+    color: var(--dark-gray);
+}
+
+.article h2 {
+    font-family: var(--font-display);
+    font-size: clamp(var(--font-sizes-s-text), 3vw, var(--font-sizes-m-text));
+    color: var(--black);
+    margin-top: var(--spacings-lg);
+    margin-bottom: var(--spacings-s);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+}
+
+.article blockquote {
+    border-left: 2px solid var(--gold);
+    padding-left: var(--spacings-ml);
+    margin: var(--spacings-m) 0;
+}
+
+.article blockquote p {
+    font-family: var(--font-display);
+    font-size: clamp(var(--font-sizes-xs-text), 2.5vw, var(--font-sizes-s-text));
+    font-style: italic;
+    color: var(--black);
+    margin-bottom: var(--spacings-xs);
+}
+
+.article blockquote cite {
+    font-family: var(--font-mono);
+    font-size: calc(var(--font-sizes-xs-text) * 0.85);
+    letter-spacing: 0.04em;
+    color: var(--gray);
+    font-style: normal;
+}
+
+.article em {
+    font-style: italic;
+}

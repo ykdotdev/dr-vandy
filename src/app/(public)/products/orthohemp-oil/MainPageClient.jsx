@@ -7,9 +7,11 @@ import BackBtn from "@/components/BackBtn";
 import { useParams } from "next/navigation";
 import InfoPageClient from "./InfoPageClient";
 import CartBtn from "@/components/CartBtn";
+import Loading from "@/app/loading";
 
 const MainPageClient = ({pageStatus}) => {
 // console.log("status",pageStatus)
+const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(pageStatus === "1" ? "info" : "product");
 
   const handleActivePage = (requiredPage)=>{
@@ -21,13 +23,13 @@ const MainPageClient = ({pageStatus}) => {
   return (
     <div className={styles.mainCtn}>
       <div className={styles.topCtn}>
-        <BackBtn/>
+        <BackBtn />
 
         <div className={styles.tabSliderCtn}>
           <button
             className={clsx(
               styles.SliderBtn,
-              currentPage === "product" ? styles.btnActive : ""
+              currentPage === "product" ? styles.btnActive : "",
             )}
             onClick={() => {
               handleActivePage("product");
@@ -38,7 +40,7 @@ const MainPageClient = ({pageStatus}) => {
           <button
             className={clsx(
               styles.SliderBtn,
-              currentPage === "info" ? styles.btnActive : ""
+              currentPage === "info" ? styles.btnActive : "",
             )}
             onClick={() => {
               handleActivePage("info");
@@ -48,14 +50,26 @@ const MainPageClient = ({pageStatus}) => {
           </button>
         </div>
 
-        <CartBtn/>
+        <CartBtn />
       </div>
-
-      {currentPage === "product" && (
-        <ProductPageClient/>
-      ) || currentPage === "info" && (
-        <InfoPageClient />
+      {isLoading && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={styles.loadIcon}
+          >
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+          </svg>
       )}
+      {(currentPage === "product" && (
+        <ProductPageClient onReady={() => setIsLoading(false)} />
+      )) ||
+        (currentPage === "info" && <InfoPageClient />)}
       {/* <InfoPageClient /> */}
       {/* <div className={styles.bottomSection}>
           <span className={styles.badgesText}>

@@ -1,0 +1,14 @@
+.frame {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 0.2rem var(--white),
+        0 0 0 calc(0.2rem + 1px) var(--light-gray);
+}
+
+.image {
+    object-fit: cover;
+}

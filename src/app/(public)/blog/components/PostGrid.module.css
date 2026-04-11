@@ -1,0 +1,138 @@
+/* ─── PostGrid ─── */
+.section {
+    padding: 0 var(--spacings-s) var(--spacings-xl);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .section {
+        padding: 0 var(--spacings-sm) var(--spacings-l);
+    }
+}
+
+.divider {
+    height: 1px;
+    background: var(--light-gray);
+    margin-bottom: var(--spacings-m);
+}
+
+@media (min-width: 640px) {
+    .divider {
+        margin-bottom: var(--spacings-lg);
+    }
+}
+
+.topicSection {
+    margin-bottom: var(--spacings-m);
+}
+
+.topicSectionLabel {
+    font-family: var(--font-mono);
+    font-size: calc(var(--font-sizes-xs-text) * 0.8);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: var(--spacings-xs);
+}
+
+.topicFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacings-xs);
+}
+
+@media (min-width: 640px) {
+    .topicSection {
+        margin-bottom: var(--spacings-lg);
+    }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacings-l) var(--spacings-s);
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .empty {
+        padding: var(--spacings-xl) var(--spacings-sm);
+    }
+}
+
+.emptyIcon {
+    color: var(--light-gray);
+    margin-bottom: var(--spacings-s);
+}
+
+.emptyTitle {
+    font-family: var(--font-display);
+    font-size: var(--font-sizes-s-text);
+    color: var(--dark-gray);
+    margin-bottom: var(--spacings-xs);
+}
+
+.emptyText {
+    font-size: var(--font-sizes-xs-text);
+    color: var(--gray);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacings-ml);
+}
+
+@media (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacings-sm);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.filterPill {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: calc(var(--font-sizes-xs-text) * 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--light-gray);
+    padding: var(--spacings-xs) calc(var(--spacings-s) * 0.9);
+    border-radius: var(--border-radius-pill);
+    background: transparent;
+    color: var(--gray);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterPill:hover {
+    border-color: var(--dark-gray);
+    color: var(--black);
+}
+
+.filterPillActive {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+.filterPillActive:hover {
+    color: var(--white);
+    border-color: var(--black);
+}
+
+.filterPillInactive {
+    background: transparent;
+    color: var(--gray);
+    border-color: var(--light-gray);
+}

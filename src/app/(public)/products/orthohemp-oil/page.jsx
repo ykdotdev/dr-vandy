@@ -1,7 +1,6 @@
 import Script from "next/script";
 import ProductPageClient from "./MainPageClient";
 import MainPageClient from "./MainPageClient";
-import WiserPixelLoader from "@/components/WiserPixelLoader";
 
 const page = async ({ searchParams }) => {
   const params = await searchParams;
@@ -11,6 +10,14 @@ const page = async ({ searchParams }) => {
   return (
     <>
       <MainPageClient pageStatus={pageStatus} />
+      <div
+        data-pid="orthohemp-oil"
+        data-id="69d91fe79fbf4cd281c07d71"
+        data-rich-snippet="true"
+        data-type="main"
+        className="wiser_review wsr_main"
+        data-platform="ecomm_main"
+      ></div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -38,22 +45,7 @@ const page = async ({ searchParams }) => {
           }),
         }}
       />
-      <div
-        data-pid="orthohemp-oil"
-        data-id="69d91e00acdb29406906ae09"
-        data-type="star_rating"
-        className="wiser_review wsr_star_rating"
-        style={{ display: "none" }}
-        data-platform="ecomm_star_rating"
-      />
-      <div
-        data-pid="orthohemp-oil"
-        data-id="69d91fe79fbf4cd281c07d71"
-        data-rich-snippet="true"
-        data-type="main"
-        className="wiser_review wsr_main"
-        data-platform="ecomm_main"
-      ></div>
+      
     </>
   );
 };

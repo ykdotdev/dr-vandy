@@ -1,0 +1,97 @@
+.root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    padding: var(--spacings-s);
+}
+
+.inner {
+    text-align: center;
+    max-width: 48rem;
+}
+
+.codeWrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacings-m);
+}
+
+.code {
+    font-family: var(--font-display);
+    font-size: clamp(var(--font-sizes-l-text), 18vw, var(--font-sizes-title));
+    font-weight: 700;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.22;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: var(--font-sizes-m-text);
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: var(--spacings-xs);
+}
+
+.copy {
+    font-family: var(--font-body);
+    font-size: var(--font-sizes-xs-text);
+    color: var(--gray);
+    margin-bottom: var(--spacings-xl);
+    line-height: 1.6;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacings-s);
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .actions {
+        flex-direction: row;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacings-xs);
+    font-family: var(--font-mono);
+    font-size: calc(var(--font-sizes-xs-text) * 0.9);
+    font-weight: 500;
+    padding: var(--spacings-s) var(--spacings-m);
+    border-radius: var(--border-radius-xs);
+    cursor: pointer;
+    transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btnPrimary {
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.btnPrimary:hover {
+    opacity: 0.88;
+}
+
+.btnSecondary {
+    background-color: transparent;
+    color: var(--black);
+    border: 1px solid var(--light-gray);
+}
+
+.btnSecondary:hover {
+    border-color: var(--black);
+    color: var(--gold);
+}

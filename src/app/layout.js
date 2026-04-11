@@ -6,6 +6,7 @@ import Script from "next/script";
 import { CartProvider } from "@/context/CartContext";
 import Loading from "./loading";
 import { Suspense } from "react";
+import WiserGlobalLoader from "@/components/WiserStarRating";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         <main className="page-wrapper">
           <ToastProvider>
             <CartProvider>
-              <Suspense fallback={<Loading />}>{children}</Suspense>
+              <Suspense fallback={<Loading />}>
+                {children}
+              </Suspense>
             </CartProvider>
           </ToastProvider>
           <Analytics />

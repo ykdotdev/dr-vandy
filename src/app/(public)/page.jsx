@@ -28,7 +28,7 @@ const [learnLoading, setLearnLoading] = useState(false);
 
 const handleLearnClick = () => {
   setLearnLoading(true); // start loading (never ends)
-  router.push("/products/orthohemp-oil?i=1");
+  router.push(`/products/orthohemp-oil?i=1`);
 
 };
 
@@ -385,7 +385,7 @@ const featureCardData = [
             ))}
           </div>
           <span className={styles.testimonial}>
-            {testimonials[testimonialCurrentIndex].quote}
+            “{" "}{testimonials[testimonialCurrentIndex].quote}
           </span>
           <div className={styles.detailsCtn}>
             <span className={styles.name}>

@@ -79,7 +79,6 @@ const Navbar = () => {
           {count === 0 ?
           <button
             className={clsx(styles.ctaContainer, loading && styles.disabled)}
-            href="/products/orthohemp-oil"
             onClick={handleClick}
             disabled={loading}
           >

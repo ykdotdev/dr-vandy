@@ -77,7 +77,7 @@ export async function getPostBySlug(slug) {
           process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN,
       },
       body: JSON.stringify({ query }),
-      //   next: { revalidate: 60 },
+        next: { revalidate: 60 },
     },
   );
 

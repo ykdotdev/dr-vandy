@@ -1,10 +1,18 @@
-import { BLOG_POSTS } from "@/lib/blog-data";
+import { getShopifyArticlesForBlog } from "@/app/(public)/blog/data/shopifyArticles";
 
-export default function sitemap() {
-    const blogUrls = BLOG_POSTS.map((post) => ({
-        url: `https://drvandys.com/blog/${post.slug}`,
-        lastModified: new Date(post.date),
-    }));
+export default async function sitemap() {
+  let articles = [];
+  try {
+    articles = await getShopifyArticlesForBlog();
+  } catch {
+    articles = [];
+  }
+
+  const blogPostUrls = articles.map((a) => ({
+    url: `https://drvandys.com/blog/post-detail/${a.blogHandle}/${a.handle}`,
+    lastModified: a.publishedAt ? new Date(a.publishedAt) : new Date(),
+  }));
+
   return [
     {
       url: "https://drvandys.com",
@@ -22,6 +30,6 @@ export default function sitemap() {
       url: "https://drvandys.com/contact",
       lastModified: new Date(),
     },
-    ...blogUrls,
+    ...blogPostUrls,
   ];
 }
