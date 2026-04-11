@@ -1,12 +1,13 @@
 import BlogCard from "@/components/blog-card";
-import { BLOG_POSTS } from "@/lib/blog-data";
 import styles from "./blog.module.css";
 import Link from "next/link";
+import { getShopifyPosts } from "@/lib/shopify-blog";
 
 export const metadata = {
   title: "Blog",
   description: "Read our latest articles and insights",
 };
+const BLOG_POSTS = await getShopifyPosts();
 export default function page() {
   return (
     <>
@@ -35,7 +36,7 @@ export default function page() {
 
         <div className={styles.postsGrid}>
           {BLOG_POSTS.map((post) => (
-            <BlogCard key={post.id} post={post} />
+            <BlogCard key={post.handle} post={post} />
           ))}
         </div>
       </main>

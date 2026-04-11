@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './blog-card.module.css'
+import { getReadTime } from '@/lib/shopify-blog';
 
 export default function BlogCard({ post }) {
+  const readTime = getReadTime(post.contentHtml);
   return (
-    <Link href={`/blog/${post.id}`}>
+    <Link href={`/blog/${post.handle}`}>
       <article className={styles.cardContainer}>
         <div className={styles.cardImage}>
+          {console.log(post)}
           <Image
-            src={post.image || "/placeholder.svg"}
+            src={post.image?.url || "/placeholder.svg"}
             alt={post.title}
             fill
             className={styles.image}
@@ -17,7 +20,7 @@ export default function BlogCard({ post }) {
         </div>
         <div className={styles.wrapper}>
           <div className={styles.readTime}>
-            <span className={styles.label}>{post.readTime}</span>
+            <span className={styles.label}>{readTime}</span>
           </div>
           <div className={styles.cardContent}>
             <div className={styles.header}>

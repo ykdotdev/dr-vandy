@@ -33,6 +33,7 @@
 .featuredImage {
   position: relative;
   width: 100%;
+  object-fit: contain;
   aspect-ratio: 3 / 1;
   overflow: hidden;
 }
@@ -97,7 +98,7 @@
   color: var(--dark-gray);
 }
 
-.articleHeading {
+.article h1 {
   color: var(--black);
   font-size: var(--font-sizes-s-text);
   margin-top: var(--spacings-sm);
@@ -105,21 +106,25 @@
   font-weight: 700;
 }
 
-.articleList {
+.article ul, .article ol {
   margin-bottom: var(--spacings-sm);
   list-style-position: inside;
   color: var(--dark-gray);
 }
 
-.articleList li {
+.article li {
   font-size: var(--font-sizes-xs-text);
   margin-bottom: var(--spacings-xs);
 }
 
-.articleParagraph {
+.article p{
   font-size: var(--font-sizes-xs-text);
   margin-bottom: var(--spacings-sm);
   color: var(--dark-gray);
+}
+
+.article img{
+  max-width: 40dvw;
 }
 
 .footer {
