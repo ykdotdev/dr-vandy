@@ -45,8 +45,7 @@ const Navbar = () => {
             isMobile && styles.mobileNavMenu,
             isMobile && menuOpen && styles.open,
           )}
-
-          style={{"alignItems": count === 0 ? "center" : "flex-end"}}
+          style={{ alignItems: count === 0 ? "center" : "flex-end" }}
         >
           {/* Nav items */}
           <div className={styles.navItems}>
@@ -76,50 +75,53 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {count === 0 ?
-          <button
-            className={clsx(styles.ctaContainer, loading && styles.disabled)}
-            onClick={handleClick}
-            disabled={loading}
-          >
-            <span className={styles.ctaText}>Buy Now</span>
-            {loading ? (
-              // Spinner SVG
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.spinner}
-              >
-                <path d="M12 2v4" />
-                <path d="m16.2 7.8 2.9-2.9" />
-                <path d="M18 12h4" />
-                <path d="m16.2 16.2 2.9 2.9" />
-                <path d="M12 18v4" />
-                <path d="m4.9 19.1 2.9-2.9" />
-                <path d="M2 12h4" />
-                <path d="m4.9 4.9 2.9 2.9" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.ctaIcon}
-              >
-                <path d="M18 8L22 12L18 16" />
-                <path d="M2 12H22" />
-              </svg>
-            )}
-          </button> : <CartBtn/>}
+          {count === 0 ? (
+            <button
+              className={clsx(styles.ctaContainer, loading && styles.disabled)}
+              onClick={handleClick}
+              disabled={loading}
+            >
+              <span className={styles.ctaText}>Buy Now</span>
+              {loading ? (
+                // Spinner SVG
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.spinner}
+                >
+                  <path d="M12 2v4" />
+                  <path d="m16.2 7.8 2.9-2.9" />
+                  <path d="M18 12h4" />
+                  <path d="m16.2 16.2 2.9 2.9" />
+                  <path d="M12 18v4" />
+                  <path d="m4.9 19.1 2.9-2.9" />
+                  <path d="M2 12h4" />
+                  <path d="m4.9 4.9 2.9 2.9" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.ctaIcon}
+                >
+                  <path d="M18 8L22 12L18 16" />
+                  <path d="M2 12H22" />
+                </svg>
+              )}
+            </button>
+          ) : (
+            !menuOpen && <CartBtn />
+          )}
 
           {/* Mobile toggle button */}
           {isMobile && (
