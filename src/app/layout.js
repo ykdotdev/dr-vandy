@@ -6,17 +6,30 @@ import Script from "next/script";
 import { CartProvider } from "@/context/CartContext";
 import Loading from "./loading";
 import { Suspense } from "react";
-import WiserGlobalLoader from "@/components/WiserStarRating";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl = getSiteUrl();
+
 export const metadata = {
-  title: "Dr. Vandy's",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Dr. Vandy's",
+    template: "%s | Dr. Vandy's",
+  },
   description:
     "Our goal is to build thoughtful, clinically guided solutions across every life stage — grounded in professional physiotherapy experience, research-driven formulation, and a deep understanding of real human needs.",
 };
 
 export default function RootLayout({ children }) {
+  const organizationLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Dr. Vandy's",
+    url: siteUrl,
+  });
+
   return (
     <html lang="en">
       <head></head>
@@ -34,12 +47,7 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Dr. Vandy's",
-              url: "https://drvandys.com",
-            }),
+            __html: organizationLd,
           }}
         />
         <Script

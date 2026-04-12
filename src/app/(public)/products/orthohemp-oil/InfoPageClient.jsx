@@ -4,7 +4,7 @@ import { sizeMobile, sizeTablet } from '@/config/constants';
 import { useMediaQuery } from 'react-responsive';
 import clsx from 'clsx';
 
-const InfoPageClient = () => {
+const InfoPageClient = ({onReady}) => {
     const isMobile = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
       const [openIndex, setOpenIndex] = useState(null);
     
@@ -14,6 +14,7 @@ const InfoPageClient = () => {
 
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
+        onReady?.();
         setMounted(true);
     }, []);
 

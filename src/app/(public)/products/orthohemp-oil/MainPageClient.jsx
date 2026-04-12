@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import clsx from "clsx";
 import ProductPageClient from "./ProductPageClient";
@@ -11,8 +11,14 @@ import Loading from "@/app/loading";
 
 const MainPageClient = ({pageStatus}) => {
 // console.log("status",pageStatus)
-const [isLoading, setIsLoading] = useState(true);
+const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(pageStatus === "1" ? "info" : "product");
+
+  useEffect(()=>{
+    if(currentPage === "product"){
+      setIsLoading(true);
+    }
+  }, [])
 
   const handleActivePage = (requiredPage)=>{
     if(currentPage!=requiredPage){
@@ -32,6 +38,7 @@ const [isLoading, setIsLoading] = useState(true);
               currentPage === "product" ? styles.btnActive : "",
             )}
             onClick={() => {
+              setIsLoading(true);
               handleActivePage("product");
             }}
           >

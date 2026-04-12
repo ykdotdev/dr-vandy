@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import clsx from "clsx";
 import PostCard from "./PostCard";
 import { IconFileSearch } from "./InlineIcons";
@@ -8,44 +9,42 @@ import styles from "./PostGrid.module.css";
 
 export default function PostGrid({
   posts,
-  activeTopic,
-  onTopicChange,
+  categorySlug,
+  topicSlug,
   topics = [],
 }) {
+  const showTopics = categorySlug && topics.length > 0;
+
   return (
     <section className={styles.section}>
       <div className={styles.divider} />
 
-      {topics.length > 0 && (
+      {showTopics && (
         <div className={styles.topicSection}>
           <p className={styles.topicSectionLabel}>Topics</p>
           <div className={styles.topicFilters}>
-            <button
-              type="button"
-              onClick={() => onTopicChange("all")}
+            <Link
+              href={`/blog/${categorySlug}`}
               className={clsx(
                 styles.filterPill,
-                activeTopic === "all"
-                  ? styles.filterPillActive
-                  : styles.filterPillInactive,
+                !topicSlug ? styles.filterPillActive : styles.filterPillInactive,
               )}
             >
               All topics
-            </button>
+            </Link>
             {topics.map((topic) => (
-              <button
-                type="button"
-                key={topic}
-                onClick={() => onTopicChange(topic)}
+              <Link
+                key={topic.slug}
+                href={`/blog/${categorySlug}/${topic.slug}`}
                 className={clsx(
                   styles.filterPill,
-                  activeTopic === topic
+                  topicSlug === topic.slug
                     ? styles.filterPillActive
                     : styles.filterPillInactive,
                 )}
               >
-                {topic}
-              </button>
+                {topic.label}
+              </Link>
             ))}
           </div>
         </div>

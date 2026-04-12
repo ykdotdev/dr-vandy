@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IconStar, IconClock, IconArrowRight } from "./InlineIcons";
 import BlogAuthorAvatar from "./BlogAuthorAvatar";
+import { blogPostPath } from "../data/blogUrls";
 import styles from "./FeaturedPost.module.css";
 
 export default function FeaturedPost({ post }) {
@@ -36,10 +37,7 @@ export default function FeaturedPost({ post }) {
       </div>
 
       <div ref={ref} className={styles.scrollReveal}>
-        <Link
-          href={`/blog/post-detail/${post.blogHandle}/${post.handle}`}
-          className={styles.cardLink}
-        >
+        <Link href={blogPostPath(post)} className={styles.cardLink}>
           <article className={styles.card}>
             {/* Image */}
             <div className={styles.imageWrap}>

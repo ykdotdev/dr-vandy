@@ -15,7 +15,8 @@ const ExpandablePillars = () => {
       number: 1,
       description:
         "An overview of how pain relief formulations vary in composition, structure, and ingredient synergy. This section explores the role of botanical extracts, supporting oils, and formulation principles that influence topical effectiveness.",
-    },
+      href: "/"
+      },
     {
     id: 3,
       label: "Understanding Pain & Relief",
@@ -53,6 +54,7 @@ const ExpandablePillars = () => {
                   togglePillar(pillar.id);
                 }
               }}
+              onBlur={()=>{setExpandedId(null);}}
             >
               <Pillar label={pillar.label} number={pillar.number} />
             </div>

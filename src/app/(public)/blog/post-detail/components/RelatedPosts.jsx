@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IconClock } from "../../components/InlineIcons";
+import { blogPostPath } from "../../data/blogUrls";
 import styles from "./RelatedPosts.module.css";
 
 export default function RelatedPosts({ posts = [] }) {
@@ -38,7 +39,7 @@ export default function RelatedPosts({ posts = [] }) {
       <div className={styles.grid}>
         {posts.map((post) => (
           <Link
-            href={`/blog/post-detail/${post.blogHandle}/${post.handle}`}
+            href={blogPostPath(post)}
             key={post.id}
             className={styles.cardLink}
           >

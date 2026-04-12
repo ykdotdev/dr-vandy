@@ -5,43 +5,63 @@ import BlogHero from "./components/BlogHero";
 import FeaturedPost from "./components/FeaturedPost";
 import PostGrid from "./components/PostGrid";
 import Pagination from "./components/Pagination";
-import { POSTS_PER_PAGE, postMatchesTopic } from "./data/blogData";
+import {
+  POSTS_PER_PAGE,
+  postMatchesTopic,
+  NO_TOPIC_SLUG,
+} from "./data/blogData";
+import {
+  resolveCategoryLabel,
+  resolveTopicSegment,
+  collectTopicsWithSlugsForCategory,
+} from "./data/blogUrls";
 import styles from "./BlogListingClient.module.css";
 
 export default function BlogListingClient({
-  blogPosts,
+  allPosts,
+  /** null on /blog */
+  categorySlug = null,
+  /** null on /blog and /blog/[cat] */
+  topicSlug = null,
   categories,
-  topics,
 }) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeTopic, setActiveTopic] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const featuredPost = blogPosts.find((p) => p.featured);
+  const categoryLabel =
+    categorySlug && allPosts.length
+      ? resolveCategoryLabel(allPosts, categorySlug)
+      : null;
 
-  const showFeaturedSection =
-    !!featuredPost &&
-    activeCategory === "All" &&
-    activeTopic === "all" &&
-    !searchQuery.trim();
+  const postsInCategory = useMemo(() => {
+    if (!categoryLabel) return allPosts;
+    return allPosts.filter((p) => p.category === categoryLabel);
+  }, [allPosts, categoryLabel]);
+
+  const topicTopicsNav = useMemo(() => {
+    if (!categoryLabel) return [];
+    return collectTopicsWithSlugsForCategory(allPosts, categoryLabel);
+  }, [allPosts, categoryLabel]);
+
+  const globalFeatured = allPosts.find((p) => p.featured);
+
+  const isRoot = !categorySlug && !topicSlug;
 
   const filteredPosts = useMemo(() => {
-    let posts;
-    if (blogPosts.length <= 1) {
-      posts = [...blogPosts];
-    } else if (showFeaturedSection) {
-      posts = blogPosts.filter((p) => !p.featured);
-    } else {
-      posts = [...blogPosts];
-    }
+    let posts = categoryLabel
+      ? allPosts.filter((p) => p.category === categoryLabel)
+      : [...allPosts];
 
-    if (activeCategory !== "All") {
-      posts = posts.filter((p) => p.category === activeCategory);
-    }
-
-    if (activeTopic !== "all") {
-      posts = posts.filter((p) => postMatchesTopic(activeTopic, p));
+    if (topicSlug === NO_TOPIC_SLUG) {
+      posts = posts.filter(
+        (p) =>
+          !(Array.isArray(p.topicValues) && p.topicValues.length) && !p.topic,
+      );
+    } else if (topicSlug) {
+      const resolved = resolveTopicSegment(postsInCategory, topicSlug);
+      if (resolved?.kind === "topic") {
+        posts = posts.filter((p) => postMatchesTopic(resolved.label, p));
+      }
     }
 
     if (searchQuery.trim()) {
@@ -59,25 +79,32 @@ export default function BlogListingClient({
       );
     }
 
+    const showFeaturedSection =
+      isRoot && !searchQuery.trim() && !!globalFeatured;
+
+    if (showFeaturedSection && allPosts.length > 1) {
+      posts = posts.filter((p) => p.id !== globalFeatured.id);
+    }
+
     return posts;
-  }, [searchQuery, activeCategory, activeTopic, blogPosts, showFeaturedSection]);
+  }, [
+    allPosts,
+    categoryLabel,
+    topicSlug,
+    postsInCategory,
+    searchQuery,
+    isRoot,
+    globalFeatured,
+  ]);
+
+  const showFeaturedSection =
+    isRoot && !searchQuery.trim() && !!globalFeatured;
 
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
   const paginatedPosts = filteredPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE,
   );
-
-  const handleCategoryChange = (cat) => {
-    setActiveCategory(cat);
-    setActiveTopic("all");
-    setCurrentPage(1);
-  };
-
-  const handleTopicChange = (topic) => {
-    setActiveTopic(topic);
-    setCurrentPage(1);
-  };
 
   const handleSearchChange = (val) => {
     setSearchQuery(val);
@@ -95,18 +122,17 @@ export default function BlogListingClient({
         <BlogHero
           searchQuery={searchQuery}
           onSearchChange={handleSearchChange}
-          activeCategory={activeCategory}
-          onCategoryChange={handleCategoryChange}
           categories={categories}
+          activeCategorySlug={categorySlug}
         />
 
-        {showFeaturedSection && <FeaturedPost post={featuredPost} />}
+        {showFeaturedSection && <FeaturedPost post={globalFeatured} />}
 
         <PostGrid
           posts={paginatedPosts}
-          activeTopic={activeTopic}
-          onTopicChange={handleTopicChange}
-          topics={topics}
+          categorySlug={categorySlug}
+          topicSlug={topicSlug}
+          topics={topicTopicsNav}
         />
 
         <Pagination

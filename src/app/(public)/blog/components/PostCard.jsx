@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IconClock, IconArrowRight } from "./InlineIcons";
 import BlogAuthorAvatar from "./BlogAuthorAvatar";
+import { blogPostPath } from "../data/blogUrls";
 import styles from "./PostCard.module.css";
 
 export default function PostCard({ post, delay = 0 }) {
@@ -37,10 +38,7 @@ export default function PostCard({ post, delay = 0 }) {
 
   return (
     <div ref={ref}>
-      <Link
-        href={`/blog/post-detail/${post.blogHandle}/${post.handle}`}
-        className={styles.cardLink}
-      >
+      <Link href={blogPostPath(post)} className={styles.cardLink}>
         <article className={styles.card}>
           {/* Image */}
           <div className={styles.imageWrap}>

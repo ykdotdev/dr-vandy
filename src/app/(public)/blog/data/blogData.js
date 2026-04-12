@@ -1,4 +1,8 @@
+import { slugify, NO_TOPIC_SLUG, blogPostPath } from "./blogUrls";
+
 export const POSTS_PER_PAGE = 6;
+
+export { slugify, NO_TOPIC_SLUG, blogPostPath };
 
 export const DEFAULT_AUTHOR = {
   name: "Dr. Vandy's",
@@ -138,6 +142,8 @@ export function normalizeShopifyPosts(shopifyNodes, getReadTime) {
     const blogTitle = String(node.blogTitle || "").trim() || "Blog";
     const topicValues = parseTopicValues(node.topic);
     const topic = topicValues[0] || "";
+    const categorySlug = slugify(blogTitle);
+    const topicSlug = topicValues[0] ? slugify(topicValues[0]) : NO_TOPIC_SLUG;
     const authorName =
       String(node.authorV2?.name || "").trim() || DEFAULT_AUTHOR.name;
 
@@ -148,7 +154,9 @@ export function normalizeShopifyPosts(shopifyNodes, getReadTime) {
       title: node.title || "Untitled",
       excerpt,
       category: blogTitle,
+      categorySlug,
       topic,
+      topicSlug,
       topicValues,
       tags,
       date: formatPublishedDate(node.publishedAt),
@@ -224,7 +232,9 @@ export function toRelatedCard(post) {
     blogHandle: post.blogHandle,
     title: post.title,
     category: post.category,
+    categorySlug: post.categorySlug,
     topic: post.topic,
+    topicSlug: post.topicSlug,
     topicValues: post.topicValues,
     readingTime: post.readingTime,
     date: post.date,

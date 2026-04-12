@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 import clsx from "clsx";
 import { IconSearch, IconX } from "./InlineIcons";
 import styles from "./BlogHero.module.css";
@@ -8,9 +9,9 @@ import styles from "./BlogHero.module.css";
 export default function BlogHero({
   searchQuery,
   onSearchChange,
-  activeCategory,
-  onCategoryChange,
   categories,
+  /** null = "All" */
+  activeCategorySlug,
 }) {
   const headlineRef = useRef(null);
   const subRef = useRef(null);
@@ -78,6 +79,7 @@ export default function BlogHero({
           />
           {searchQuery && (
             <button
+              type="button"
               onClick={() => onSearchChange("")}
               className={styles.searchClear}
               aria-label="Clear search"
@@ -88,33 +90,31 @@ export default function BlogHero({
         </div>
 
         <div ref={catsRef} className={styles.filters}>
-          <button
-            type="button"
-            onClick={() => onCategoryChange("All")}
+          <Link
+            href="/blog"
             className={clsx(
               styles.filterPill,
-              activeCategory === "All"
+              !activeCategorySlug
                 ? styles.filterPillActive
                 : styles.filterPillInactive,
             )}
           >
             All
-          </button>
+          </Link>
           {categories.map((cat) => (
-            <button
-              type="button"
-              key={cat.label}
-              onClick={() => onCategoryChange(cat.label)}
+            <Link
+              key={cat.slug}
+              href={`/blog/${cat.slug}`}
               className={clsx(
                 styles.filterPill,
-                activeCategory === cat.label
+                activeCategorySlug === cat.slug
                   ? styles.filterPillActive
                   : styles.filterPillInactive,
               )}
             >
               {cat.label}
               <span className={styles.catCount}>{cat.count}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </div>

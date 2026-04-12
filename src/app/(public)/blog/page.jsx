@@ -2,11 +2,10 @@ import { getReadTime } from "@/lib/shopify-blog";
 import BlogListingClient from "./BlogListingClient";
 import {
   normalizeShopifyPosts,
-  buildCategoriesFromPosts,
-  collectTopicsFromPosts,
   buildSeoKeywordsFromPosts,
   truncateForMetaDescription,
 } from "./data/blogData";
+import { buildCategoryNavItems } from "./data/blogUrls";
 import { getShopifyArticlesForBlog } from "./data/shopifyArticles";
 
 export async function generateMetadata() {
@@ -62,14 +61,14 @@ export default async function BlogListingPage() {
   }
 
   const blogPosts = normalizeShopifyPosts(shopifyNodes, getReadTime);
-  const categories = buildCategoriesFromPosts(blogPosts);
-  const topics = collectTopicsFromPosts(blogPosts, 20);
+  const categories = buildCategoryNavItems(blogPosts);
 
   return (
     <BlogListingClient
-      blogPosts={blogPosts}
+      allPosts={blogPosts}
+      categorySlug={null}
+      topicSlug={null}
       categories={categories}
-      topics={topics}
     />
   );
 }

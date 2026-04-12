@@ -1,10 +1,9 @@
 import { Fraunces, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { getSiteUrl } from "@/lib/siteUrl";
 import styles from "./layout.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drvandys.com";
-
 export const metadata = {
-  metadataBase: new URL(siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl),
+  metadataBase: new URL(getSiteUrl()),
 };
 
 const fraunces = Fraunces({
