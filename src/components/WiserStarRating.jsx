@@ -25,7 +25,7 @@ export default function WiserStarRating() {
     }
 
     // Fallback — show after 5s regardless
-    const fallback = setTimeout(() => setReady(true), 3000);
+    const fallback = setTimeout(() => setReady(true), 10000);
 
     return () => {
       observer.disconnect();

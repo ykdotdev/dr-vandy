@@ -20,6 +20,31 @@ import  WiserStarRating  from "@/components/WiserStarRating"
 import Script from "next/script";
 import Loading from "@/app/loading";
 
+// put this above ProductPageClient, outside the component
+const SlideImage = ({ img, priority }) => {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {!loaded && (
+        <div
+          className="skeleton-shimmer"
+          style={{ position: 'absolute', inset: 0, zIndex: 1 }}
+        />
+      )}
+      <Image
+        className={styles.productImage}
+        src={img.url}
+        width={800}
+        height={600}
+        alt="Product Image"
+        priority={priority}
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  )
+}
+
 const ProductPageClient = ({onReady}) => {
 
   const [mounted, setMounted] = React.useState(false);
@@ -29,37 +54,7 @@ const ProductPageClient = ({onReady}) => {
   const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
   const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
   const isPhotoFrame = useMediaQuery({ query: "(max-width: 1000px)" });
-      // const iframeRef = useRef(null);
-
-      // useEffect(() => {
-      //   const iframe = iframeRef.current;
-      //   if (!iframe) return;
-
-      //   iframe.onload = () => {
-      //     const doc = iframe.contentDocument || iframe.contentWindow.document;
-      //     doc.open();
-      //     doc.write(`
-      //   <!DOCTYPE html>
-      //   <html>
-      //     <head>
-      //       <style>body { margin: 0; padding: 0; }</style>
-      //     </head>
-      //     <body>
-      //      <div data-pid='orthohemp-oil' data-id='69d91e00acdb29406906ae09' data-type='star_rating' class='wiser_review wsr_star_rating' data-platform='ecomm_star_rating'></div>
-      //       <script>
-      //         var s = document.createElement('script');
-      //         s.src = 'https://embed.wiserreview.com/pixel/reviewPixel.js?wsid=1l5olkmnt331bk&t=1775836718801';
-      //         document.body.appendChild(s);
-      //       </script>
-      //     </body>
-      //   </html>
-      // `);
-      //     doc.close();
-      //   };
-
-      //   iframe.src = "about:blank";
-      // }, []);
-
+      
   React.useEffect(() => {
     setMounted(true);
   }, []);
@@ -161,16 +156,7 @@ const ProductPageClient = ({onReady}) => {
                 >
                   {imageArr?.map((img, idx) => (
                     <SwiperSlide key={idx}>
-                      {!loaded && <div className={styles.skeleton} />}
-                      <Image
-                        className={styles.productImage}
-                        src={img.url}
-                        width={800}
-                        height={600}
-                        alt="Product Image"
-                        priority={idx === 0}
-                        onLoadingComplete={() => setLoaded(true)}
-                      />
+                      <SlideImage img={img} priority={idx === 0} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -567,17 +553,7 @@ const ProductPageClient = ({onReady}) => {
                   >
                     {imageArr?.map((img, idx) => (
                       <SwiperSlide key={idx}>
-                        {!loaded && <div className={styles.skeleton}/>}
-
-                        <Image
-                          className={styles.productImage}
-                          src={img.url}
-                          width={800}
-                          height={600}
-                          alt="Product Image"
-                          priority={idx === 0}
-                          onLoadingComplete={() => setLoaded(true)}
-                        />
+                        <SlideImage img={img} priority={idx === 0} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
