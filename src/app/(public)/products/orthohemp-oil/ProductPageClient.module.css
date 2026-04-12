@@ -522,18 +522,6 @@
     }
 }
 
-.skeleton {
-    position: absolute;
-    /* width: 100%; */
-    inset: 0;
-    background: linear-gradient(90deg,
-            #eee 25%,
-            #ddd 37%,
-            #eee 63%);
-    background-size: 400% 100%;
-    animation: shimmer 1.2s infinite;
-    border-radius: 12px;
-}
 
 .rightCtn {
     /* Right_Container */

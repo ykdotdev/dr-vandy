@@ -6,12 +6,22 @@ export default function WiserStarRating() {
   const [ready, setReady] = useState(false);
   const divRef = useRef(null);
 
-  useEffect(() => {
+useEffect(() => {
+  const init = () => {
     if (window.wiserreview) {
       window.wiserreview.init();
     }
+  };
 
-    // Watch for when WiserReview actually injects content into the div
+  // If script already loaded
+  if (window.wiserreview) {
+    init();
+  } else {
+    // Wait for script to load
+    document.addEventListener("PIXEL_LOADED", init, { once: true });
+  }
+
+  // Still keep mutation observer for when widget actually renders
   const observer = new MutationObserver(() => {
     const hasContent = divRef.current?.querySelector(".Wsrspfapp-review-count");
     if (hasContent) {
@@ -20,18 +30,22 @@ export default function WiserStarRating() {
     }
   });
 
-    if (divRef.current) {
-      observer.observe(divRef.current, { childList: true, subtree: true });
-    }
+  if (divRef.current) {
+    observer.observe(divRef.current, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  }
 
-    // Fallback — show after 5s regardless
-    const fallback = setTimeout(() => setReady(true), 10000);
+  const fallback = setTimeout(() => setReady(true), 12000);
 
-    return () => {
-      observer.disconnect();
-      clearTimeout(fallback);
-    };
-  }, []);
+  return () => {
+    document.removeEventListener("PIXEL_LOADED", init);
+    observer.disconnect();
+    clearTimeout(fallback);
+  };
+}, []);
 
   return (
     <div style={{ position: "relative", width: "90px", height: "36px" }}>

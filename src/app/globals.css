@@ -101,7 +101,21 @@ svg{
     /* optional */
 }
 
-@keyframes shimmer {
+.skeleton-shimmer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #eee 25%, #ddd 37%, #eee 63%);
+  background-size: 400% 100%;
+  -webkit-animation: shimmer 1.2s infinite;
+  animation: shimmer 1.2s infinite;
+}
+
+@-webkit-keyframes shimmer {
   0% {
     background-position: 100% 0;
   }
@@ -111,6 +125,15 @@ svg{
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
 button {
   all: unset;
   user-select: none;

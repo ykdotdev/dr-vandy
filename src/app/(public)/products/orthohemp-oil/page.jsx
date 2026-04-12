@@ -1,3 +1,4 @@
+import WiserMainReview from "@/components/WiserMainReview";
 import MainPageClient from "./MainPageClient";
 import { getSiteUrl } from "@/lib/siteUrl";
 
@@ -51,14 +52,7 @@ export default async function Page({ searchParams }) {
   return (
     <>
       <MainPageClient pageStatus={pageStatus} />
-      <div
-        data-pid="orthohemp-oil"
-        data-id="69d91fe79fbf4cd281c07d71"
-        data-rich-snippet="true"
-        data-type="main"
-        className="wiser_review wsr_main"
-        data-platform="ecomm_main"
-      />
+      <WiserMainReview/>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
