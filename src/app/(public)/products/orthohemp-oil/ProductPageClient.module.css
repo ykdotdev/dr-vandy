@@ -535,16 +535,6 @@
     border-radius: 12px;
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: 100% 0;
-    }
-
-    100% {
-        background-position: -100% 0;
-    }
-}
-
 .rightCtn {
     /* Right_Container */
 
