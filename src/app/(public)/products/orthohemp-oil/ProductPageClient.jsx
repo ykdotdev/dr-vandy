@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+"use client"
+
+import { Suspense, useEffect, useRef, useState } from "react";
 import CheckoutBtn from "@/components/CheckoutBtn";
 import styles from "./ProductPageClient.module.css";
 import clsx from "clsx";
@@ -10,25 +12,103 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { sizeMobile, sizeTablet } from "@/config/constants";
 import Image from "next/image";
+import React from "react";
+import { GET_VARIANTS_BY_SLUG } from "@/lib/queries";
+import { shopifyFetch } from "@/lib/shopify";
+import AddToCartBtn from "@/components/AddToCartBtn";
+import  WiserStarRating  from "@/components/WiserStarRating"
+import Script from "next/script";
+import Loading from "@/app/loading";
 
+const ProductPageClient = ({onReady}) => {
 
-const ProductPageClient = ({ product, variants }) => {
-const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
-const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
+  const [mounted, setMounted] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const slug = "orthohemp-oil";
+  const [selectedVariant, setSelectedVariant] = useState(null);
+  const isTablet = useMediaQuery({ query: `(max-width: ${sizeTablet})` });
+  const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
   const isPhotoFrame = useMediaQuery({ query: "(max-width: 1000px)" });
+      // const iframeRef = useRef(null);
+
+      // useEffect(() => {
+      //   const iframe = iframeRef.current;
+      //   if (!iframe) return;
+
+      //   iframe.onload = () => {
+      //     const doc = iframe.contentDocument || iframe.contentWindow.document;
+      //     doc.open();
+      //     doc.write(`
+      //   <!DOCTYPE html>
+      //   <html>
+      //     <head>
+      //       <style>body { margin: 0; padding: 0; }</style>
+      //     </head>
+      //     <body>
+      //      <div data-pid='orthohemp-oil' data-id='69d91e00acdb29406906ae09' data-type='star_rating' class='wiser_review wsr_star_rating' data-platform='ecomm_star_rating'></div>
+      //       <script>
+      //         var s = document.createElement('script');
+      //         s.src = 'https://embed.wiserreview.com/pixel/reviewPixel.js?wsid=1l5olkmnt331bk&t=1775836718801';
+      //         document.body.appendChild(s);
+      //       </script>
+      //     </body>
+      //   </html>
+      // `);
+      //     doc.close();
+      //   };
+
+      //   iframe.src = "about:blank";
+      // }, []);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
   
-  const [mounted, setMounted] = React.useState(false);
+
+  const [variants, setVariants] = useState([]);
+  useEffect(() => {
+    const fetchVariants = async () => {
+      const data = await shopifyFetch(GET_VARIANTS_BY_SLUG, {
+        handle: slug,
+      });
+      const productImages = data?.product?.images.edges.map(
+  (img) => ({ url: img.node.url })
+);
+
+      const mappedVariants = data.product.variants.edges.map(({ node: v }) => {
+        return {
+          id: v.id,
+          product_name: data.product.title,
+          variant_name: v.title,
+          images: productImages,
+
+          price: Number(v.price?.value),
+
+          mrp: Number(v.mrp.amount),
+
+          available_for_sale: v.availableForSale,
+
+          shipping_status: v.shipping_status?.value || "Standard",
+
+          qty_in_pack: v.qty_in_pack?.value || "1",
+        };
+      });
+
+      setVariants(mappedVariants);
+      setSelectedVariant(mappedVariants[0]);
+      onReady?.();
+    };
+
+    fetchVariants();
+  }, []);
+        
+
    const MIN_QTY = 1;
 
-  const [selectedVariant, setSelectedVariant] = useState(variants[0]);
   const [currentQty, setCurrentQty] = useState(MIN_QTY);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-   const MAX_QTY = Math.min(selectedVariant.current_stock, 9);
+   const MAX_QTY = 9;
   const decreaseActive = currentQty > MIN_QTY;
   const increaseActive = currentQty < MAX_QTY;
 
@@ -50,28 +130,15 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
 
 
   useEffect(() => {
-    const maxQty = Math.min(selectedVariant.current_stock, 9);
+    const maxQty = 9;
 
     setCurrentQty((prevQty) => Math.max(MIN_QTY, Math.min(prevQty, maxQty)));
+    if (!selectedVariant) return;
+    setImageArr(selectedVariant?.images);
 
-    setImageArr(selectedVariant?.images_urls);
   }, [selectedVariant]);
 
-  const handlePreload = ()=>{
-    if (currentPhotoIndex < photoIndexCount) {
-      {
-        imageArr?.[currentPhotoIndex + 1] && (
-          <link
-            rel="preload"
-            as="image"
-            href={imageArr?.[currentPhotoIndex + 1]?.url}
-          />
-        );
-      }
-    }
-  }
-
-  return (
+  return variants.length > 0 && selectedVariant && (
     <>
       {mounted && isPhotoFrame && (
         <div className={styles.tabletTopCtn}>
@@ -97,7 +164,8 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
                       src={img.url}
                       width={800}
                       height={600}
-                      alt="Product"
+                      alt="Product Image"
+                      priority={idx === 0}
                     />
                   </SwiperSlide>
                 ))}
@@ -350,6 +418,8 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
         <div className={styles.leftCtn}>
           <div className={styles.productDetailsCtn}>
             <div className={styles.textCtn}>
+              <WiserStarRating/>
+
               <span className={styles.productHeadingText}>
                 Dr. Vandy’s OrthoHemp™ Pain Relief Oil{" "}
                 <span className={styles.productVariantText}>
@@ -368,7 +438,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
           <div className={styles.pricingQuantityCtn}>
             <div className={styles.pricingCtn}>
               <span className={styles.priceText}>₹{selectedVariant.price}</span>
-              {selectedVariant.current_stock > 0 && (
+              {selectedVariant.available_for_sale === true && (
                 <div className={styles.MRPDiscountCtn}>
                   <span className={styles.MRPText}>₹{selectedVariant.mrp}</span>
                   <div className={styles.discountCtn}>
@@ -388,7 +458,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
               )}
             </div>
 
-            {selectedVariant.current_stock > 0 ? (
+            {selectedVariant.available_for_sale === true ? (
               <div className={styles.quantityCtn}>
                 <button
                   className={clsx(
@@ -458,12 +528,17 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
             )}
           </div>
 
-          {selectedVariant.current_stock > 0 && (
-            <CheckoutBtn
-              vID={selectedVariant.id}
-              qty={currentQty}
-              label="Buy Now"
-            />
+          {selectedVariant.available_for_sale === true && (
+            <div className={styles.ctaRow}>
+              <CheckoutBtn
+                variant_id={selectedVariant.id}
+                quantity={currentQty}
+              />
+              <AddToCartBtn
+                variant_id={selectedVariant.id}
+                quantity={currentQty}
+              />
+            </div>
           )}
         </div>
 
@@ -742,7 +817,7 @@ const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
         )}
       </div>
     </>
-  );
+  )
 };
 
 export default ProductPageClient;

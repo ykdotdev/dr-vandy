@@ -77,6 +77,12 @@
 a {
   all: unset;
   display: inline;
+  cursor: pointer;
+}
+
+html body .Wsrspfapp-stars-list.Wsrspfapp-stars-shortfull,
+html body .Wsrspfapp-stars-list.Wsrspfapp-stars-shortfull * {
+  cursor: pointer !important;
 }
 
 img {

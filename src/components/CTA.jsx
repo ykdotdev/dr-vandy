@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from './CTA.module.css';
 import { useRouter } from "next/navigation";
+import clsx from 'clsx';
 
 const CTA = ({ productSlug, label }) => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const CTA = ({ productSlug, label }) => {
   return (
     <button
       onClick={handleClick}
-      className={styles.CTAContainer}
+      className={clsx(styles.CTAContainer, loading && styles.disabled)}
       disabled={loading}
     >
       <span className={styles.label}>{label}</span>

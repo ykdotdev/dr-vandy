@@ -1,20 +1,27 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import styles from "./ToastProvider.module.css"; // your toast CSS
+import styles from "./ToastProvider.module.css";
 import clsx from "clsx";
 
 const ToastContext = createContext(null);
 
 export const ToastProvider = ({ children }) => {
   const [toast, setToast] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const showToast = (message, type, duration = 2000) => {
-    setToast({message, type});
+    setToast({ message, type });
+    setIsVisible(true);
+
     return new Promise((resolve) => {
       setTimeout(() => {
-        setToast(null);
-        resolve();
+        setIsVisible(false); 
+
+        setTimeout(() => {
+          setToast(null); 
+          resolve();
+        }, 300); // match CSS transition timing
       }, duration);
     });
   };
@@ -46,7 +53,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <div className={clsx(styles.toast, (toast && styles.show))}>
+      <div className={clsx(styles.toast, (isVisible && styles.show))}>
         {toast && svgHTML[toast.type]}
         {toast && toast.message}
       </div>

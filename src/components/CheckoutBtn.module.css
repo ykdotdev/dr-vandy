@@ -1,5 +1,6 @@
 .CTAContainer{
     /* CTA_Container */
+    will-change: transform;
     cursor: pointer;
         /* Auto layout */
         display: flex;
@@ -10,7 +11,6 @@
         gap: var(--spacings-s);
     
         width: fit-content;
-        height: fit-content;
     
         /* Black */
         background: var(--black);
@@ -18,9 +18,19 @@
     
         /* Inside auto layout */
         flex: none;
+    align-self: stretch;
+
         order: 1;
         flex-grow: 0;
         transition: transform 0.2s ease;
+}
+
+.CTAContainer.disabled{
+    cursor: default;
+}
+
+.CTAContainer.active:hover {
+    transform: none;
 }
 
 .CTAContainer:hover{

@@ -251,6 +251,14 @@
     transition: transform 0.2s ease;
 }
 
+.learnMoreBtn.disabled{
+    cursor: default;
+}
+
+.learnMoreBtn.disabled:hover{
+    transform: none;
+}
+
 .learnMoreBtn:hover{
     transform: scaleX(1.01);
 }

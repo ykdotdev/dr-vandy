@@ -1,0 +1,44 @@
+.cartBtn{
+    position: relative;
+    /* display: flex;
+    align-items: flex-start; */
+    padding-top: var(--spacings-xs);
+    width: calc(var(--font-sizes-m-text) + (2 *var(--spacings-xs)));
+}
+
+.icon{
+    height: var(--font-sizes-m-text);
+    color: var(--black);
+}
+
+.countBadge{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(-30%);
+
+    background-color: var(--black);
+    color: var(--white);
+    width: var(--font-sizes-xs-text);
+    height: var(--font-sizes-xs-text);
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.cartBtn:hover .countBadge{
+    transform: translateY(-10%);
+}
+
+.cartBtn.animate .countBadge{
+    transform: translateY(-10%);
+}
+
+@media (max-width: 470px) {
+    .countBadge{
+        font-size: 0.8rem;
+    }
+}

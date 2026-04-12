@@ -1,0 +1,120 @@
+/* =========================
+   BUTTON BASE
+========================= */
+.CTA {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacings-s);
+
+    padding: var(--spacings-s) var(--spacings-s) var(--spacings-s) var(--spacings-sm);
+    width: fit-content;
+    /* important for smooth morph */
+
+    border: 1px solid var(--black);
+    border-radius: var(--border-radius-pill);
+    background: transparent;
+
+    transition: all 0.3s ease;
+    overflow: hidden;
+    order: 1;
+}
+
+.CTA.active{
+    cursor: default;
+}
+
+.CTA.active:hover {
+    transform: none;
+}
+
+/* Hover */
+.CTA:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+   LABEL
+========================= */
+.label {
+    font-size: var(--font-sizes-s-text);
+    letter-spacing: 0.02rem;
+    color: var(--black);
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* =========================
+   ICON
+========================= */
+.icon {
+    width: var(--font-sizes-m-text);
+    height: var(--font-sizes-m-text);
+
+    transition: transform 0.3s ease;
+}
+
+.CTA:hover .icon {
+    transform: rotate(18deg);
+}
+
+/* =========================
+   ACTIVE STATE (click)
+========================= */
+.active {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: var(--spacings-s);
+}
+
+/* hide text + icon */
+.active .label,
+.active .icon {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+/* =========================
+   CHECKMARK
+========================= */
+.check {
+    width: var(--font-sizes-m-text);
+    height: var(--font-sizes-m-text);
+
+    stroke: var(--black);
+    stroke-width: 2;
+    fill: none;
+
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+
+    animation: draw 0.4s ease 0.2s forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* =========================
+   POP EFFECT
+========================= */
+.active {
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.85);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

@@ -23,6 +23,14 @@
         transition: transform 0.2s ease;
 }
 
+.CTAContainer.disabled{
+    cursor: default;
+}
+
+.CTAContainer.disabled:hover {
+    transform: none;
+}
+
 .CTAContainer:hover{
     transform: scale(1.01);
 }

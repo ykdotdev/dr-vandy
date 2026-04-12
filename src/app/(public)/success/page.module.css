@@ -1,0 +1,130 @@
+.loadIcon{
+    width: 10dvh;
+    height: 10dvh;
+    
+    color: var(--dark-gray);
+    animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.layoutFrame {
+    margin: 0;
+    min-height: calc(100dvh - 2*var(--spacings-xs));
+    padding: var(--spacings-xs);
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+}
+
+.paymentModal{
+/* Payment_Modal */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-m);
+
+    width: fit-content;
+    height: fit-content;
+    max-width: 100rem;
+}
+
+.header{
+/* Header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: var(--spacings-sm);
+
+    height: fit-content;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.orgTitleText{
+/* Physiolution.co */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-m-text);
+
+    /* Gray */
+    color: var(--gray);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.paymentStatusText{
+/* Payment Successful */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-l-text);
+    letter-spacing: 0.02rem;
+
+    /* Black */
+    color: var(--black);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.animationCtn {
+    width: 40dvw;
+    max-width: 54rem;
+    min-width: 40rem;
+}
+
+.animation{
+    width: 100%;
+    height: 100%;
+}
+
+.ctaBtn{
+    background-color: var(--black);
+    width: fit-content;
+    height: fit-content;
+    padding: var(--spacings-sm) var(--spacings-m);
+    border-radius: var(--border-radius-pill);
+}
+
+.ctaBtn .label{
+/* Retry */
+
+    font-weight: 500;
+    font-size: var(--font-sizes-s-text);
+
+    /* Gray */
+    color: var(--white);
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

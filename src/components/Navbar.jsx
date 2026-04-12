@@ -6,8 +6,11 @@ import { useRouter } from 'next/navigation';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useCartCount } from '@/context/CartContext';
+import CartBtn from './CartBtn';
 
 const Navbar = () => {
+    const {count} = useCartCount();
     const isMobile = useMediaQuery({ query: `(max-width: ${sizeMobile})` });
     const router = useRouter();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -42,6 +45,8 @@ const Navbar = () => {
             isMobile && styles.mobileNavMenu,
             isMobile && menuOpen && styles.open,
           )}
+
+          style={{"alignItems": count === 0 ? "center" : "flex-end"}}
         >
           {/* Nav items */}
           <div className={styles.navItems}>
@@ -71,10 +76,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* CTA */}
+          {count === 0 ?
           <button
-            className={styles.ctaContainer}
-            href="/products/orthohemp-oil"
+            className={clsx(styles.ctaContainer, loading && styles.disabled)}
             onClick={handleClick}
             disabled={loading}
           >
@@ -115,7 +119,8 @@ const Navbar = () => {
                 <path d="M2 12H22" />
               </svg>
             )}
-          </button>
+          </button> : <CartBtn/>}
+
           {/* Mobile toggle button */}
           {isMobile && (
             <button

@@ -9,6 +9,7 @@ export function proxy(req) {
   if (
     isLive ||
     pathname.startsWith("/under-maintenance") ||
+    pathname.startsWith("/blog") ||
     pathname.startsWith("/_next") ||
     pathname === "/favicon.ico"
   ) {

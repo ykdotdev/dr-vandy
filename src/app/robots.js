@@ -1,5 +1,7 @@
+import { getSiteUrl } from "@/lib/siteUrl";
+
 export default function robots() {
-  const baseUrl = "https://drvandys.com";
+  const baseUrl = getSiteUrl();
 
   return {
     rules: [

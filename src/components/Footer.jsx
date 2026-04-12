@@ -1,3 +1,5 @@
+"use client"
+
 import clsx from 'clsx';
 import styles from './Footer.module.css'
 import { useEffect, useState } from 'react';

@@ -10,12 +10,33 @@
     min-height: calc(100dvh - 2*var(--spacings-xs));
 }
 
+.loadIcon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10dvh;
+    height: 10dvh;
+    color: var(--dark-gray);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 .topCtn{
     /* Top_Container */
     
         /* Auto layout */
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         padding: 0px;
         /* gap: var(--spacings-l); */

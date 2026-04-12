@@ -1,0 +1,7 @@
+/* Scoped blog typography (overrides layout Inter for this subtree) */
+.scope {
+    --font-display: var(--font-blog-display), "Georgia", serif;
+    --font-body: var(--font-blog-body), system-ui, sans-serif;
+    --font-mono: var(--font-blog-mono), ui-monospace, monospace;
+    font-family: var(--font-body);
+}

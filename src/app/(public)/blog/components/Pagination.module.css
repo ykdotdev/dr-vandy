@@ -1,0 +1,67 @@
+/* ─── Pagination ─── */
+.section {
+    padding: 0 var(--spacings-sm) var(--spacings-xl6);
+    max-width: var(--max-content, 1280px);
+    margin: 0 auto;
+}
+
+.divider {
+    height: 1px;
+    background: var(--light-gray);
+    margin-bottom: var(--spacings-lg);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacings-xs);
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: var(--font-mono);
+    font-size: calc(var(--font-sizes-xs-text) * 0.9);
+    min-width: calc(var(--spacings-m) + var(--spacings-s));
+    min-height: calc(var(--spacings-m) + var(--spacings-s));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius-xs);
+    color: var(--gray);
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+    border-color: var(--black);
+    color: var(--black);
+    background-color: var(--light-gray);
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.btnActive {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+.btnActive:hover {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+}
+
+.pageIndicator {
+    text-align: center;
+    margin-top: var(--spacings-s);
+    font-family: var(--font-mono);
+    font-size: var(--font-sizes-xs-text);
+    letter-spacing: 0.05em;
+    color: var(--gray);
+}
