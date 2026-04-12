@@ -355,6 +355,7 @@ const CartClient = () => {
               <Image
                 src="/bag.svg"
                 alt="Empty Cart"
+                loading="eager"
                 className={styles.image}
                 width={120}
                 height={120}
