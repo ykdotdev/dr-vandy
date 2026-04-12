@@ -13,9 +13,7 @@ export default function WiserStarRating() {
 
     // Watch for when WiserReview actually injects content into the div
   const observer = new MutationObserver(() => {
-    const hasContent = divRef.current?.querySelector(
-      '.wsr-star-rating, svg, img, [class*="star"], [class*="wsr"]',
-    );
+    const hasContent = divRef.current?.querySelector(".Wsrspfapp-review-count");
     if (hasContent) {
       setReady(true);
       observer.disconnect();
