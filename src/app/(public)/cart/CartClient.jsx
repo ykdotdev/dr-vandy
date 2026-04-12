@@ -361,13 +361,12 @@ const CartClient = () => {
         ) : lineItems.length === 0 ? (
           <div className={styles.continueShoppingCtn}>
             <div className={styles.imageCtn}>
-              <Image
+              <img
                 src="/bag.svg"
                 alt="Empty cart"
                 className={styles.image}
                 width={120}
                 height={120}
-                unoptimized
               />
             </div>
             <ContinueShoppingCTA />

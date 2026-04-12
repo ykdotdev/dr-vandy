@@ -101,6 +101,16 @@ svg{
     /* optional */
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 button {
   all: unset;
   user-select: none;
