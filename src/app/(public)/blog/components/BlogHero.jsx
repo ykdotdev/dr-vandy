@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { IconSearch, IconX } from "./InlineIcons";
+import {
+  hasBlogMotionOnboarded,
+  markBlogMotionOnboarded,
+  prefersReducedMotion,
+} from "../data/blogMotion";
 import styles from "./BlogHero.module.css";
 
 export default function BlogHero({
@@ -18,27 +23,62 @@ export default function BlogHero({
   const searchRef = useRef(null);
   const catsRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const els = [
       headlineRef.current,
       subRef.current,
       searchRef.current,
       catsRef.current,
     ];
+
+    const applyFinal = (el) => {
+      if (!el) return;
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+      el.style.filter = "none";
+    };
+
+    const skipIntro =
+      prefersReducedMotion() || hasBlogMotionOnboarded();
+
+    if (skipIntro) {
+      els.forEach(applyFinal);
+      if (prefersReducedMotion()) {
+        markBlogMotionOnboarded();
+      }
+      return;
+    }
+
+    const staggerMs = 120;
+    const transitionMs = 750;
+    const timeouts = [];
+
     els.forEach((el, i) => {
       if (!el) return;
       el.style.opacity = "0";
       el.style.transform = "translateY(24px)";
       el.style.filter = "blur(4px)";
-      setTimeout(() => {
+      const startId = window.setTimeout(() => {
         if (!el) return;
         el.style.transition =
           "opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1), filter 0.75s cubic-bezier(0.16,1,0.3,1)";
         el.style.opacity = "1";
         el.style.transform = "translateY(0)";
         el.style.filter = "blur(0)";
-      }, 100 + i * 120);
+      }, 100 + i * staggerMs);
+      timeouts.push(startId);
     });
+
+    const lastStart = 100 + Math.max(0, els.filter(Boolean).length - 1) * staggerMs;
+    const doneId = window.setTimeout(
+      () => markBlogMotionOnboarded(),
+      lastStart + transitionMs + 50,
+    );
+    timeouts.push(doneId);
+
+    return () => {
+      timeouts.forEach((id) => clearTimeout(id));
+    };
   }, []);
 
   return (

@@ -15,13 +15,16 @@ const ExpandablePillars = () => {
       number: 1,
       description:
         "An overview of how pain relief formulations vary in composition, structure, and ingredient synergy. This section explores the role of botanical extracts, supporting oils, and formulation principles that influence topical effectiveness.",
-      href: "/"
-      },
+      href: "pain-mechanisms-ingredient-science",
+    },
     {
-    id: 3,
+      id: 3,
       label: "Understanding Pain & Relief",
       number: 3,
-      description:"A broad look at common types of pain and their possible causes. This section helps identify patterns in discomfort and outlines general approaches used to support relief and recovery."},
+      description:
+        "A broad look at common types of pain and their possible causes. This section helps identify patterns in discomfort and outlines general approaches used to support relief and recovery.",
+      href: "pain-patterns-conditions",
+    },
 
     {
       id: 2,
@@ -29,8 +32,9 @@ const ExpandablePillars = () => {
       number: 2,
       description:
         "A clinical perspective on how pain develops and behaves within the body. It explains the interaction between muscles, joints, nerves, and inflammation, offering context to different pain experiences.",
-    }
-      ];
+      href: "pain-management-intervention",
+    },
+  ];
 
   const togglePillar = (id) => {
     setExpandedId(expandedId === id ? null : id);
@@ -54,7 +58,6 @@ const ExpandablePillars = () => {
                   togglePillar(pillar.id);
                 }
               }}
-              onBlur={()=>{setExpandedId(null);}}
             >
               <Pillar label={pillar.label} number={pillar.number} />
             </div>
@@ -62,7 +65,7 @@ const ExpandablePillars = () => {
             {expandedId === pillar.id && (
               <div className={styles.contentBox}>
                 <p className={styles.contentText}>{pillar.description}</p>
-                <Link className={styles.cta} href="/blog">
+                <Link className={styles.cta} href={`/blog/${pillar.href}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

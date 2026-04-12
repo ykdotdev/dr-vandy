@@ -41,8 +41,8 @@ export async function getShopifyPosts() {
   );
 
   const json = await res.json();
-  console.log(json);
-  console.log(JSON.stringify(json, null, 2));
+//   console.log(json);
+//   console.log(JSON.stringify(json, null, 2));
   return json.data.blogs.edges[0].node.articles.edges.map((edge) => edge.node);
 }
 

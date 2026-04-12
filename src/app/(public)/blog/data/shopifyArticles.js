@@ -115,7 +115,7 @@ export async function getShopifyArticlesForBlog() {
       "X-Shopify-Storefront-Access-Token": token,
     },
     body: JSON.stringify({ query }),
-    // next: { revalidate: 60 },
+    next: { revalidate: 60 },
   });
 
   const json = await res.json();
@@ -185,7 +185,7 @@ export async function getShopifyArticleByBlogAndHandle(blogHandle, articleHandle
       query,
       variables: { blogHandle, articleHandle },
     }),
-    // next: { revalidate: 60 },
+    next: { revalidate: 60 },
   });
 
   const json = await res.json();

@@ -1,24 +1,43 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IconClock, IconArrowRight } from "./InlineIcons";
 import BlogAuthorAvatar from "./BlogAuthorAvatar";
 import { blogPostPath } from "../data/blogUrls";
+import {
+  hasBlogMotionOnboarded,
+  prefersReducedMotion,
+} from "../data/blogMotion";
 import styles from "./PostCard.module.css";
 
 export default function PostCard({ post, delay = 0 }) {
   const ref = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const finish = () => {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+      el.style.filter = "none";
+    };
+
+    if (prefersReducedMotion() || hasBlogMotionOnboarded()) {
+      finish();
+      return;
+    }
+
     el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.filter = "blur(3px)";
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
+          window.setTimeout(() => {
             if (!el) return;
             el.style.transition = `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms, filter 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms`;
             el.style.opacity = "1";
@@ -30,8 +49,6 @@ export default function PostCard({ post, delay = 0 }) {
       },
       { threshold: 0.08 },
     );
-    el.style.transform = "translateY(20px)";
-    el.style.filter = "blur(3px)";
     observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);

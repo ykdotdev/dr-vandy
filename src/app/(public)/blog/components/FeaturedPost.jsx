@@ -1,19 +1,29 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IconStar, IconClock, IconArrowRight } from "./InlineIcons";
 import BlogAuthorAvatar from "./BlogAuthorAvatar";
 import { blogPostPath } from "../data/blogUrls";
+import {
+  hasBlogMotionOnboarded,
+  prefersReducedMotion,
+} from "../data/blogMotion";
 import styles from "./FeaturedPost.module.css";
 
 export default function FeaturedPost({ post }) {
   const ref = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (prefersReducedMotion() || hasBlogMotionOnboarded()) {
+      el.classList.add(styles.scrollRevealVisible);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
