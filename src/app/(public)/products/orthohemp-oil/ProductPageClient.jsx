@@ -25,7 +25,7 @@ const SlideImage = ({ img, priority }) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: '400px' }}>
+    <div style={{ position: "relative", width: "100%", height: "100%"}}>
       {!loaded && (
         <div
           className="skeleton-shimmer"
