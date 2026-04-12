@@ -125,6 +125,14 @@ svg{
   }
 }
 
+[class*="WsrPopup"],
+[class*="wsr-popup"],
+[class*="WSRSHPFRVW"],
+[id*="WSRSHPFRVW"] {
+  z-index: 999999 !important;
+  isolation: auto !important;
+}
+
 @keyframes shimmer {
   0% {
     background-position: 100% 0;
