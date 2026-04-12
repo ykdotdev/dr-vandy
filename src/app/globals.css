@@ -133,6 +133,11 @@ svg{
   isolation: auto !important;
 }
 
+body.modal-sidepanel-open {
+  background-color: transparent !important;
+  overflow: hidden;
+}
+
 @keyframes shimmer {
   0% {
     background-position: 100% 0;

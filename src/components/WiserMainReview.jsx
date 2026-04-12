@@ -1,4 +1,3 @@
-// components/WiserMainReview.jsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -7,21 +6,40 @@ export default function WiserMainReview() {
   const ref = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const intersectionObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           if (window.wiserreview) {
             window.wiserreview.init();
           }
-          observer.disconnect();
+          intersectionObserver.disconnect();
         }
       },
-      { rootMargin: "200px" }, // start loading 200px before it enters viewport
+      { rootMargin: "400px" },
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) intersectionObserver.observe(ref.current);
 
-    return () => observer.disconnect();
+    // Only watch body classList changes, not entire DOM
+    const bodyObserver = new MutationObserver(() => {
+      if (!document.body.classList.contains("modal-sidepanel-open")) return;
+      const popup = document.querySelector('[class*="sidepanel"]');
+      if (!popup) {
+        document.body.classList.remove("modal-sidepanel-open");
+      }
+    });
+
+    bodyObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"], // ← only watch class changes on body itself
+      subtree: false, // ← never watch the entire DOM tree
+      childList: false,
+    });
+
+    return () => {
+      intersectionObserver.disconnect();
+      bodyObserver.disconnect();
+    };
   }, []);
 
   return (
