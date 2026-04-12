@@ -6,7 +6,7 @@ export { slugify, NO_TOPIC_SLUG, blogPostPath };
 
 export const DEFAULT_AUTHOR = {
   name: "Dr. Vandy's",
-  avatar: "/blog/profile.jpg",
+  avatar: "/blog/profile.jpeg",
   bio: "Thoughtful perspectives on care, wellness, and everyday life.",
   postCount: 0,
 };

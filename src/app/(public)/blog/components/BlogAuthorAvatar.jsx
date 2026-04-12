@@ -4,7 +4,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import styles from "./BlogAuthorAvatar.module.css";
 
-export const BLOG_DEFAULT_PROFILE = "/blog/profile.jpg";
+export const BLOG_DEFAULT_PROFILE = "/blog/profile.jpeg";
 
 export default function BlogAuthorAvatar({ src, alt, sizePx, className }) {
   const imageSrc = src || BLOG_DEFAULT_PROFILE;
