@@ -1,20 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function WiserReviewWidget() {
+export default function WiserStarRating() {
   const [ready, setReady] = useState(false);
+  const divRef = useRef(null);
 
   useEffect(() => {
     if (window.wiserreview) {
       window.wiserreview.init();
     }
-    const t = setTimeout(() => setReady(true), 1500);
-    return () => clearTimeout(t);
+
+    // Watch for when WiserReview actually injects content into the div
+  const observer = new MutationObserver(() => {
+    const hasContent = divRef.current?.querySelector(
+      '.wsr-star-rating, svg, img, [class*="star"], [class*="wsr"]',
+    );
+    if (hasContent) {
+      setReady(true);
+      observer.disconnect();
+    }
+  });
+
+    if (divRef.current) {
+      observer.observe(divRef.current, { childList: true, subtree: true });
+    }
+
+    // Fallback — show after 5s regardless
+    const fallback = setTimeout(() => setReady(true), 2000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "80px", height: "36px" }}>
+    <div style={{ position: "relative", width: "90px", height: "36px" }}>
       {!ready && (
         <div
           style={{
@@ -28,7 +50,8 @@ export default function WiserReviewWidget() {
         />
       )}
       <div
-        style={{ opacity: ready ? 1 : 0, transition: "opacity 0.3s" }}
+        ref={divRef}
+        style={{ opacity: ready ? 1 : 0, transition: "opacity 0.3s", position: 'absolute', }}
         data-pid="orthohemp-oil"
         data-id="69d91e00acdb29406906ae09"
         data-type="star_rating"

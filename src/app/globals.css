@@ -138,7 +138,7 @@ body {
   padding: var(--spacings-xs);
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1220px) {
   :root {
     /* Tablet */
     --font-sizes-title: 12rem;
