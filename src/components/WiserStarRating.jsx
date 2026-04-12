@@ -25,7 +25,7 @@ export default function WiserStarRating() {
     }
 
     // Fallback — show after 5s regardless
-    const fallback = setTimeout(() => setReady(true), 2000);
+    const fallback = setTimeout(() => setReady(true), 3000);
 
     return () => {
       observer.disconnect();
@@ -49,7 +49,7 @@ export default function WiserStarRating() {
       )}
       <div
         ref={divRef}
-        style={{ opacity: ready ? 1 : 0, transition: "opacity 0.3s", position: 'absolute', }}
+        style={{ opacity: ready ? 1 : 0, transition: "opacity 0.1s", position: 'absolute', }}
         data-pid="orthohemp-oil"
         data-id="69d91e00acdb29406906ae09"
         data-type="star_rating"
