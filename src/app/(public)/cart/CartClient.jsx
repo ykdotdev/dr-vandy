@@ -188,14 +188,23 @@ const CartClient = () => {
                 {lineItems.map((item, index) => (
                   <div className={clsx(styles.itemCard)} key={item.id}>
                     <div className={styles.imageCtn}>
-                      <Image
-                        src={item.image}
-                        className={styles.image}
-                        alt="hi"
-                        width={100}
-                        height={148}
-                        loading="eager"
-                      ></Image>
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          className={styles.image}
+                          alt={item.product_name || "Product in cart"}
+                          width={100}
+                          height={150}
+                          sizes="100px"
+                          quality={75}
+                          priority={index < 3}
+                        />
+                      ) : (
+                        <div
+                          className={styles.cartThumbPlaceholder}
+                          aria-hidden
+                        />
+                      )}
                     </div>
                     <div className={styles.contentCtn}>
                       <div className={styles.header}>
@@ -354,11 +363,11 @@ const CartClient = () => {
             <div className={styles.imageCtn}>
               <Image
                 src="/bag.svg"
-                alt="Empty Cart"
-                loading="eager"
+                alt="Empty cart"
                 className={styles.image}
                 width={120}
                 height={120}
+                unoptimized
               />
             </div>
             <ContinueShoppingCTA />

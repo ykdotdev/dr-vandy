@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ExpandablePillars from "@/components/ExpandablePillars";
 import clsx from "clsx";
+import Image from "next/image";
 
 export default function HomePageClient({ siteUrl }) {
   const isDesktop = useMediaQuery({ query: "(max-width: 1120px)" });
@@ -251,14 +252,17 @@ export default function HomePageClient({ siteUrl }) {
               )}
             </button>
           </div>
-          <img
-            src="/bannerBottle.png"
-            className={styles.bottleImg}
-            alt="Bottle"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <div className={styles.bottleImgWrap}>
+            <Image
+              src="/bannerBottle.png"
+              alt="Dr. Vandy’s OrthoHemp pain relief oil bottle"
+              fill
+              className={styles.bottleImg}
+              sizes="(max-width: 768px) 85vw, (max-width: 1120px) 42vw, 600px"
+              priority
+              quality={88}
+            />
+          </div>
         </div>
 
         <div className={styles.featureStrip}>

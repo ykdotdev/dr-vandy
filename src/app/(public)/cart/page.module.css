@@ -250,8 +250,16 @@
 .itemCard .image{
     border-radius: 4%;
     width: 100%;
-    height: auto;   
+    height: auto;
     object-fit: cover;
+}
+
+.itemCard .cartThumbPlaceholder {
+    width: 100%;
+    aspect-ratio: 100 / 150;
+    max-width: 100px;
+    border-radius: 4%;
+    background-color: var(--light-gray);
 }
 
 .itemCard .contentCtn{

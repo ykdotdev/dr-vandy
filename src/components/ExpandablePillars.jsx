@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import Pillar from "./Pillar";
 import styles from "./ExpandablePillars.module.css";
@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const ExpandablePillars = () => {
   const [expandedId, setExpandedId] = useState(null);
+  const wrapperRef = useRef(null);
 
   const pillarsData = [
     {
@@ -40,8 +41,21 @@ const ExpandablePillars = () => {
     setExpandedId(expandedId === id ? null : id);
   };
 
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+          setExpandedId(null);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
+
   return (
-    <>
+    <><div ref={wrapperRef}>
       <div className={styles.pillarsWrapper}>
         {pillarsData.map((pillar) => (
           <div key={pillar.id} className={styles.pillarItem}>
@@ -86,9 +100,10 @@ const ExpandablePillars = () => {
           </div>
         ))}
       </div>
+      </div>
 
       {expandedId && (
-        <div className={styles.backdrop} onClick={() => setExpandedId(null)} />
+        <div className={styles.backdrop} onClick={() => setExpandedId(null)} ></div>
       )}
     </>
   );
