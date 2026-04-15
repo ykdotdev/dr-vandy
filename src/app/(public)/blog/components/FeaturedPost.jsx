@@ -94,7 +94,7 @@ export default function FeaturedPost({ post }) {
                     sizePx={36}
                   />
                   <div>
-                    <p className={styles.authorName}>{post.author.name}</p>
+                    <p className={styles.authorName}>Dr. Vandy</p>
                     <p className={styles.authorDate}>{post.date}</p>
                   </div>
                 </div>

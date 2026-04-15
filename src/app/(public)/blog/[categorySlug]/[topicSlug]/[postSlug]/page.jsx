@@ -317,7 +317,7 @@ export default async function BlogArticlePage({ params }) {
               <div>
                 <p className={styles.authorCardLabel}>Written by</p>
                 <Link href="/about" className={styles.authorCardName}>
-                  {author.name}
+                  Dr. Vandy
                 </Link>
                 <p className={styles.authorCardBio}>{author.bio}</p>
                 <p className={styles.authorCardCount}>

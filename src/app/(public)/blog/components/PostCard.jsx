@@ -105,7 +105,10 @@ export default function PostCard({ post, delay = 0 }) {
                   alt={`${post.author.name} avatar`}
                   sizePx={28}
                 />
-                <span className={styles.authorName}>{post.author.name}</span>
+                <span className={styles.authorName}>
+                  {/* {post.author.name} */}
+                  Dr. Vandy
+                  </span>
               </div>
               <IconArrowRight size={14} className={styles.arrowIcon} />
             </div>
