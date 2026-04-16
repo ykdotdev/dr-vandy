@@ -48,7 +48,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div style={{ position: "relative", width: "90px", height: "36px" }}>
+    <div style={{ position: "relative", width: "150px", height: "36px" }}>
       {!ready && (
         <div
           style={{
